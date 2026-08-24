@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://bnuhhc788wpki"]
+
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_afyrc"]
+[ext_resource type="Resource" uid="uid://cyl1retquvw48" path="res://Resources/attacks/slash.tres" id="1_j0bxi"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_lucgk"]
+[ext_resource type="Texture2D" uid="uid://dpbwa52s81eym" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0124.png" id="2_sn8jm"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_2dgv5"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_ak32r"]
+
+[resource]
+script = ExtResource("1_afyrc")
+texture = ExtResource("2_sn8jm")
+name = "Rat"
+description = "Short ranged attack and high mobility"
+attack_data = ExtResource("1_j0bxi")
+attack_range = 1
+max_move_distance = 4
+health = 2
+hit_sound = ExtResource("3_2dgv5")
+heal_sound = ExtResource("2_lucgk")
+move_sound = ExtResource("4_ak32r")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

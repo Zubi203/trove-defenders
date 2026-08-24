@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bit8tqivoeaj2"]
+
+[ext_resource type="PackedScene" uid="uid://o6bakebvumo1" path="res://Scenes/Projectiles/point_projectile.tscn" id="1_p725r"]
+[ext_resource type="Script" uid="uid://ccnucg2kmvnvw" path="res://Scripts/push_projectile.gd" id="2_vm4tm"]
+
+[node name="PushProjectile" unique_id=46804400 instance=ExtResource("1_p725r")]
+script = ExtResource("2_vm4tm")

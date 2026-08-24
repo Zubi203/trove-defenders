@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://c1sthmxul6xeu"]
+
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_kfljl"]
+[ext_resource type="Resource" uid="uid://cy46l86p34pu4" path="res://Resources/attacks/bash.tres" id="1_tu3fp"]
+[ext_resource type="Texture2D" uid="uid://bdxuanah4h6pn" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0110.png" id="2_5abrs"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_colal"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_rutgx"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_wlg7l"]
+
+[resource]
+script = ExtResource("1_kfljl")
+texture = ExtResource("2_5abrs")
+name = "Crab"
+description = "Short ranged attacks. High health. Low mobility"
+attack_data = ExtResource("1_tu3fp")
+attack_range = 1
+max_move_distance = 2
+health = 4
+hit_sound = ExtResource("3_rutgx")
+heal_sound = ExtResource("2_colal")
+move_sound = ExtResource("4_wlg7l")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

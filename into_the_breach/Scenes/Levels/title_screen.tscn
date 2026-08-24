@@ -1,0 +1,394 @@
+[gd_scene format=3 uid="uid://m1hbhgjo3o8p"]
+
+[ext_resource type="Theme" uid="uid://dot3ogobj20y7" path="res://Resources/ui_theme.tres" id="1_hgm2k"]
+[ext_resource type="Script" uid="uid://co0ttlx7lcpok" path="res://Scripts/title_screen.gd" id="1_klylv"]
+[ext_resource type="Texture2D" uid="uid://dohbd041wi8um" path="res://Graphics/Background/BackgroundSky.png" id="2_kjbj0"]
+[ext_resource type="Texture2D" uid="uid://d2rlvi170hy7k" path="res://Graphics/Background/Background.png" id="2_qdg8d"]
+[ext_resource type="Texture2D" uid="uid://cfnrvngv5g3rr" path="res://Graphics/Background/Green-Tree.png" id="4_sufyd"]
+[ext_resource type="Texture2D" uid="uid://csonvt8102phn" path="res://Graphics/Background/Yellow-Tree.png" id="5_h4qv3"]
+[ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="7_kysdl"]
+[ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="8_w4sgk"]
+[ext_resource type="PackedScene" uid="uid://ofaqva2rwypo" path="res://Scenes/UI/settings_menu.tscn" id="9_dgnw3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2w44"]
+atlas = ExtResource("2_qdg8d")
+region = Rect2(0, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65ton"]
+atlas = ExtResource("2_qdg8d")
+region = Rect2(112, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpw1u"]
+atlas = ExtResource("2_qdg8d")
+region = Rect2(224, 0, 127, 256)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2w44"]
+font_size = 100
+font_color = Color(1, 0.79933333, 0.13999999, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dgnw3"]
+font_size = 100
+font_color = Color(0.73, 0.31633335, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[node name="TitleScreen" type="Control" unique_id=19228946]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_hgm2k")
+script = ExtResource("1_klylv")
+
+[node name="Background" type="Control" parent="." unique_id=831804770]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=185377995]
+modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kjbj0")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Background" unique_id=1825139433]
+modulate = Color(0.63539076, 0.63539076, 0.63539076, 1)
+layout_mode = 0
+offset_left = 172.0
+offset_top = 283.0
+offset_right = 787.0
+offset_bottom = 747.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer3" unique_id=1679770712]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_h2w44")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer3" unique_id=107868795]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_65ton")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer3" unique_id=408486076]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_xpw1u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=123051977]
+layout_mode = 0
+offset_left = -204.0
+offset_top = 194.0
+offset_right = 411.0
+offset_bottom = 658.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer" unique_id=1496242853]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_h2w44")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer" unique_id=86085995]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_65ton")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer" unique_id=1851690771]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_xpw1u")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Background" unique_id=2057742858]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 175.0
+offset_right = 1483.0
+offset_bottom = 725.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer2" unique_id=1728256515]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_h2w44")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer2" unique_id=1883885984]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_65ton")
+
+[node name="TextureRect4" type="TextureRect" parent="Background/HBoxContainer2" unique_id=312468579]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_65ton")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer2" unique_id=587326793]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_xpw1u")
+
+[node name="Trees" type="Node2D" parent="." unique_id=1664747656]
+y_sort_enabled = true
+
+[node name="GreenTrees" type="Node2D" parent="Trees" unique_id=2135694274]
+y_sort_enabled = true
+
+[node name="GreenTree" type="Sprite2D" parent="Trees/GreenTrees" unique_id=1065718877]
+position = Vector2(25, 514)
+texture = ExtResource("4_sufyd")
+hframes = 12
+vframes = 3
+
+[node name="GreenTree2" type="Sprite2D" parent="Trees/GreenTrees" unique_id=529264545]
+position = Vector2(377, 533)
+texture = ExtResource("4_sufyd")
+hframes = 12
+vframes = 3
+
+[node name="GreenTree3" type="Sprite2D" parent="Trees/GreenTrees" unique_id=2032301192]
+position = Vector2(1022, 482)
+texture = ExtResource("4_sufyd")
+hframes = 12
+vframes = 3
+frame = 3
+
+[node name="GreenTree4" type="Sprite2D" parent="Trees/GreenTrees" unique_id=1056330734]
+position = Vector2(881, 534)
+texture = ExtResource("4_sufyd")
+hframes = 12
+vframes = 3
+
+[node name="GreenTree5" type="Sprite2D" parent="Trees/GreenTrees" unique_id=767428910]
+position = Vector2(787, 498)
+texture = ExtResource("4_sufyd")
+hframes = 12
+vframes = 3
+frame = 2
+
+[node name="GreenTree6" type="Sprite2D" parent="Trees/GreenTrees" unique_id=2061002182]
+position = Vector2(731, 539)
+texture = ExtResource("4_sufyd")
+hframes = 12
+vframes = 3
+
+[node name="GreenTree7" type="Sprite2D" parent="Trees/GreenTrees" unique_id=1087574214]
+position = Vector2(937, 482)
+texture = ExtResource("4_sufyd")
+hframes = 12
+vframes = 3
+frame = 2
+
+[node name="GreenTree8" type="Sprite2D" parent="Trees/GreenTrees" unique_id=966901642]
+position = Vector2(1078, 598)
+texture = ExtResource("4_sufyd")
+hframes = 12
+vframes = 3
+frame = 6
+
+[node name="GreenTree9" type="Sprite2D" parent="Trees/GreenTrees" unique_id=1899778548]
+position = Vector2(265, 541)
+texture = ExtResource("4_sufyd")
+hframes = 12
+vframes = 3
+frame = 6
+
+[node name="GreenTree10" type="Sprite2D" parent="Trees/GreenTrees" unique_id=239215425]
+position = Vector2(172, 568)
+texture = ExtResource("4_sufyd")
+hframes = 12
+vframes = 3
+frame = 3
+
+[node name="YellowTrees" type="Node2D" parent="Trees" unique_id=731338350]
+y_sort_enabled = true
+position = Vector2(-629, 100)
+
+[node name="GreenTree" type="Sprite2D" parent="Trees/YellowTrees" unique_id=528101121]
+position = Vector2(1420, 512)
+texture = ExtResource("5_h4qv3")
+hframes = 12
+vframes = 3
+
+[node name="GreenTree2" type="Sprite2D" parent="Trees/YellowTrees" unique_id=776703841]
+position = Vector2(1763, 398)
+texture = ExtResource("5_h4qv3")
+hframes = 12
+vframes = 3
+
+[node name="GreenTree3" type="Sprite2D" parent="Trees/YellowTrees" unique_id=1439278422]
+position = Vector2(1022, 482)
+texture = ExtResource("5_h4qv3")
+hframes = 12
+vframes = 3
+frame = 3
+
+[node name="GreenTree4" type="Sprite2D" parent="Trees/YellowTrees" unique_id=1204169215]
+position = Vector2(856, 614)
+texture = ExtResource("5_h4qv3")
+hframes = 12
+vframes = 3
+
+[node name="GreenTree5" type="Sprite2D" parent="Trees/YellowTrees" unique_id=589633295]
+position = Vector2(787, 468)
+texture = ExtResource("5_h4qv3")
+hframes = 12
+vframes = 3
+frame = 2
+
+[node name="GreenTree6" type="Sprite2D" parent="Trees/YellowTrees" unique_id=711850005]
+position = Vector2(731, 468)
+texture = ExtResource("5_h4qv3")
+hframes = 12
+vframes = 3
+
+[node name="GreenTree7" type="Sprite2D" parent="Trees/YellowTrees" unique_id=762578635]
+position = Vector2(950, 414)
+texture = ExtResource("5_h4qv3")
+hframes = 12
+vframes = 3
+frame = 2
+
+[node name="GreenTree8" type="Sprite2D" parent="Trees/YellowTrees" unique_id=848629303]
+position = Vector2(1259, 548)
+texture = ExtResource("5_h4qv3")
+hframes = 12
+vframes = 3
+frame = 6
+
+[node name="GreenTree9" type="Sprite2D" parent="Trees/YellowTrees" unique_id=1333627934]
+position = Vector2(1566, 521)
+texture = ExtResource("5_h4qv3")
+hframes = 12
+vframes = 3
+frame = 6
+
+[node name="GreenTree10" type="Sprite2D" parent="Trees/YellowTrees" unique_id=1098368288]
+position = Vector2(1304, 468)
+texture = ExtResource("5_h4qv3")
+hframes = 12
+vframes = 3
+frame = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=147002701]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer" unique_id=1902200675]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer" unique_id=1290187270]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/VBoxContainer" unique_id=2003023040]
+layout_mode = 2
+text = "TROVE"
+label_settings = SubResource("LabelSettings_h2w44")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/CenterContainer/VBoxContainer" unique_id=1685274788]
+layout_mode = 2
+text = "DEFENDERS"
+label_settings = SubResource("LabelSettings_dgnw3")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1286533410]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Padding" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=953582079]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Padding3" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=853158282]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1969281044]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer/ButtonContainer" unique_id=251458023]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "PLAY"
+
+[node name="AnimatedButtonComponent" type="Node2D" parent="VBoxContainer/HBoxContainer/ButtonContainer/PlayButton" unique_id=194881105]
+script = ExtResource("7_kysdl")
+metadata/_custom_type_script = "uid://c68ji40djcytp"
+
+[node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/ButtonContainer/PlayButton" unique_id=836016627]
+script = ExtResource("8_w4sgk")
+metadata/_custom_type_script = "uid://cxx74db5puoyo"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer/HBoxContainer/ButtonContainer" unique_id=697043849]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Settings"
+
+[node name="AnimatedButtonComponent" type="Node2D" parent="VBoxContainer/HBoxContainer/ButtonContainer/SettingsButton" unique_id=720666587]
+script = ExtResource("7_kysdl")
+metadata/_custom_type_script = "uid://c68ji40djcytp"
+
+[node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/ButtonContainer/SettingsButton" unique_id=1782497910]
+script = ExtResource("8_w4sgk")
+metadata/_custom_type_script = "uid://cxx74db5puoyo"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/HBoxContainer/ButtonContainer" unique_id=485811817]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "EXIT"
+
+[node name="AnimatedButtonComponent" type="Node2D" parent="VBoxContainer/HBoxContainer/ButtonContainer/ExitButton" unique_id=1357225620]
+script = ExtResource("7_kysdl")
+metadata/_custom_type_script = "uid://c68ji40djcytp"
+
+[node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/ButtonContainer/ExitButton" unique_id=1353149907]
+script = ExtResource("8_w4sgk")
+metadata/_custom_type_script = "uid://cxx74db5puoyo"
+
+[node name="Padding2" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1060299780]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Padding4" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1664963419]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="SettingsMenu" parent="." unique_id=1857662868 instance=ExtResource("9_dgnw3")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]

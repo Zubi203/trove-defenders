@@ -1,0 +1,47 @@
+[gd_scene format=4 uid="uid://b3yrjd58d1gpt"]
+
+[ext_resource type="PackedScene" uid="uid://dal63bbg8rhep" path="res://Scenes/Levels/level_base.tscn" id="1_wb8gp"]
+[ext_resource type="PackedScene" uid="uid://cx5hh4k64itp5" path="res://Scenes/Units/enemy_unit.tscn" id="2_26dk1"]
+[ext_resource type="PackedScene" uid="uid://6bulop7ryn5e" path="res://Scenes/Units/obstacle.tscn" id="2_hvaeu"]
+[ext_resource type="Resource" uid="uid://bagk81j0rjwb5" path="res://Resources/enemy_units/ghost.tres" id="3_mb3x2"]
+[ext_resource type="Resource" uid="uid://vwmgid6hwnty" path="res://Resources/enemy_units/bat.tres" id="4_02esc"]
+[ext_resource type="Resource" uid="uid://c1sthmxul6xeu" path="res://Resources/enemy_units/crab.tres" id="5_gfyxx"]
+[ext_resource type="PackedScene" uid="uid://durhp3iw63rrf" path="res://Scenes/Units/point_of_interest.tscn" id="6_mb3x2"]
+
+[node name="LevelBase" unique_id=1326723513 instance=ExtResource("1_wb8gp")]
+
+[node name="Board" parent="Tiles" parent_id_path=PackedInt32Array(1567823762) index="0" unique_id=1493948929]
+tile_map_data = PackedByteArray("AAAKACgAAAAIAAUAAAAKACkAAAAIAAUAAAALACoAAAAIAAUAAAALACsAAAAIAAUAAAAMACwAAAAIAAUAAAAMAC0AAAAIAAUAAAANAC4AAAAIAAUAAAAQACcAAAAGAAUAAAAQACYAAAAIAAUAAAAPACUAAAAIAAUAAAAPACQAAAAIAAUAAAAOACMAAAAIAAUAAAAOACIAAAADAAYAAAALACgAAAAGAAUAAAALACkAAAAHAAgAAAAMACgAAAAGAAgAAAAOACQAAAAHAAgAAAAOACUAAAAHAAgAAAAOACYAAAAGAAgAAAANACgAAAAGAAgAAAAMACkAAAAGAAgAAAAMACoAAAAHAAgAAAAMACsAAAAIAAUAAAANACoAAAAHAAgAAAANACkAAAAGAAgAAAAOACgAAAAIAAgAAAAOACcAAAAHAAgAAAAPACYAAAAIAAUAAAAPACcAAAAIAAUAAAAPACgAAAAIAAUAAAAOACkAAAAIAAUAAAAOACoAAAAIAAUAAAANACsAAAAIAAUAAAANACwAAAAIAAUAAAANAC0AAAAIAAUAAAAOACwAAAAIAAUAAAAOACsAAAAIAAUAAAAPACoAAAAIAAUAAAAPACkAAAAIAAUAAAAQACgAAAAIAAUAAAAJACcAAAAIAAUAAAAKACUAAAAIAAUAAAAKACYAAAAIAAUAAAAKACcAAAAIAAUAAAALACMAAAAIAAUAAAALACQAAAAIAAUAAAALACUAAAAIAAUAAAALACYAAAAIAAUAAAALACcAAAAHAAgAAAAMACEAAAAIAAUAAAAMACIAAAAIAAUAAAAMACMAAAAFAAgAAAAMACQAAAAHAAgAAAAMACUAAAAIAAgAAAAMACYAAAAHAAgAAAAMACcAAAAIAAgAAAANACAAAAAIAAUAAAANACEAAAAIAAUAAAANACIAAAAGAAUAAAANACMAAAAFAAgAAAANACQAAAAGAAgAAAANACUAAAAGAAgAAAANACYAAAAGAAgAAAANACcAAAAIAAgAAAA=")
+
+[node name="EnemyUnit" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="0" unique_id=1687360007 instance=ExtResource("2_26dk1")]
+position = Vector2(455, 309)
+data = ExtResource("3_mb3x2")
+
+[node name="EnemyUnit2" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="1" unique_id=124014588 instance=ExtResource("2_26dk1")]
+position = Vector2(419, 337)
+data = ExtResource("4_02esc")
+
+[node name="EnemyUnit3" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="2" unique_id=2026692937 instance=ExtResource("2_26dk1")]
+position = Vector2(415, 309)
+data = ExtResource("3_mb3x2")
+
+[node name="EnemyUnit4" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="3" unique_id=1810166504 instance=ExtResource("2_26dk1")]
+position = Vector2(417, 352)
+data = ExtResource("5_gfyxx")
+
+[node name="PointOfInterest" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="0" unique_id=1956505800 instance=ExtResource("6_mb3x2")]
+position = Vector2(511, 320)
+
+[node name="PointOfInterest2" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="1" unique_id=1987728900 instance=ExtResource("6_mb3x2")]
+position = Vector2(353, 319)
+
+[node name="Obstacle" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="2" unique_id=1789681223 instance=ExtResource("2_hvaeu")]
+position = Vector2(432, 278)
+size = 0
+
+[node name="Obstacle2" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="3" unique_id=1273753079 instance=ExtResource("2_hvaeu")]
+position = Vector2(370, 326)
+size = 1
+
+[node name="Obstacle3" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="4" unique_id=801472096 instance=ExtResource("2_hvaeu")]
+position = Vector2(546, 317)

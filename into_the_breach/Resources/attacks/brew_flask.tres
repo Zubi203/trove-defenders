@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://wl51a8gyto6i"]
+
+[ext_resource type="PackedScene" uid="uid://tam1y84o1hc1" path="res://Scenes/Projectiles/lobbed_projectile.tscn" id="1_fr1qe"]
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_gxgah"]
+[ext_resource type="AudioStream" uid="uid://4lwois65pmv3" path="res://Audio/sfx/12_human_jump_2.wav" id="1_tgjhp"]
+[ext_resource type="Texture2D" uid="uid://u8j5aukmpw6d" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0113.png" id="3_tgjhp"]
+
+[resource]
+script = ExtResource("1_gxgah")
+name = "Brew Flask"
+type = 1
+texture = ExtResource("3_tgjhp")
+projectile_scene = ExtResource("1_fr1qe")
+attack_sound = ExtResource("1_tgjhp")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

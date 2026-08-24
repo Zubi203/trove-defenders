@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cpev8kecrvqu8"]
+
+[ext_resource type="PackedScene" uid="uid://co2w5y7nklhld" path="res://Scenes/Units/hazard_tile_base.tscn" id="1_57041"]
+[ext_resource type="Script" uid="uid://cv7rbi5kh28hp" path="res://Scripts/snare_tile.gd" id="2_rar4q"]
+[ext_resource type="Resource" uid="uid://cp4yomgh4t216" path="res://Resources/hazard_tiles/rooted_tile.tres" id="3_o4m34"]
+
+[node name="RootedTile" unique_id=1276451 instance=ExtResource("1_57041")]
+script = ExtResource("2_rar4q")
+tile_data = ExtResource("3_o4m34")
+
+[node name="PanelContainer" parent="HazardTileUI" parent_id_path=PackedInt32Array(1041930883) index="0" unique_id=123863114]
+offset_right = 553.0

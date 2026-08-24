@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bu8iho58eav1r"]
+
+[ext_resource type="Script" uid="uid://cgwlxoqawsj04" path="res://Scripts/health_bar.gd" id="1_78m4n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65ton"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
+
+[node name="CenterContainer" type="CenterContainer" unique_id=1768538022 node_paths=PackedStringArray("visible_timer")]
+z_index = 1
+y_sort_enabled = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -41.0
+offset_right = 26.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_78m4n")
+fill_color = Color(0.20140007, 0.76, 0.07600002, 1)
+depleted_color = Color(0.16350216, 0.16350219, 0.16350213, 1)
+visible_timer = NodePath("VisibleTimer")
+
+[node name="HealthBar" type="PanelContainer" parent="." unique_id=744952479]
+custom_minimum_size = Vector2(5, 7)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_65ton")
+
+[node name="MarginContainer" type="MarginContainer" parent="HealthBar" unique_id=916387599]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ColorRectContainer" type="HBoxContainer" parent="HealthBar/MarginContainer" unique_id=857703463]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="ColorRect" type="ColorRect" parent="HealthBar/MarginContainer/ColorRectContainer" unique_id=1285015396]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2509367, 0.83, 0.074699976, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="HealthBar/MarginContainer/ColorRectContainer" unique_id=1996519592]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2509367, 0.83, 0.074699976, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="HealthBar/MarginContainer/ColorRectContainer" unique_id=1426112800]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2509367, 0.83, 0.074699976, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="HealthBar/MarginContainer/ColorRectContainer" unique_id=1378421684]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2509367, 0.83, 0.074699976, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="HealthBar/MarginContainer/ColorRectContainer" unique_id=2080847835]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2509367, 0.83, 0.074699976, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="HealthBar/MarginContainer/ColorRectContainer" unique_id=134961802]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2509367, 0.83, 0.074699976, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="HealthBar/MarginContainer/ColorRectContainer" unique_id=1154330662]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2509367, 0.83, 0.074699976, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="HealthBar/MarginContainer/ColorRectContainer" unique_id=617231245]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2509367, 0.83, 0.074699976, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="HealthBar/MarginContainer/ColorRectContainer" unique_id=609346622]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2509367, 0.83, 0.074699976, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="HealthBar/MarginContainer/ColorRectContainer" unique_id=1189906908]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2509367, 0.83, 0.074699976, 1)
+
+[node name="VisibleTimer" type="Timer" parent="." unique_id=900779625]
+wait_time = 0.3
+one_shot = true

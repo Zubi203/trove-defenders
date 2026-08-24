@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bsw31jo32m4w7"]
+
+[ext_resource type="Script" uid="uid://cjm1cxnrg2d7t" path="res://Scripts/map_object.gd" id="1_316te"]
+[ext_resource type="Shader" uid="uid://bi2gnxcvvc0gu" path="res://Shaders/map_object.gdshader" id="2_84ewr"]
+[ext_resource type="Texture2D" uid="uid://bw0qluougwfjq" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0096.png" id="2_84o6k"]
+[ext_resource type="Script" uid="uid://dvdjy343e164q" path="res://Scripts/audio_component.gd" id="4_c0xhq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s4hme"]
+resource_local_to_scene = true
+shader = ExtResource("2_84ewr")
+shader_parameter/progress_white = 0.0
+shader_parameter/progress_green = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2w44"]
+radius = 4.0
+
+[node name="MapObject" type="Area2D" unique_id=1687360007 node_paths=PackedStringArray("sprite") groups=["MapObject"]]
+collision_layer = 4
+script = ExtResource("1_316te")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=112064396]
+material = SubResource("ShaderMaterial_s4hme")
+texture = ExtResource("2_84o6k")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1721505188]
+shape = SubResource("CircleShape2D_h2w44")
+
+[node name="AudioComponent" type="AudioStreamPlayer2D" parent="." unique_id=114200817]
+bus = &"SFX"
+script = ExtResource("4_c0xhq")
+metadata/_custom_type_script = "uid://dvdjy343e164q"

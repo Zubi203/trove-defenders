@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ChangeTileEffect" format=3 uid="uid://di530r0epfotf"]
+
+[ext_resource type="Script" uid="uid://bun8sck4v7vbd" path="res://Scripts/change_tile_effect.gd" id="1_6khvq"]
+
+[resource]
+script = ExtResource("1_6khvq")
+metadata/_custom_type_script = "uid://bun8sck4v7vbd"

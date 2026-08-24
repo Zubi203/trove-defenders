@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://cyl1retquvw48"]
+
+[ext_resource type="PackedScene" uid="uid://l4hknfmgo6lc" path="res://Scenes/Projectiles/lightning_projectile.tscn" id="1_757s0"]
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_akxng"]
+[ext_resource type="AudioStream" uid="uid://c2k2py7sveaes" path="res://Audio/sfx/07_human_atk_sword_3.wav" id="1_qnxcb"]
+[ext_resource type="Texture2D" uid="uid://qd63sijeerqb" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0062.png" id="3_qnxcb"]
+
+[resource]
+script = ExtResource("1_akxng")
+name = "Slash"
+type = 2
+texture = ExtResource("3_qnxcb")
+projectile_scene = ExtResource("1_757s0")
+attack_sound = ExtResource("1_qnxcb")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d4jjdcnxrapul"]
+
+[ext_resource type="Script" uid="uid://ciorb8aha2l4l" path="res://Scripts/potion.gd" id="1_5flyo"]
+[ext_resource type="Texture2D" uid="uid://eqqjitjg4sb8" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0115.png" id="2_ilpm8"]
+[ext_resource type="Texture2D" uid="uid://b6uvvgvip5o1y" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0114.png" id="2_o85lc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2w44"]
+radius = 4.0
+
+[node name="Potion" type="Area2D" unique_id=803617985 node_paths=PackedStringArray("sprite")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_5flyo")
+sprites = Dictionary[int, Texture2D]({
+0: ExtResource("2_o85lc"),
+1: ExtResource("2_ilpm8")
+})
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1268470317]
+texture = ExtResource("2_ilpm8")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=735601906]
+shape = SubResource("CircleShape2D_h2w44")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

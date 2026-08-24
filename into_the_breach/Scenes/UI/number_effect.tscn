@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://005m1u2m3xcj"]
+
+[ext_resource type="FontFile" uid="uid://dia4b77septkf" path="res://Graphics/BoldPixels.ttf" id="1_to6wr"]
+[ext_resource type="Script" uid="uid://bgjaey85q5kcx" path="res://Scripts/number_hit_effect.gd" id="2_pmqv7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2w44"]
+font = ExtResource("1_to6wr")
+font_size = 14
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="NumberEffect" type="Label" unique_id=262089262]
+z_index = 5
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+pivot_offset = Vector2(20, 12)
+text = "1"
+label_settings = SubResource("LabelSettings_h2w44")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_pmqv7")
+heal_color = Color(0.039703276, 0.86, 0.025799977, 1)
+damage_color = Color(0.94, 0, 0, 1)

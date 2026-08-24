@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c5ep0he2nydoh"]
+
+[ext_resource type="PackedScene" uid="uid://ce7urdgjajumy" path="res://Scenes/Projectiles/base_projectile.tscn" id="1_vr28c"]
+[ext_resource type="Script" uid="uid://c6fvp7o51y1to" path="res://Scripts/straight_projectile.gd" id="2_g7wbb"]
+
+[node name="StraightProjectile" unique_id=46804400 instance=ExtResource("1_vr28c")]
+script = ExtResource("2_g7wbb")

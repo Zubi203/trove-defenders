@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://jfhp8d3wf8fq"]
+
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_1w7po"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="1_fif2s"]
+[ext_resource type="Resource" uid="uid://dh08qb86no722" path="res://Resources/attacks/vines.tres" id="1_j3t4l"]
+[ext_resource type="Texture2D" uid="uid://xh8q6ip0mgil" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0099.png" id="2_0jlvd"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="2_3ya8m"]
+[ext_resource type="Resource" uid="uid://6dmu2tu3kt8" path="res://Resources/attack_effects/root_tile.tres" id="2_lrg16"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="3_j3t4l"]
+
+[resource]
+script = ExtResource("1_1w7po")
+texture = ExtResource("2_0jlvd")
+name = "Druid"
+description = "Attacks with constricting vines that ignore obstacles and ensnare targets on hit, preventing them from moving on the next turn"
+attack_data = ExtResource("1_j3t4l")
+attack_effect_data = ExtResource("2_lrg16")
+attack_range = 5
+max_move_distance = 2
+hit_sound = ExtResource("2_3ya8m")
+heal_sound = ExtResource("1_fif2s")
+move_sound = ExtResource("3_j3t4l")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

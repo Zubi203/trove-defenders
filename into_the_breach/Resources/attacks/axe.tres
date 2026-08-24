@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://cs6xxg3dseqag"]
+
+[ext_resource type="PackedScene" uid="uid://tam1y84o1hc1" path="res://Scenes/Projectiles/lobbed_projectile.tscn" id="1_1igoh"]
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_86w23"]
+[ext_resource type="AudioStream" uid="uid://bot3lc5g7n88e" path="res://Audio/sfx/07_human_atk_sword_2.wav" id="1_axnrx"]
+[ext_resource type="Texture2D" uid="uid://degcib1ysu0b1" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0118.png" id="3_axnrx"]
+
+[resource]
+script = ExtResource("1_86w23")
+name = "Axe"
+damage = 2
+type = 1
+texture = ExtResource("3_axnrx")
+projectile_scene = ExtResource("1_1igoh")
+attack_sound = ExtResource("1_axnrx")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

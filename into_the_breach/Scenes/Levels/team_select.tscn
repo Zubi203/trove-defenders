@@ -1,0 +1,347 @@
+[gd_scene format=3 uid="uid://80bi5n7nx6ew"]
+
+[ext_resource type="Theme" uid="uid://dot3ogobj20y7" path="res://Resources/ui_theme.tres" id="1_7uwwg"]
+[ext_resource type="Script" uid="uid://y4x3mwhlvw2u" path="res://Scripts/team_select.gd" id="1_bwcjg"]
+[ext_resource type="PackedScene" uid="uid://7dde2f1wpqth" path="res://Scenes/UI/unit_card.tscn" id="2_irtk0"]
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="2_lxshb"]
+[ext_resource type="PackedScene" uid="uid://dcurkh8xfoy6h" path="res://Scenes/UI/party_button.tscn" id="2_srwfa"]
+[ext_resource type="Resource" uid="uid://b1dlxbpgms5xl" path="res://Resources/player_units/knight.tres" id="3_vln64"]
+[ext_resource type="Resource" uid="uid://cbxdos32yigyd" path="res://Resources/player_units/ranger.tres" id="4_vlcq3"]
+[ext_resource type="Resource" uid="uid://bjl7kafjrylgr" path="res://Resources/player_units/wizard.tres" id="5_ihwc7"]
+[ext_resource type="Resource" uid="uid://jfhp8d3wf8fq" path="res://Resources/player_units/druid.tres" id="6_6eqcu"]
+[ext_resource type="Resource" uid="uid://be8a5sw8ct4ij" path="res://Resources/player_units/spirit_caller.tres" id="7_biwd2"]
+[ext_resource type="Resource" uid="uid://b7sdovlf8r7m0" path="res://Resources/player_units/squire.tres" id="8_r3qx4"]
+[ext_resource type="Resource" uid="uid://dilehykp6whxe" path="res://Resources/player_units/tavernkeep.tres" id="9_8hw4j"]
+[ext_resource type="Resource" uid="uid://hgno1vpmqlob" path="res://Resources/player_units/viking.tres" id="10_yuu83"]
+[ext_resource type="Resource" uid="uid://vwmgid6hwnty" path="res://Resources/enemy_units/bat.tres" id="11_yholm"]
+[ext_resource type="Resource" uid="uid://c1sthmxul6xeu" path="res://Resources/enemy_units/crab.tres" id="12_nvgc7"]
+[ext_resource type="Resource" uid="uid://de4dwju8c5lfc" path="res://Resources/enemy_units/cyclops.tres" id="13_qmafl"]
+[ext_resource type="Resource" uid="uid://fowk1kvqks3j" path="res://Resources/enemy_units/dark_wizard.tres" id="14_7uwwg"]
+[ext_resource type="Resource" uid="uid://bagk81j0rjwb5" path="res://Resources/enemy_units/ghost.tres" id="15_g0m3q"]
+[ext_resource type="Resource" uid="uid://bnuhhc788wpki" path="res://Resources/enemy_units/rat.tres" id="16_cv5t5"]
+[ext_resource type="Resource" uid="uid://c54c2tjp1psvr" path="res://Resources/enemy_units/spider.tres" id="17_wb0mc"]
+[ext_resource type="Texture2D" uid="uid://dohbd041wi8um" path="res://Graphics/Background/BackgroundSky.png" id="18_qmafl"]
+[ext_resource type="Texture2D" uid="uid://d2rlvi170hy7k" path="res://Graphics/Background/Background.png" id="19_7uwwg"]
+[ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="22_g0m3q"]
+[ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="23_cv5t5"]
+[ext_resource type="Texture2D" uid="uid://ya5kyjod84cv" path="res://Graphics/icons/Play 256 px.png" id="24_g0m3q"]
+[ext_resource type="Texture2D" uid="uid://c451k8aa3hvhv" path="res://Graphics/arrow.webp" id="24_wb0mc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0m3q"]
+atlas = ExtResource("19_7uwwg")
+region = Rect2(0, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv5t5"]
+atlas = ExtResource("19_7uwwg")
+region = Rect2(112, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb0mc"]
+atlas = ExtResource("19_7uwwg")
+region = Rect2(224, 0, 127, 256)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2w44"]
+font_size = 48
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7uwwg"]
+font_size = 48
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="TeamSelect" type="Control" unique_id=1755928651 node_paths=PackedStringArray("party_buttons", "unit_card")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7uwwg")
+script = ExtResource("1_bwcjg")
+units = Array[ExtResource("2_lxshb")]([ExtResource("3_vln64"), ExtResource("4_vlcq3"), ExtResource("5_ihwc7"), ExtResource("10_yuu83"), ExtResource("8_r3qx4"), ExtResource("9_8hw4j"), ExtResource("6_6eqcu"), ExtResource("7_biwd2"), ExtResource("11_yholm"), ExtResource("12_nvgc7"), ExtResource("13_qmafl"), ExtResource("14_7uwwg"), ExtResource("15_g0m3q"), ExtResource("16_cv5t5"), ExtResource("17_wb0mc")])
+party_buttons = [NodePath("PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton"), NodePath("PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton2"), NodePath("PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton3")]
+unit_card = NodePath("PartyPreview/Shadow/CenterContainer/UnitCard")
+
+[node name="Background" type="Control" parent="." unique_id=2082903055]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=2094298020]
+modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_qmafl")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Background" unique_id=2020903288]
+modulate = Color(0.63539076, 0.63539076, 0.63539076, 1)
+layout_mode = 0
+offset_left = 209.0
+offset_top = 124.0
+offset_right = 912.0
+offset_bottom = 684.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer3" unique_id=1423919614]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_g0m3q")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer3" unique_id=215924637]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_cv5t5")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer3" unique_id=193232422]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_wb0mc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=749037960]
+layout_mode = 0
+offset_left = -81.0
+offset_top = 204.0
+offset_right = 479.0
+offset_bottom = 701.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer" unique_id=480132678]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_g0m3q")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer" unique_id=1850707388]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_cv5t5")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer" unique_id=2132349805]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_wb0mc")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Background" unique_id=145971913]
+layout_mode = 0
+offset_left = 627.0
+offset_top = 70.0
+offset_right = 1629.0
+offset_bottom = 684.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer2" unique_id=1072732899]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_g0m3q")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer2" unique_id=195645973]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_cv5t5")
+
+[node name="TextureRect4" type="TextureRect" parent="Background/HBoxContainer2" unique_id=464336863]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_cv5t5")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer2" unique_id=238975374]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_wb0mc")
+
+[node name="PartyPreview" type="HBoxContainer" parent="." unique_id=1589961101]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="PartyPreview" unique_id=1816407155]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PartyViewContainer" type="VBoxContainer" parent="PartyPreview/PanelContainer" unique_id=1345128147]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PartyPreview/PanelContainer/PartyViewContainer" unique_id=1561940116]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "Party:"
+label_settings = SubResource("LabelSettings_h2w44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PartyPreview/PanelContainer/PartyViewContainer" unique_id=1092678104]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 30
+
+[node name="PartyButton" parent="PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer" unique_id=254119974 instance=ExtResource("2_srwfa")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectedIndicator" parent="PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton" index="2" unique_id=525149575]
+visible = true
+
+[node name="PartyButton2" parent="PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer" unique_id=1077167491 instance=ExtResource("2_srwfa")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PartyButton3" parent="PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer" unique_id=1133644866 instance=ExtResource("2_srwfa")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="PartyPreview/PanelContainer/PartyViewContainer" unique_id=2030364421]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PartyPreview/PanelContainer/PartyViewContainer/CenterContainer" unique_id=1082996904]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MainMenuButton" type="Button" parent="PartyPreview/PanelContainer/PartyViewContainer/CenterContainer/HBoxContainer" unique_id=1378859615]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="AnimatedButtonComponent" type="Node2D" parent="PartyPreview/PanelContainer/PartyViewContainer/CenterContainer/HBoxContainer/MainMenuButton" unique_id=266953969]
+script = ExtResource("22_g0m3q")
+metadata/_custom_type_script = "uid://c68ji40djcytp"
+
+[node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="PartyPreview/PanelContainer/PartyViewContainer/CenterContainer/HBoxContainer/MainMenuButton" unique_id=965170537]
+script = ExtResource("23_cv5t5")
+metadata/_custom_type_script = "uid://cxx74db5puoyo"
+
+[node name="TextureRect" type="TextureRect" parent="PartyPreview/PanelContainer/PartyViewContainer/CenterContainer/HBoxContainer/MainMenuButton" unique_id=451848810]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("24_wb0mc")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="LevelSelectButton2" type="Button" parent="PartyPreview/PanelContainer/PartyViewContainer/CenterContainer/HBoxContainer" unique_id=1203742107]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PLAY"
+
+[node name="AnimatedButtonComponent" type="Node2D" parent="PartyPreview/PanelContainer/PartyViewContainer/CenterContainer/HBoxContainer/LevelSelectButton2" unique_id=1224212267]
+script = ExtResource("22_g0m3q")
+metadata/_custom_type_script = "uid://c68ji40djcytp"
+
+[node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="PartyPreview/PanelContainer/PartyViewContainer/CenterContainer/HBoxContainer/LevelSelectButton2" unique_id=428584462]
+script = ExtResource("23_cv5t5")
+metadata/_custom_type_script = "uid://cxx74db5puoyo"
+
+[node name="Shadow" type="ColorRect" parent="PartyPreview" unique_id=1482186625]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.12941177, 0.12941177, 0.12941177, 0.3137255)
+
+[node name="CenterContainer" type="CenterContainer" parent="PartyPreview/Shadow" unique_id=1872376011]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UnitCard" parent="PartyPreview/Shadow/CenterContainer" unique_id=2126010003 instance=ExtResource("2_irtk0")]
+custom_minimum_size = Vector2(350, 450)
+layout_mode = 2
+
+[node name="ArrowButtonLeft" type="TextureButton" parent="PartyPreview/Shadow" unique_id=823094522]
+modulate = Color(0.56078434, 0.2901961, 0.07450981, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -60.0
+offset_right = -174.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("24_g0m3q")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="AnimatedButtonComponent" type="Node2D" parent="PartyPreview/Shadow/ArrowButtonLeft" unique_id=472884187]
+script = ExtResource("22_g0m3q")
+metadata/_custom_type_script = "uid://c68ji40djcytp"
+
+[node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="PartyPreview/Shadow/ArrowButtonLeft" unique_id=1069316747]
+script = ExtResource("23_cv5t5")
+metadata/_custom_type_script = "uid://cxx74db5puoyo"
+
+[node name="ArrowButtonRight" type="TextureButton" parent="PartyPreview/Shadow" unique_id=1284905021]
+modulate = Color(0.56078434, 0.2901961, 0.07450981, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 175.0
+offset_top = -60.0
+offset_right = 282.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("24_g0m3q")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AnimatedButtonComponent" type="Node2D" parent="PartyPreview/Shadow/ArrowButtonRight" unique_id=913319381]
+script = ExtResource("22_g0m3q")
+metadata/_custom_type_script = "uid://c68ji40djcytp"
+
+[node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="PartyPreview/Shadow/ArrowButtonRight" unique_id=541799422]
+script = ExtResource("23_cv5t5")
+metadata/_custom_type_script = "uid://cxx74db5puoyo"
+
+[node name="Label2" type="Label" parent="." unique_id=293117120]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -97.0
+offset_top = 10.0
+offset_right = 443.0
+offset_bottom = 80.0
+grow_horizontal = 2
+text = " Choose your Party Members"
+label_settings = SubResource("LabelSettings_7uwwg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PartyPreview/PanelContainer/PartyViewContainer/CenterContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="PartyPreview/PanelContainer/PartyViewContainer/CenterContainer/HBoxContainer/LevelSelectButton2" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="PartyPreview/Shadow/ArrowButtonLeft" to="." method="_on_arrow_button_left_pressed"]
+[connection signal="pressed" from="PartyPreview/Shadow/ArrowButtonRight" to="." method="_on_arrow_button_right_pressed"]
+
+[editable path="PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton"]

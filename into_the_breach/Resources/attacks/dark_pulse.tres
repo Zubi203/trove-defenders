@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://dhjuggbkjtpu6"]
+
+[ext_resource type="AudioStream" uid="uid://bct1nkvcbs8wf" path="res://Audio/sfx/10_human_special_atk_2.wav" id="1_44swg"]
+[ext_resource type="PackedScene" uid="uid://tam1y84o1hc1" path="res://Scenes/Projectiles/lobbed_projectile.tscn" id="1_k1gca"]
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_p3jwo"]
+[ext_resource type="Texture2D" uid="uid://bvis34dcmw0uh" path="res://Graphics/ProjectileSprites.png" id="4_44swg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6o6n"]
+atlas = ExtResource("4_44swg")
+region = Rect2(65, 0, 15, 16)
+
+[resource]
+script = ExtResource("1_p3jwo")
+name = "Dark Pulse"
+damage = 2
+type = 1
+texture = SubResource("AtlasTexture_n6o6n")
+projectile_scene = ExtResource("1_k1gca")
+attack_sound = ExtResource("1_44swg")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

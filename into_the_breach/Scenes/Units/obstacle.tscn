@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://6bulop7ryn5e"]
+
+[ext_resource type="PackedScene" uid="uid://bsw31jo32m4w7" path="res://Scenes/Units/map_object.tscn" id="1_2p81s"]
+[ext_resource type="Script" uid="uid://bvhax3xap68k4" path="res://Scripts/obstacle.gd" id="2_a6yce"]
+[ext_resource type="Texture2D" uid="uid://81mrvqaeeml7" path="res://Graphics/isometric tileset/isometric tileset/separated images/tile_050.png" id="2_rvx1i"]
+[ext_resource type="Texture2D" uid="uid://de8eprkkd621i" path="res://Graphics/isometric tileset/isometric tileset/separated images/tile_049.png" id="3_p763d"]
+[ext_resource type="Texture2D" uid="uid://pcdbdxpu7v3i" path="res://Graphics/isometric tileset/isometric tileset/separated images/tile_051.png" id="5_af0pv"]
+[ext_resource type="Texture2D" uid="uid://cxwjmo52nv7gy" path="res://Graphics/isometric tileset/isometric tileset/separated images/tile_053.png" id="6_qjgtb"]
+[ext_resource type="Texture2D" uid="uid://bij22hf7ftqfo" path="res://Graphics/isometric tileset/isometric tileset/separated images/tile_054.png" id="7_wkkqb"]
+[ext_resource type="Texture2D" uid="uid://d1dsrtd1ckimw" path="res://Graphics/isometric tileset/isometric tileset/separated images/tile_060.png" id="8_hxgoc"]
+[ext_resource type="Texture2D" uid="uid://s8rpgdawtxal" path="res://Graphics/isometric tileset/isometric tileset/separated images/tile_067.png" id="9_wi7b2"]
+[ext_resource type="Texture2D" uid="uid://bfs7qp6m5dhat" path="res://Graphics/isometric tileset/isometric tileset/separated images/tile_065.png" id="10_77vfq"]
+[ext_resource type="Texture2D" uid="uid://dgaojvsp8yf2p" path="res://Graphics/isometric tileset/isometric tileset/separated images/tile_064.png" id="11_nbwgr"]
+[ext_resource type="Shader" uid="uid://bi2gnxcvvc0gu" path="res://Shaders/map_object.gdshader" id="12_l344g"]
+[ext_resource type="Script" uid="uid://bffd7ux8tswi7" path="res://Scripts/health_component.gd" id="12_wkkqb"]
+[ext_resource type="PackedScene" uid="uid://005m1u2m3xcj" path="res://Scenes/UI/number_effect.tscn" id="14_axaaa"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="14_rdftq"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="15_1pu3i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rdftq"]
+resource_local_to_scene = true
+shader = ExtResource("12_l344g")
+shader_parameter/progress_white = 0.0
+shader_parameter/progress_green = 0.0
+
+[node name="Obstacle" unique_id=1687360007 instance=ExtResource("1_2p81s")]
+script = ExtResource("2_a6yce")
+type = 2
+size = 2
+obstacle_textures = Dictionary[String, Texture2D]({
+"LARGE LOG": ExtResource("5_af0pv"),
+"LARGE ROCK": ExtResource("8_hxgoc"),
+"LARGE STONE": ExtResource("11_nbwgr"),
+"MEDIUM LOG": ExtResource("2_rvx1i"),
+"MEDIUM ROCK": ExtResource("7_wkkqb"),
+"MEDIUM STONE": ExtResource("10_77vfq"),
+"SMALL LOG": ExtResource("3_p763d"),
+"SMALL ROCK": ExtResource("6_qjgtb"),
+"SMALL STONE": ExtResource("9_wi7b2")
+})
+
+[node name="Sprite2D" parent="." index="0" unique_id=112064396]
+material = SubResource("ShaderMaterial_rdftq")
+texture = ExtResource("11_nbwgr")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1721505188]
+position = Vector2(0, -3)
+
+[node name="HealthComponent" type="Node2D" parent="." index="2" unique_id=2056070696]
+script = ExtResource("12_wkkqb")
+override_hit_sound = ExtResource("14_rdftq")
+override_heal_sound = ExtResource("15_1pu3i")
+number_effect = ExtResource("14_axaaa")
+metadata/_custom_type_script = "uid://bffd7ux8tswi7"

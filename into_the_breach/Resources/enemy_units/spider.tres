@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://c54c2tjp1psvr"]
+
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_aomc3"]
+[ext_resource type="Resource" uid="uid://ydxqoabeps5d" path="res://Resources/attacks/web_sling.tres" id="1_lcry8"]
+[ext_resource type="Texture2D" uid="uid://dygtyo7fnqbfg" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0122.png" id="2_08kp0"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_vf70j"]
+[ext_resource type="Resource" uid="uid://1d4er1lw3rov" path="res://Resources/attack_effects/spider_web.tres" id="2_we3e5"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_we3e5"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_llgud"]
+
+[resource]
+script = ExtResource("1_aomc3")
+texture = ExtResource("2_08kp0")
+name = "Spider"
+description = "Long ranged projectile attack that ensnares target for one turn"
+attack_data = ExtResource("1_lcry8")
+attack_effect_data = ExtResource("2_we3e5")
+attack_range = 4
+health = 2
+hit_sound = ExtResource("3_we3e5")
+heal_sound = ExtResource("2_vf70j")
+move_sound = ExtResource("4_llgud")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

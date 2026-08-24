@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ce7urdgjajumy"]
+
+[ext_resource type="Script" uid="uid://hvt14kxdd7p4" path="res://Scripts/base_projectile.gd" id="1_n2o8k"]
+[ext_resource type="Texture2D" uid="uid://bta3jmttamjv2" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0103.png" id="2_22wfh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2w44"]
+radius = 4.1231055
+
+[node name="BaseProjectile" type="Area2D" unique_id=46804400 node_paths=PackedStringArray("sprite", "collider")]
+collision_mask = 6
+script = ExtResource("1_n2o8k")
+sprite = NodePath("Sprite2D")
+collider = NodePath("CollisionShape2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=252519565]
+texture = ExtResource("2_22wfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=302060889]
+shape = SubResource("CircleShape2D_h2w44")

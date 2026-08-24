@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://bjl7kafjrylgr"]
+
+[ext_resource type="Resource" uid="uid://bjluxjxqf1fyt" path="res://Resources/attacks/lightning_strike.tres" id="1_aosvw"]
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_x1tgi"]
+[ext_resource type="Texture2D" uid="uid://dg7f6clc4ardi" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0084.png" id="2_ayov2"]
+[ext_resource type="Script" uid="uid://ct7ps8up7fmp5" path="res://Scripts/chain_lightning_effect.gd" id="2_dpx03"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_si5p8"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_dpx03"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_1qoko"]
+
+[sub_resource type="Resource" id="Resource_7n2l3"]
+script = ExtResource("2_dpx03")
+metadata/_custom_type_script = "uid://ct7ps8up7fmp5"
+
+[resource]
+script = ExtResource("1_x1tgi")
+texture = ExtResource("2_ayov2")
+name = "Wizard"
+description = "Strikes foes with deadly, long-ranged lightning that chains to nearby targets. Has low health and cannot target nearby tiles"
+attack_data = ExtResource("1_aosvw")
+attack_effect_data = SubResource("Resource_7n2l3")
+range_type = 2
+dead_zone_type = 1
+attack_range = 0
+dead_zone = 3
+health = 2
+hit_sound = ExtResource("3_dpx03")
+heal_sound = ExtResource("2_si5p8")
+move_sound = ExtResource("4_1qoko")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

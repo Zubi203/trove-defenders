@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HazardTileData" format=3 uid="uid://b0fhfw8vguusv"]
+
+[ext_resource type="Script" uid="uid://bse1m7j7vxlbd" path="res://Scripts/hazard_tile_data.gd" id="1_q2jc3"]
+[ext_resource type="Texture2D" uid="uid://cwxa5mn5060s" path="res://Graphics/HazardTiles.png" id="2_bp7br"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp7br"]
+atlas = ExtResource("2_bp7br")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_q2jc3")
+name = "Fire Tile"
+description = "Damages units standing on it at the start of every turn"
+turn_duration = 4
+texture = SubResource("AtlasTexture_bp7br")
+metadata/_custom_type_script = "uid://bse1m7j7vxlbd"

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://durhp3iw63rrf"]
+
+[ext_resource type="PackedScene" uid="uid://bsw31jo32m4w7" path="res://Scenes/Units/map_object.tscn" id="1_eses7"]
+[ext_resource type="Texture2D" uid="uid://ddali35h4hov2" path="res://Graphics/tile_reticules.png" id="2_482t1"]
+[ext_resource type="Script" uid="uid://dk6s7hexbjgep" path="res://Scripts/point_of_interest.gd" id="2_et71l"]
+[ext_resource type="Script" uid="uid://bffd7ux8tswi7" path="res://Scripts/health_component.gd" id="2_jeejl"]
+[ext_resource type="Shader" uid="uid://bi2gnxcvvc0gu" path="res://Shaders/map_object.gdshader" id="3_4dk4c"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="6_5pxva"]
+[ext_resource type="PackedScene" uid="uid://005m1u2m3xcj" path="res://Scenes/UI/number_effect.tscn" id="6_tnx23"]
+[ext_resource type="PackedScene" uid="uid://bu8iho58eav1r" path="res://Scenes/Units/health_bar.tscn" id="6_v7vti"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="7_1v4un"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1so3q"]
+resource_local_to_scene = true
+shader = ExtResource("3_4dk4c")
+shader_parameter/progress_white = 0.0
+shader_parameter/progress_green = 0.0
+
+[node name="PointOfInterest" unique_id=1687360007 instance=ExtResource("1_eses7")]
+script = ExtResource("2_et71l")
+
+[node name="Sprite2D" parent="." index="0" unique_id=112064396]
+material = SubResource("ShaderMaterial_1so3q")
+texture = ExtResource("2_482t1")
+offset = Vector2(1, -9)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1721505188]
+position = Vector2(0, -3)
+
+[node name="HealthComponent" type="Node2D" parent="." index="2" unique_id=461650413]
+script = ExtResource("2_jeejl")
+override_hit_sound = ExtResource("6_5pxva")
+override_heal_sound = ExtResource("7_1v4un")
+number_effect = ExtResource("6_tnx23")
+metadata/_custom_type_script = "uid://bffd7ux8tswi7"
+
+[node name="CenterContainer" parent="." index="3" unique_id=1768538022 instance=ExtResource("6_v7vti")]

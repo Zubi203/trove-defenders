@@ -1,0 +1,314 @@
+[gd_scene format=3 uid="uid://c07r024es45w5"]
+
+[ext_resource type="PackedScene" uid="uid://6o76k5puqlww" path="res://Scenes/UI/level_select_button.tscn" id="1_1fiak"]
+[ext_resource type="Script" uid="uid://c1iv7powr0ojk" path="res://Scripts/level_select.gd" id="1_nkys2"]
+[ext_resource type="Theme" uid="uid://dot3ogobj20y7" path="res://Resources/ui_theme.tres" id="1_np8ms"]
+[ext_resource type="Texture2D" uid="uid://bq1auguxkfv2b" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0085.png" id="2_lx4vd"]
+[ext_resource type="Texture2D" uid="uid://dohbd041wi8um" path="res://Graphics/Background/BackgroundSky.png" id="2_y5wxr"]
+[ext_resource type="Texture2D" uid="uid://d2rlvi170hy7k" path="res://Graphics/Background/Background.png" id="3_np8ms"]
+[ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="5_jiyln"]
+[ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="6_pwhrq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiyln"]
+atlas = ExtResource("3_np8ms")
+region = Rect2(0, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwhrq"]
+atlas = ExtResource("3_np8ms")
+region = Rect2(112, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adt4o"]
+atlas = ExtResource("3_np8ms")
+region = Rect2(224, 0, 127, 256)
+
+[node name="LevelSelect" type="Control" unique_id=247208817 node_paths=PackedStringArray("level_button_container", "party_sprites")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_np8ms")
+script = ExtResource("1_nkys2")
+level_button_container = NodePath("VBoxContainer/CenterContainer/LevelButtonContainer")
+party_sprites = [NodePath("VBoxContainer/HBoxContainer/PartySpriteContainer/PartySprite/TextureRect"), NodePath("VBoxContainer/HBoxContainer/PartySpriteContainer/PartySprite2/TextureRect"), NodePath("VBoxContainer/HBoxContainer/PartySpriteContainer/PartySprite3/TextureRect")]
+
+[node name="Background" type="Control" parent="." unique_id=1218610058]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1021220325]
+modulate = Color(0.64193374, 0.6419341, 0.64193374, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_y5wxr")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Background" unique_id=287772863]
+modulate = Color(0.554554, 0.554554, 0.55455387, 1)
+layout_mode = 0
+offset_left = 126.0
+offset_top = 35.0
+offset_right = 965.0
+offset_bottom = 684.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer3" unique_id=651333793]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_jiyln")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer3" unique_id=307270239]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_pwhrq")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer3" unique_id=1611408386]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_adt4o")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Background" unique_id=1505850127]
+modulate = Color(0.6880442, 0.6880426, 0.688043, 1)
+layout_mode = 0
+offset_left = -209.0
+offset_top = -30.0
+offset_right = 499.0
+offset_bottom = 684.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer4" unique_id=1564324424]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_jiyln")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer4" unique_id=1817794043]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_pwhrq")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer4" unique_id=448227673]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_adt4o")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Background" unique_id=2073173439]
+modulate = Color(0.6880442, 0.6880426, 0.688043, 1)
+layout_mode = 0
+offset_left = 685.0
+offset_top = -30.0
+offset_right = 1393.0
+offset_bottom = 684.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer5" unique_id=1490931409]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_jiyln")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer5" unique_id=561208916]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_pwhrq")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer5" unique_id=146219092]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_adt4o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=1653863296]
+layout_mode = 0
+offset_top = 229.0
+offset_right = 560.0
+offset_bottom = 726.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer" unique_id=114397319]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_jiyln")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer" unique_id=315682405]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_pwhrq")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer" unique_id=2120037042]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_adt4o")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Background" unique_id=425444349]
+layout_mode = 0
+offset_left = 777.0
+offset_top = 295.0
+offset_right = 1629.0
+offset_bottom = 750.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer2" unique_id=1464792911]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_jiyln")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer2" unique_id=278829448]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_pwhrq")
+
+[node name="TextureRect4" type="TextureRect" parent="Background/HBoxContainer2" unique_id=158312932]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_pwhrq")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer2" unique_id=1640190064]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_adt4o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2076454073]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2082526184]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer" unique_id=518269716]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="TeamSelectButton" type="Button" parent="VBoxContainer/HBoxContainer/CenterContainer" unique_id=1599889296]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+text = "TEAM SELECT"
+
+[node name="AnimatedButtonComponent" type="Node2D" parent="VBoxContainer/HBoxContainer/CenterContainer/TeamSelectButton" unique_id=148572786]
+script = ExtResource("5_jiyln")
+metadata/_custom_type_script = "uid://c68ji40djcytp"
+
+[node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/CenterContainer/TeamSelectButton" unique_id=932784916]
+script = ExtResource("6_pwhrq")
+metadata/_custom_type_script = "uid://cxx74db5puoyo"
+
+[node name="PartySpriteContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=166920360]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+
+[node name="PartySprite" type="Control" parent="VBoxContainer/HBoxContainer/PartySpriteContainer" unique_id=1812048312]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/PartySpriteContainer/PartySprite" unique_id=712521594]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lx4vd")
+stretch_mode = 5
+
+[node name="PartySprite2" type="Control" parent="VBoxContainer/HBoxContainer/PartySpriteContainer" unique_id=1706476500]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/PartySpriteContainer/PartySprite2" unique_id=860442969]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lx4vd")
+stretch_mode = 5
+
+[node name="PartySprite3" type="Control" parent="VBoxContainer/HBoxContainer/PartySpriteContainer" unique_id=1831122356]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/PartySpriteContainer/PartySprite3" unique_id=1582310857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lx4vd")
+stretch_mode = 5
+
+[node name="Padding" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1164440185]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Padding2" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=209969296]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer" unique_id=152850323]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LevelButtonContainer" type="GridContainer" parent="VBoxContainer/CenterContainer" unique_id=1624422033]
+custom_minimum_size = Vector2(900, 400)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 80
+columns = 3
+
+[node name="LevelSelectButton" parent="VBoxContainer/CenterContainer/LevelButtonContainer" unique_id=535437073 instance=ExtResource("1_1fiak")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LevelSelectButton2" parent="VBoxContainer/CenterContainer/LevelButtonContainer" unique_id=2102361268 instance=ExtResource("1_1fiak")]
+layout_mode = 2
+size_flags_vertical = 3
+level = 1
+levels_needed_to_unlock = 1
+
+[node name="LevelSelectButton3" parent="VBoxContainer/CenterContainer/LevelButtonContainer" unique_id=1740079024 instance=ExtResource("1_1fiak")]
+layout_mode = 2
+size_flags_vertical = 3
+level = 2
+levels_needed_to_unlock = 2
+
+[node name="LevelSelectButton4" parent="VBoxContainer/CenterContainer/LevelButtonContainer" unique_id=1078996459 instance=ExtResource("1_1fiak")]
+layout_mode = 2
+size_flags_vertical = 3
+level = 3
+levels_needed_to_unlock = 3
+
+[node name="LevelSelectButton5" parent="VBoxContainer/CenterContainer/LevelButtonContainer" unique_id=335685099 instance=ExtResource("1_1fiak")]
+layout_mode = 2
+size_flags_vertical = 3
+level = 4
+levels_needed_to_unlock = 4
+
+[node name="LevelSelectButton6" parent="VBoxContainer/CenterContainer/LevelButtonContainer" unique_id=743932363 instance=ExtResource("1_1fiak")]
+layout_mode = 2
+size_flags_vertical = 3
+level = 5
+levels_needed_to_unlock = 5
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer/TeamSelectButton" to="." method="_on_team_select_button_pressed"]

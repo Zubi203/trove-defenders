@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://ydxqoabeps5d"]
+
+[ext_resource type="AudioStream" uid="uid://4lwois65pmv3" path="res://Audio/sfx/12_human_jump_2.wav" id="1_2oktx"]
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_d53ac"]
+[ext_resource type="PackedScene" uid="uid://c5ep0he2nydoh" path="res://Scenes/Projectiles/straight_projectile.tscn" id="1_ylgdo"]
+[ext_resource type="Texture2D" uid="uid://bvis34dcmw0uh" path="res://Graphics/ProjectileSprites.png" id="4_2oktx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0jc6"]
+atlas = ExtResource("4_2oktx")
+region = Rect2(83, 17, 10, 15)
+
+[resource]
+script = ExtResource("1_d53ac")
+name = "Web Sling"
+texture = SubResource("AtlasTexture_w0jc6")
+projectile_scene = ExtResource("1_ylgdo")
+attack_sound = ExtResource("1_2oktx")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

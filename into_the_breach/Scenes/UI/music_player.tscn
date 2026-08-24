@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://br6ykwr764euu"]
+
+[ext_resource type="Script" uid="uid://6etvi5ajprl8" path="res://Scripts/music_player.gd" id="1_ssyxl"]
+[ext_resource type="AudioStream" uid="uid://dnlj4wl404e7i" path="res://Audio/264295__foolboymedia__sky-loop.wav" id="2_ssyxl"]
+[ext_resource type="AudioStream" uid="uid://pfy2jc5xwv6j" path="res://Audio/Goblins_Dance_(Battle).wav" id="3_4g60r"]
+[ext_resource type="AudioStream" uid="uid://4qfd4wry2ei5" path="res://Audio/856516__tommasomotteran__game-over-orchestral-stinger-cartoon-defeat.wav" id="4_1fiox"]
+[ext_resource type="AudioStream" uid="uid://bbr4ggbtn54p8" path="res://Audio/691655__guillermochicasonido__videogame-victory-combat-jingle.wav" id="5_ufyl4"]
+
+[node name="MusicPlayer" type="Node" unique_id=2005630488 node_paths=PackedStringArray("battle_music", "menu_music", "victory_music", "defeat_music")]
+script = ExtResource("1_ssyxl")
+level_scenes = Array[int]([0, 1, 2, 3, 4, 5])
+menu_scenes = Array[int]([6, 7, 8, 9])
+battle_music = NodePath("BattleMusic")
+menu_music = NodePath("MenuMusic")
+victory_music = NodePath("VictoryMusic")
+defeat_music = NodePath("DefeatMusic")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=428511977]
+stream = ExtResource("2_ssyxl")
+autoplay = true
+bus = &"Music"
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="." unique_id=266542666]
+stream = ExtResource("3_4g60r")
+bus = &"Music"
+
+[node name="DefeatMusic" type="AudioStreamPlayer" parent="." unique_id=962746019]
+stream = ExtResource("4_1fiox")
+bus = &"Music"
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="." unique_id=938077929]
+stream = ExtResource("5_ufyl4")
+bus = &"Music"

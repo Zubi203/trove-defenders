@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cx5hh4k64itp5"]
+
+[ext_resource type="PackedScene" uid="uid://urmdf5kq5dlg" path="res://Scenes/Units/unit.tscn" id="1_s4occ"]
+[ext_resource type="Script" uid="uid://hfo5qdblnfyt" path="res://Scripts/ai_controller.gd" id="2_l573w"]
+[ext_resource type="Shader" uid="uid://bi2gnxcvvc0gu" path="res://Shaders/map_object.gdshader" id="2_sx6xe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytye6"]
+resource_local_to_scene = true
+shader = ExtResource("2_sx6xe")
+shader_parameter/progress_white = 0.0
+shader_parameter/progress_green = 0.0
+
+[node name="EnemyUnit" unique_id=1687360007 instance=ExtResource("1_s4occ")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=112064396]
+material = SubResource("ShaderMaterial_ytye6")
+
+[node name="AIController" type="Node2D" parent="." index="7" unique_id=1417697205]
+script = ExtResource("2_l573w")
+metadata/_custom_type_script = "uid://hfo5qdblnfyt"

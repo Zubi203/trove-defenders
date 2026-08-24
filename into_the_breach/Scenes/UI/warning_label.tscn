@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://cys02vqxirg6a"]
+
+[ext_resource type="Theme" uid="uid://dot3ogobj20y7" path="res://Resources/ui_theme.tres" id="1_qckx1"]
+[ext_resource type="Texture2D" uid="uid://blwjtrnupnb5j" path="res://Graphics/icons/Danger sign 1 256 px.png" id="2_agx26"]
+[ext_resource type="Script" uid="uid://bjl818bamt35k" path="res://Scripts/warning_label.gd" id="2_gxv48"]
+[ext_resource type="Resource" uid="uid://de4dwju8c5lfc" path="res://Resources/enemy_units/cyclops.tres" id="3_565ub"]
+[ext_resource type="Texture2D" uid="uid://cfwp1iikydh0i" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0109.png" id="3_agx26"]
+[ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="4_uageu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s4hme"]
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uageu"]
+bg_color = Color(0.80241024, 0.7348795, 0.6808097, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.24979353, 0.1957407, 0.13631901, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxv48"]
+bg_color = Color(0.80241024, 0.7348795, 0.6808097, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.24979353, 0.1957407, 0.13631901, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2w44"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="WarningLabel" type="ColorRect" unique_id=1864956593 node_paths=PackedStringArray("description_label", "sprite")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qckx1")
+color = Color(0, 0, 0, 0.47058824)
+script = ExtResource("2_gxv48")
+description_label = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer2/Label")
+sprite = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer/TextureRect")
+unit_data = ExtResource("3_565ub")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1502316315]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1195042075]
+custom_minimum_size = Vector2(500, 200)
+custom_maximum_size = Vector2(600, 300)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=847212301]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1405017255]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=295128352]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1298192303]
+modulate = Color(1, 0.36078432, 0.36078432, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_agx26")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=799826251]
+layout_mode = 2
+text = "FORMIDABLE FOE APPROACHES!"
+label_settings = SubResource("LabelSettings_s4hme")
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1256465216]
+modulate = Color(1, 0.36078432, 0.36078432, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_agx26")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1376987882]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=401614646]
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uageu")
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=1376203525]
+layout_mode = 2
+texture = ExtResource("3_agx26")
+stretch_mode = 5
+
+[node name="PanelContainer2" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2133884323]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_gxv48")
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1583017963]
+custom_maximum_size = Vector2(420, -1)
+layout_mode = 2
+text = "leave a dark totem upon hitting empty tiles. The totem will detonate on the next turn if not destroyed, dealing damage across a large area"
+label_settings = SubResource("LabelSettings_h2w44")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="." unique_id=802644481]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = 194.0
+offset_right = 68.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+
+[node name="AnimatedButtonComponent" type="Node2D" parent="Button" unique_id=563786066]
+script = ExtResource("4_uageu")
+metadata/_custom_type_script = "uid://c68ji40djcytp"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

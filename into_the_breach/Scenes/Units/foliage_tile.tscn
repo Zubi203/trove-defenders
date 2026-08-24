@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://gmjf5jhybit8"]
+
+[ext_resource type="PackedScene" uid="uid://co2w5y7nklhld" path="res://Scenes/Units/hazard_tile_base.tscn" id="1_uiwr1"]
+[ext_resource type="Resource" uid="uid://c85mvxqafgcf5" path="res://Resources/hazard_tiles/foliage_tile.tres" id="2_uiwr1"]
+[ext_resource type="Script" uid="uid://1cl7ynwslb3u" path="res://Scripts/foliage_tile.gd" id="2_x3vho"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2w44"]
+radius = 4.0
+
+[node name="FoliageTile" unique_id=1276451 instance=ExtResource("1_uiwr1")]
+script = ExtResource("2_x3vho")
+tile_data = ExtResource("2_uiwr1")
+
+[node name="Hitbox" type="Area2D" parent="." index="1" unique_id=427632719]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=1717146208]
+shape = SubResource("CircleShape2D_h2w44")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

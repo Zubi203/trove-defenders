@@ -1,0 +1,30 @@
+[gd_scene format=4 uid="uid://dcgep28qdrops"]
+
+[ext_resource type="PackedScene" uid="uid://dal63bbg8rhep" path="res://Scenes/Levels/level_base.tscn" id="1_vk57k"]
+[ext_resource type="PackedScene" uid="uid://cx5hh4k64itp5" path="res://Scenes/Units/enemy_unit.tscn" id="2_8ffim"]
+[ext_resource type="Resource" uid="uid://c1sthmxul6xeu" path="res://Resources/enemy_units/crab.tres" id="3_7p6j4"]
+[ext_resource type="Resource" uid="uid://bnuhhc788wpki" path="res://Resources/enemy_units/rat.tres" id="4_6444e"]
+[ext_resource type="PackedScene" uid="uid://durhp3iw63rrf" path="res://Scenes/Units/point_of_interest.tscn" id="5_6444e"]
+
+[node name="LevelBase" unique_id=1326723513 instance=ExtResource("1_vk57k")]
+
+[node name="Board" parent="Tiles" parent_id_path=PackedInt32Array(1567823762) index="0" unique_id=1493948929]
+tile_map_data = PackedByteArray("AAAKACgAAAADAAAAAAAKACkAAAAIAAAAAAALACoAAAAJAAAAAAALACsAAAACAAIAAAAMACwAAAACAAIAAAAMAC0AAAAGAAMAAAANAC4AAAACAAIAAAAQACcAAAAGAAMAAAAQACYAAAACAAIAAAAPACUAAAACAAIAAAAPACQAAAACAAIAAAAOACMAAAAGAAMAAAAOACIAAAAGAAMAAAALACgAAAAJAAAAAAALACkAAAACAAIAAAAMACgAAAACAAIAAAAOACQAAAACAAIAAAAOACUAAAAFAAAAAAAOACYAAAAJAAAAAAANACgAAAAJAAAAAAAMACkAAAACAAIAAAAMACoAAAACAAIAAAAMACsAAAACAAIAAAANACoAAAACAAIAAAANACkAAAACAAIAAAAOACgAAAAEAAAAAAAOACcAAAAJAAAAAAAPACYAAAAJAAAAAAAPACcAAAAJAAAAAAAPACgAAAAAAAIAAAAOACkAAAACAAIAAAAOACoAAAACAAIAAAANACsAAAAGAAMAAAANACwAAAAGAAMAAAANAC0AAAACAAIAAAAOACwAAAACAAIAAAAOACsAAAACAAIAAAAPACoAAAACAAIAAAAPACkAAAACAAIAAAAQACgAAAACAAIAAAAJACcAAAAJAAAAAAAKACUAAAAJAAAAAAAKACYAAAAHAAAAAAAKACcAAAAGAAAAAAALACMAAAACAAIAAAALACQAAAACAAIAAAALACUAAAACAAIAAAALACYAAAABAAIAAAALACcAAAABAAIAAAAMACEAAAACAAIAAAAMACIAAAACAAIAAAAMACMAAAAGAAMAAAAMACQAAAACAAIAAAAMACUAAAACAAIAAAAMACYAAAABAAIAAAAMACcAAAACAAIAAAANACAAAAACAAIAAAANACEAAAACAAIAAAANACIAAAACAAIAAAANACMAAAACAAIAAAANACQAAAACAAIAAAANACUAAAAJAAAAAAANACYAAAAAAAAAAAANACcAAAAJAAAAAAA=")
+
+[node name="EnemyUnit" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="0" unique_id=1687360007 instance=ExtResource("2_8ffim")]
+position = Vector2(480, 336)
+data = ExtResource("3_7p6j4")
+
+[node name="EnemyUnit2" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="1" unique_id=257588690 instance=ExtResource("2_8ffim")]
+position = Vector2(432, 359)
+data = ExtResource("4_6444e")
+
+[node name="EnemyUnit3" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="2" unique_id=1721567349 instance=ExtResource("2_8ffim")]
+position = Vector2(478, 306)
+data = ExtResource("4_6444e")
+
+[node name="PointOfInterest" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="0" unique_id=1964640649 instance=ExtResource("5_6444e")]
+position = Vector2(399, 295)
+
+[node name="PointOfInterest2" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="1" unique_id=42753889 instance=ExtResource("5_6444e")]
+position = Vector2(351, 337)

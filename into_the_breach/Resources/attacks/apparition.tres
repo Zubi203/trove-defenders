@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://bam4dbnnmpt3i"]
+
+[ext_resource type="PackedScene" uid="uid://c5ep0he2nydoh" path="res://Scenes/Projectiles/straight_projectile.tscn" id="1_4m4me"]
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_v41be"]
+[ext_resource type="AudioStream" uid="uid://4lwois65pmv3" path="res://Audio/sfx/12_human_jump_2.wav" id="1_xtwrc"]
+[ext_resource type="Texture2D" uid="uid://nvap4c11cjcl" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0108.png" id="3_xtwrc"]
+
+[resource]
+script = ExtResource("1_v41be")
+name = "Apparition"
+texture = ExtResource("3_xtwrc")
+projectile_scene = ExtResource("1_4m4me")
+attack_sound = ExtResource("1_xtwrc")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

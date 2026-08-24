@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://urmdf5kq5dlg"]
+
+[ext_resource type="PackedScene" uid="uid://bsw31jo32m4w7" path="res://Scenes/Units/map_object.tscn" id="1_mxgbu"]
+[ext_resource type="Script" uid="uid://dfe5uuqu4l248" path="res://Scripts/unit.gd" id="2_frdw3"]
+[ext_resource type="Shader" uid="uid://bi2gnxcvvc0gu" path="res://Shaders/map_object.gdshader" id="3_m3b6u"]
+[ext_resource type="Script" uid="uid://bffd7ux8tswi7" path="res://Scripts/health_component.gd" id="3_p6qmk"]
+[ext_resource type="Script" uid="uid://u35mhapsjacu" path="res://Scripts/movement_component.gd" id="4_m3b6u"]
+[ext_resource type="Script" uid="uid://cr7en263bc8ws" path="res://Scripts/attack_component.gd" id="5_gsym4"]
+[ext_resource type="PackedScene" uid="uid://005m1u2m3xcj" path="res://Scenes/UI/number_effect.tscn" id="5_o311s"]
+[ext_resource type="PackedScene" uid="uid://d4a6d058m1i2p" path="res://Scenes/UI/unit_ui.tscn" id="6_o311s"]
+[ext_resource type="PackedScene" uid="uid://bu8iho58eav1r" path="res://Scenes/Units/health_bar.tscn" id="7_pim1m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6qmk"]
+resource_local_to_scene = true
+shader = ExtResource("3_m3b6u")
+shader_parameter/progress_white = 0.0
+shader_parameter/progress_green = 0.0
+
+[node name="Unit" unique_id=1687360007 instance=ExtResource("1_mxgbu")]
+script = ExtResource("2_frdw3")
+data = null
+
+[node name="Sprite2D" parent="." index="0" unique_id=112064396]
+material = SubResource("ShaderMaterial_p6qmk")
+
+[node name="HealthComponent" type="Node2D" parent="." index="2" unique_id=1141636722]
+script = ExtResource("3_p6qmk")
+number_effect = ExtResource("5_o311s")
+
+[node name="MovementComponent" type="Node2D" parent="." index="3" unique_id=1793027869]
+script = ExtResource("4_m3b6u")
+
+[node name="AttackComponent" type="Node2D" parent="." index="4" unique_id=469614199]
+script = ExtResource("5_gsym4")
+metadata/_custom_type_script = "uid://cr7en263bc8ws"
+
+[node name="UnitUI" parent="." index="5" unique_id=787437783 instance=ExtResource("6_o311s")]
+visible = false
+
+[node name="CenterContainer" parent="." index="6" unique_id=1768538022 instance=ExtResource("7_pim1m")]

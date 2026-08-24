@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://cbp3ug2m6mf3f"]
+
+[ext_resource type="PackedScene" uid="uid://tam1y84o1hc1" path="res://Scenes/Projectiles/lobbed_projectile.tscn" id="1_m1whu"]
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_onjmp"]
+[ext_resource type="AudioStream" uid="uid://4lwois65pmv3" path="res://Audio/sfx/12_human_jump_2.wav" id="1_y4yle"]
+[ext_resource type="Texture2D" uid="uid://bvis34dcmw0uh" path="res://Graphics/ProjectileSprites.png" id="4_y4yle"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oadur"]
+atlas = ExtResource("4_y4yle")
+region = Rect2(64, 17, 16, 14)
+
+[resource]
+script = ExtResource("1_onjmp")
+name = "Rock Throw"
+damage = 2
+type = 1
+texture = SubResource("AtlasTexture_oadur")
+projectile_scene = ExtResource("1_m1whu")
+attack_sound = ExtResource("1_y4yle")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

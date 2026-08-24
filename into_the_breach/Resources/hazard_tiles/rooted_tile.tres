@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HazardTileData" format=3 uid="uid://cp4yomgh4t216"]
+
+[ext_resource type="Script" uid="uid://bse1m7j7vxlbd" path="res://Scripts/hazard_tile_data.gd" id="1_w8n6c"]
+[ext_resource type="Texture2D" uid="uid://cwxa5mn5060s" path="res://Graphics/HazardTiles.png" id="2_v3d10"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3d10"]
+atlas = ExtResource("2_v3d10")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_w8n6c")
+name = "Rooted Tile"
+description = "Units standing on this cannot move or be pushed"
+turn_duration = 5
+texture = SubResource("AtlasTexture_v3d10")
+metadata/_custom_type_script = "uid://bse1m7j7vxlbd"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HazardTileData" format=3 uid="uid://d3llg5tkiojs1"]
+
+[ext_resource type="Script" uid="uid://bse1m7j7vxlbd" path="res://Scripts/hazard_tile_data.gd" id="1_yixst"]
+[ext_resource type="Texture2D" uid="uid://cwxa5mn5060s" path="res://Graphics/HazardTiles.png" id="2_tue4i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tue4i"]
+atlas = ExtResource("2_tue4i")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_yixst")
+name = "Webbed Tile"
+description = "Units standing on this cannot move or be pushed"
+turn_duration = 3
+texture = SubResource("AtlasTexture_tue4i")
+metadata/_custom_type_script = "uid://bse1m7j7vxlbd"

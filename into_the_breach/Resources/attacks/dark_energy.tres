@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://brvonhdj2giec"]
+
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_8xtfy"]
+[ext_resource type="AudioStream" uid="uid://bct1nkvcbs8wf" path="res://Audio/sfx/10_human_special_atk_2.wav" id="1_m3liw"]
+[ext_resource type="PackedScene" uid="uid://b6eyfaiyt1xaj" path="res://Scenes/Projectiles/dark_enery.tscn" id="2_oqe0v"]
+[ext_resource type="Texture2D" uid="uid://cg8vf7s0fhubq" path="res://Graphics/Dark VFX 2 (48x64).png" id="4_oqe0v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kv3gb"]
+atlas = ExtResource("4_oqe0v")
+region = Rect2(149, 25, 37, 54)
+
+[resource]
+script = ExtResource("1_8xtfy")
+name = "Dark Energy"
+damage = 2
+type = 2
+texture = SubResource("AtlasTexture_kv3gb")
+projectile_scene = ExtResource("2_oqe0v")
+attack_sound = ExtResource("1_m3liw")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

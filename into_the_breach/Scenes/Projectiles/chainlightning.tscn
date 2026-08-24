@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ni1h1ks36nhf"]
+
+[ext_resource type="PackedScene" uid="uid://ce7urdgjajumy" path="res://Scenes/Projectiles/base_projectile.tscn" id="1_kbolp"]
+[ext_resource type="Script" uid="uid://bkv51542jlpdx" path="res://chain_lightning.gd" id="2_y4jfj"]
+
+[node name="BaseProjectile" unique_id=46804400 instance=ExtResource("1_kbolp")]
+script = ExtResource("2_y4jfj")

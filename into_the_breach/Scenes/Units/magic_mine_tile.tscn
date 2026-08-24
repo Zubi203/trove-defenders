@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://clco2ybnadyyp"]
+
+[ext_resource type="PackedScene" uid="uid://co2w5y7nklhld" path="res://Scenes/Units/hazard_tile_base.tscn" id="1_23m7r"]
+[ext_resource type="Script" uid="uid://dvonfi4ui1m6u" path="res://magic_mine_tile.gd" id="2_4jddg"]
+[ext_resource type="Resource" uid="uid://brvonhdj2giec" path="res://Resources/attacks/dark_energy.tres" id="3_4jddg"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_akfy1"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(8.875, 4.47, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -15, 0)
+color = Color(0.949, 0.82, 1, 1)
+
+[node name="MagicMineTile" unique_id=1276451 instance=ExtResource("1_23m7r")]
+script = ExtResource("2_4jddg")
+projectile_data = ExtResource("3_4jddg")
+
+[node name="PanelContainer" parent="HazardTileUI" parent_id_path=PackedInt32Array(1041930883) index="0" unique_id=123863114]
+offset_right = 553.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="1" unique_id=2048940849]
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_akfy1")

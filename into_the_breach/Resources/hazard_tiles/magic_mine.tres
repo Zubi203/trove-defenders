@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HazardTileData" format=3 uid="uid://l05yuersjskk"]
+
+[ext_resource type="Script" uid="uid://bse1m7j7vxlbd" path="res://Scripts/hazard_tile_data.gd" id="1_1sxl0"]
+[ext_resource type="Texture2D" uid="uid://cwxa5mn5060s" path="res://Graphics/HazardTiles.png" id="2_g3yj1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3yj1"]
+atlas = ExtResource("2_g3yj1")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_1sxl0")
+name = "Magic Mine"
+description = "Detonates after 2 turns, dealing damage in a large cross pattern"
+turn_duration = 3
+texture = SubResource("AtlasTexture_g3yj1")
+metadata/_custom_type_script = "uid://bse1m7j7vxlbd"

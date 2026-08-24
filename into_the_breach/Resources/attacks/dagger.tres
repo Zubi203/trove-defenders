@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://dlwhylems304o"]
+
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_lc5m8"]
+[ext_resource type="AudioStream" uid="uid://dcwdlp71syjk0" path="res://Audio/sfx/07_human_atk_sword_1.wav" id="1_o53rh"]
+[ext_resource type="PackedScene" uid="uid://c5ep0he2nydoh" path="res://Scenes/Projectiles/straight_projectile.tscn" id="1_tbcd8"]
+[ext_resource type="Texture2D" uid="uid://bta3jmttamjv2" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0103.png" id="3_tbcd8"]
+
+[resource]
+script = ExtResource("1_lc5m8")
+name = "Dagger Throw"
+texture = ExtResource("3_tbcd8")
+projectile_scene = ExtResource("1_tbcd8")
+attack_sound = ExtResource("1_o53rh")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

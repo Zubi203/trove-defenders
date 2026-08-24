@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://fowk1kvqks3j"]
+
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_3juve"]
+[ext_resource type="Resource" uid="uid://dhjuggbkjtpu6" path="res://Resources/attacks/dark_pulse.tres" id="1_e0rvy"]
+[ext_resource type="Texture2D" uid="uid://ckja66ogl8vqb" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0111.png" id="2_ajl1n"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_p0su5"]
+[ext_resource type="Resource" uid="uid://bqcwdv0iq5ocs" path="res://Resources/attack_effects/magic_mine_spawn.tres" id="2_wb0xe"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_wb0xe"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_taapo"]
+
+[resource]
+script = ExtResource("1_3juve")
+texture = ExtResource("2_ajl1n")
+name = "Dark Wizard"
+description = "This deadly foe lobs magic bombs that deal damage and leave a dark totem upon hitting empty tiles. The totem will detonate on the next turn if not destroyed, dealing damage across a large area"
+attack_data = ExtResource("1_e0rvy")
+attack_effect_data = ExtResource("2_wb0xe")
+range_type = 1
+attack_range = 4
+dead_zone = 4
+health = 6
+hit_sound = ExtResource("3_wb0xe")
+heal_sound = ExtResource("2_p0su5")
+move_sound = ExtResource("4_taapo")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

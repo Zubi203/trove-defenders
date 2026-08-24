@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="HazardTileSpawnEffect" format=3 uid="uid://6dmu2tu3kt8"]
+
+[ext_resource type="Script" uid="uid://bpfrnox2jv6pd" path="res://Scripts/hazard_tile_spawn_effect.gd" id="1_co5v8"]
+
+[resource]
+script = ExtResource("1_co5v8")
+tile_to_spawn = 4
+metadata/_custom_type_script = "uid://bpfrnox2jv6pd"

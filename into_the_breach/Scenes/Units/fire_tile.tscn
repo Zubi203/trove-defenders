@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cj00bj6bpqnkj"]
+
+[ext_resource type="PackedScene" uid="uid://co2w5y7nklhld" path="res://Scenes/Units/hazard_tile_base.tscn" id="1_2biph"]
+[ext_resource type="Script" uid="uid://bn8i0ems0uh5" path="res://Scripts/fire_tile.gd" id="2_gepu6"]
+[ext_resource type="Resource" uid="uid://b0fhfw8vguusv" path="res://Resources/hazard_tiles/fire_tile.tres" id="3_vyqxm"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h2w44"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(11.375, 5.955, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -15, 0)
+color = Color(1, 0.68499994, 0.100000024, 1)
+
+[node name="FireTile" unique_id=1276451 instance=ExtResource("1_2biph")]
+script = ExtResource("2_gepu6")
+damage_amount = 1
+tile_data = ExtResource("3_vyqxm")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="1" unique_id=1942053628]
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_h2w44")

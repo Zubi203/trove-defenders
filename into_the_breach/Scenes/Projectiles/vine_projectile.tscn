@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://51f02fhq2yir"]
+
+[ext_resource type="PackedScene" uid="uid://o6bakebvumo1" path="res://Scenes/Projectiles/point_projectile.tscn" id="1_so68f"]
+[ext_resource type="Script" uid="uid://ch6y0ybf0jli7" path="res://Scripts/vine_attack.gd" id="2_cmvn3"]
+
+[node name="VineProjectile" unique_id=46804400 instance=ExtResource("1_so68f")]
+script = ExtResource("2_cmvn3")

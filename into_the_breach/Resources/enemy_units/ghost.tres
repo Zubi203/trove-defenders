@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://bagk81j0rjwb5"]
+
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_srsy0"]
+[ext_resource type="Resource" uid="uid://dvhqpid6inesl" path="res://Resources/attacks/phantom_force.tres" id="1_vp6j6"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_ed03v"]
+[ext_resource type="Texture2D" uid="uid://bx3ltrs5gkum1" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0121.png" id="2_lehnd"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_nfdrw"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_dv5oe"]
+
+[resource]
+script = ExtResource("1_srsy0")
+texture = ExtResource("2_lehnd")
+name = "Ghost"
+description = "Medium ranged attack that can push back targets. Can float over water"
+attack_data = ExtResource("1_vp6j6")
+is_flying = true
+hit_sound = ExtResource("3_nfdrw")
+heal_sound = ExtResource("2_ed03v")
+move_sound = ExtResource("4_dv5oe")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

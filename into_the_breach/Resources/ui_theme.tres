@@ -1,0 +1,120 @@
+[gd_resource type="Theme" format=3 uid="uid://dot3ogobj20y7"]
+
+[ext_resource type="FontFile" uid="uid://dia4b77septkf" path="res://Graphics/BoldPixels.ttf" id="1_xguql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xguql"]
+bg_color = Color(0.56078434, 0.34509805, 0.16862746, 0.78431374)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.37, 0.22755, 0.11100001, 0.78431374)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.41960785)
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5wxr"]
+bg_color = Color(0.56, 0.29204002, 0.072799996, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.37, 0.19295502, 0.0481, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.41960785)
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkys1"]
+bg_color = Color(0.36862746, 0.19215687, 0.047058824, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.3032008, 0.15394929, 0.03166438, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.41960785)
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khvw3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xguql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls6f5"]
+bg_color = Color(0.32156864, 0.25490198, 0.18431373, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.42, 0.31037998, 0.19319999, 1)
+shadow_color = Color(0.19, 0.19, 0.19, 1)
+shadow_size = 5
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_xguql")
+Button/styles/disabled = SubResource("StyleBoxFlat_xguql")
+Button/styles/focus = SubResource("StyleBoxFlat_y5wxr")
+Button/styles/hover = SubResource("StyleBoxFlat_y5wxr")
+Button/styles/normal = SubResource("StyleBoxFlat_y5wxr")
+Button/styles/pressed = SubResource("StyleBoxFlat_pkys1")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_xguql")
+Label/styles/focus = SubResource("StyleBoxFlat_khvw3")
+Label/styles/normal = SubResource("StyleBoxEmpty_xguql")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ls6f5")

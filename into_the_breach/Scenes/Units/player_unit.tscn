@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c5wvcfr71akby"]
+
+[ext_resource type="PackedScene" uid="uid://urmdf5kq5dlg" path="res://Scenes/Units/unit.tscn" id="1_xjihm"]
+[ext_resource type="Script" uid="uid://d1lgh3ba72mh" path="res://Scripts/player_controller.gd" id="2_dwi70"]
+[ext_resource type="Resource" uid="uid://b1dlxbpgms5xl" path="res://Resources/player_units/knight.tres" id="2_sqtjf"]
+
+[node name="PlayerUnit" unique_id=1687360007 instance=ExtResource("1_xjihm")]
+data = ExtResource("2_sqtjf")
+
+[node name="PlayerController" type="Node2D" parent="." index="4" unique_id=1093126013]
+script = ExtResource("2_dwi70")
+metadata/_custom_type_script = "uid://d1lgh3ba72mh"

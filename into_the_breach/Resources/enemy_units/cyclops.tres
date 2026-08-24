@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://de4dwju8c5lfc"]
+
+[ext_resource type="Resource" uid="uid://cbp3ug2m6mf3f" path="res://Resources/attacks/rock_throw.tres" id="1_8e88e"]
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_l6ws4"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_bwrwx"]
+[ext_resource type="Resource" uid="uid://di530r0epfotf" path="res://Resources/attack_effects/create_water_tile.tres" id="2_h5tor"]
+[ext_resource type="Texture2D" uid="uid://cfwp1iikydh0i" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0109.png" id="2_i6q2y"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_h5tor"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_rlngv"]
+
+[resource]
+script = ExtResource("1_l6ws4")
+texture = ExtResource("2_i6q2y")
+name = "Cyclops"
+description = "Powerful foe that cannot be pushed back. His rock throw attack deals huge damage and will destroy empty tiles upon hit"
+attack_data = ExtResource("1_8e88e")
+attack_effect_data = ExtResource("2_h5tor")
+range_type = 1
+dead_zone_type = 1
+attack_range = 4
+dead_zone = 2
+is_pushable = false
+health = 6
+hit_sound = ExtResource("3_h5tor")
+heal_sound = ExtResource("2_bwrwx")
+move_sound = ExtResource("4_rlngv")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://o6bakebvumo1"]
+
+[ext_resource type="PackedScene" uid="uid://ce7urdgjajumy" path="res://Scenes/Projectiles/base_projectile.tscn" id="1_1s40a"]
+[ext_resource type="Script" uid="uid://b4yvgvu6xwpqm" path="res://Scripts/point_projectile.gd" id="2_kahlj"]
+
+[node name="PointProjectile" unique_id=46804400 instance=ExtResource("1_1s40a")]
+script = ExtResource("2_kahlj")
+animation_duration = 1.0

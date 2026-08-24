@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HazardTileData" format=3 uid="uid://c85mvxqafgcf5"]
+
+[ext_resource type="Script" uid="uid://bse1m7j7vxlbd" path="res://Scripts/hazard_tile_data.gd" id="1_jx0vn"]
+[ext_resource type="Texture2D" uid="uid://b3tda3qj316cp" path="res://Graphics/isometric tileset/isometric tileset/separated images/tile_043.png" id="2_2yj1j"]
+
+[resource]
+script = ExtResource("1_jx0vn")
+name = "Grass Tile"
+description = "Sets on fire when hit"
+turn_duration = -1
+texture = ExtResource("2_2yj1j")
+metadata/_custom_type_script = "uid://bse1m7j7vxlbd"

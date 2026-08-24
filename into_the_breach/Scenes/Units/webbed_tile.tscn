@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://1fln6rhj0lbs"]
+
+[ext_resource type="PackedScene" uid="uid://co2w5y7nklhld" path="res://Scenes/Units/hazard_tile_base.tscn" id="1_7f83g"]
+[ext_resource type="Script" uid="uid://cv7rbi5kh28hp" path="res://Scripts/snare_tile.gd" id="2_0kqky"]
+[ext_resource type="Resource" uid="uid://d3llg5tkiojs1" path="res://Resources/hazard_tiles/webbed_tile.tres" id="3_y1ttn"]
+
+[node name="WebbedTile" unique_id=1276451 instance=ExtResource("1_7f83g")]
+script = ExtResource("2_0kqky")
+tile_data = ExtResource("3_y1ttn")
+
+[node name="PanelContainer" parent="HazardTileUI" parent_id_path=PackedInt32Array(1041930883) index="0" unique_id=123863114]
+offset_right = 553.0

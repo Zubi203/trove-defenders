@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://25gdxwbh3y2g"]
+
+[ext_resource type="Script" uid="uid://dkqpigsh6vxoa" path="res://Scripts/spawn_cursor.gd" id="1_3ebdu"]
+[ext_resource type="Texture2D" uid="uid://c451k8aa3hvhv" path="res://Graphics/arrow.webp" id="1_hx7dt"]
+[ext_resource type="Texture2D" uid="uid://dg7f6clc4ardi" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0084.png" id="2_yqdl2"]
+
+[node name="SpawnCursor" type="Node2D" unique_id=741121339 node_paths=PackedStringArray("unit_sprite")]
+script = ExtResource("1_3ebdu")
+unit_sprite = NodePath("UnitSprite")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=325913376]
+modulate = Color(1, 1, 0.46666667, 1)
+position = Vector2(-3.907985e-14, -8.999998)
+rotation = 1.5707964
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("1_hx7dt")
+flip_v = true
+
+[node name="UnitSprite" type="Sprite2D" parent="." unique_id=347389806]
+modulate = Color(1, 1, 1, 0.54901963)
+position = Vector2(0, -26)
+texture = ExtResource("2_yqdl2")

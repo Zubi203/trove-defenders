@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://be8a5sw8ct4ij"]
+
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_be78b"]
+[ext_resource type="Resource" uid="uid://bam4dbnnmpt3i" path="res://Resources/attacks/apparition.tres" id="1_rnwed"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_1gqx1"]
+[ext_resource type="Texture2D" uid="uid://cfg78x1iju706" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0100.png" id="2_dgllk"]
+[ext_resource type="Script" uid="uid://drrg52iaf0vnm" path="res://Scripts/PossessionEffect.gd" id="2_ih5oe"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_ih5oe"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_kxo2i"]
+
+[sub_resource type="Resource" id="Resource_wafo1"]
+script = ExtResource("2_ih5oe")
+metadata/_custom_type_script = "uid://drrg52iaf0vnm"
+
+[resource]
+script = ExtResource("1_be78b")
+texture = ExtResource("2_dgllk")
+name = "Spirit Caller"
+description = "Attacks with piercing projectiles that travel down the diagonals. Defeated enemies become possessed and are ressurected as allies"
+attack_data = ExtResource("1_rnwed")
+attack_effect_data = SubResource("Resource_wafo1")
+range_type = 3
+attack_range = 10
+max_move_distance = 2
+health = 2
+hit_sound = ExtResource("3_ih5oe")
+heal_sound = ExtResource("2_1gqx1")
+move_sound = ExtResource("4_kxo2i")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

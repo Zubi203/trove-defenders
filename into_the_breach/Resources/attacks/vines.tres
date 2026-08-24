@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://dh08qb86no722"]
+
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_1ymnd"]
+[ext_resource type="AudioStream" uid="uid://4lwois65pmv3" path="res://Audio/sfx/12_human_jump_2.wav" id="1_63mtl"]
+[ext_resource type="PackedScene" uid="uid://51f02fhq2yir" path="res://Scenes/Projectiles/vine_projectile.tscn" id="2_63mtl"]
+[ext_resource type="Texture2D" uid="uid://bvis34dcmw0uh" path="res://Graphics/ProjectileSprites.png" id="4_63mtl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv08j"]
+atlas = ExtResource("4_63mtl")
+region = Rect2(97, 0, 30, 32)
+
+[resource]
+script = ExtResource("1_1ymnd")
+name = "Vines"
+type = 2
+texture = SubResource("AtlasTexture_sv08j")
+projectile_scene = ExtResource("2_63mtl")
+attack_sound = ExtResource("1_63mtl")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

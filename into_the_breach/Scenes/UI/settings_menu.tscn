@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://ofaqva2rwypo"]
+
+[ext_resource type="Theme" uid="uid://dot3ogobj20y7" path="res://Resources/ui_theme.tres" id="1_gus5t"]
+[ext_resource type="Texture2D" uid="uid://gmq3cs7n8mxy" path="res://Graphics/icons/Plus 256 px.png" id="2_lqryc"]
+[ext_resource type="Script" uid="uid://1bejt3dycq0d" path="res://Scripts/settings_menu.gd" id="2_ynxh7"]
+[ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="3_vrd41"]
+[ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="4_ynxh7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2w44"]
+font_size = 32
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_65ton"]
+font_size = 20
+
+[node name="SettingsMenu" type="Control" unique_id=1857662868 node_paths=PackedStringArray("master_slider", "sfx_slider", "music_slider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_gus5t")
+script = ExtResource("2_ynxh7")
+master_slider = NodePath("CenterContainer/PanelContainer/VBoxContainer/SliderContainer/MasterSlider")
+sfx_slider = NodePath("CenterContainer/PanelContainer/VBoxContainer/SliderContainer3/SFXSlider")
+music_slider = NodePath("CenterContainer/PanelContainer/VBoxContainer/SliderContainer2/MusicSlider")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1886755843]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1603580128]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=2018986093]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="CenterContainer/PanelContainer" unique_id=1664686652]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ExitButton" type="TextureButton" parent="CenterContainer/PanelContainer/Control" unique_id=374352388]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.99997
+offset_top = 36.999992
+offset_right = 9.049896
+offset_bottom = 59.349876
+grow_horizontal = 0
+rotation = -2.3561945
+texture_normal = ExtResource("2_lqryc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AnimatedButtonComponent" type="Node2D" parent="CenterContainer/PanelContainer/Control/ExitButton" unique_id=455267646]
+script = ExtResource("3_vrd41")
+metadata/_custom_type_script = "uid://c68ji40djcytp"
+
+[node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="CenterContainer/PanelContainer/Control/ExitButton" unique_id=1486147982]
+script = ExtResource("4_ynxh7")
+metadata/_custom_type_script = "uid://cxx74db5puoyo"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=12117886]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=574260652]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Audio Settings"
+label_settings = SubResource("LabelSettings_h2w44")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SliderContainer" type="Control" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1619687727]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/SliderContainer" unique_id=50051704]
+layout_mode = 0
+offset_right = 380.0
+offset_bottom = 14.0
+size_flags_vertical = 6
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_65ton")
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/PanelContainer/VBoxContainer/SliderContainer" unique_id=2044139931]
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 0
+offset_left = 68.0
+offset_top = 14.0
+offset_right = 318.0
+offset_bottom = 30.0
+size_flags_vertical = 2
+max_value = 2.0
+step = 0.0
+
+[node name="SliderContainer2" type="Control" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1657920485]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/SliderContainer2" unique_id=184123743]
+layout_mode = 0
+offset_right = 380.0
+offset_bottom = 14.0
+size_flags_vertical = 6
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_65ton")
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/PanelContainer/VBoxContainer/SliderContainer2" unique_id=6705712]
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 0
+offset_left = 68.0
+offset_top = 14.0
+offset_right = 318.0
+offset_bottom = 30.0
+size_flags_vertical = 2
+max_value = 2.0
+step = 0.0
+
+[node name="SliderContainer3" type="Control" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=256614534]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/SliderContainer3" unique_id=391737807]
+layout_mode = 0
+offset_right = 380.0
+offset_bottom = 14.0
+size_flags_vertical = 6
+text = "Sound Effects Volume"
+label_settings = SubResource("LabelSettings_65ton")
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="CenterContainer/PanelContainer/VBoxContainer/SliderContainer3" unique_id=1019749643]
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 0
+offset_left = 68.0
+offset_top = 14.0
+offset_right = 318.0
+offset_bottom = 30.0
+size_flags_vertical = 2
+max_value = 2.0
+step = 0.0
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/Control/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/PanelContainer/VBoxContainer/SliderContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/PanelContainer/VBoxContainer/SliderContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/PanelContainer/VBoxContainer/SliderContainer3/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://l4hknfmgo6lc"]
+
+[ext_resource type="PackedScene" uid="uid://o6bakebvumo1" path="res://Scenes/Projectiles/point_projectile.tscn" id="1_yffto"]
+[ext_resource type="Script" uid="uid://cnq67ygogppg7" path="res://Scripts/lightning_projectile.gd" id="2_45g7y"]
+
+[node name="LightningProjectile" unique_id=46804400 instance=ExtResource("1_yffto")]
+script = ExtResource("2_45g7y")
+animation_duration = 0.6

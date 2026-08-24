@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://cy46l86p34pu4"]
+
+[ext_resource type="AudioStream" uid="uid://4lwois65pmv3" path="res://Audio/sfx/12_human_jump_2.wav" id="1_5ry34"]
+[ext_resource type="PackedScene" uid="uid://c5ep0he2nydoh" path="res://Scenes/Projectiles/straight_projectile.tscn" id="1_07f6e"]
+[ext_resource type="Script" uid="uid://c28hwu3j8wnhy" path="res://Scripts/attack_data.gd" id="1_sybvw"]
+[ext_resource type="Texture2D" uid="uid://bvis34dcmw0uh" path="res://Graphics/ProjectileSprites.png" id="4_5ry34"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynxh7"]
+atlas = ExtResource("4_5ry34")
+region = Rect2(81, 1, 13, 13)
+
+[resource]
+script = ExtResource("1_sybvw")
+name = "Bash"
+texture = SubResource("AtlasTexture_ynxh7")
+projectile_scene = ExtResource("1_07f6e")
+attack_sound = ExtResource("1_5ry34")
+metadata/_custom_type_script = "uid://c28hwu3j8wnhy"

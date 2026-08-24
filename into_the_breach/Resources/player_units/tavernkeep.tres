@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://dilehykp6whxe"]
+
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_1dugw"]
+[ext_resource type="Resource" uid="uid://wl51a8gyto6i" path="res://Resources/attacks/brew_flask.tres" id="1_vypgb"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_gnky7"]
+[ext_resource type="Script" uid="uid://bf1m7c3xwm31w" path="res://Scripts/potion_spawn_effect.gd" id="2_jw5ho"]
+[ext_resource type="Texture2D" uid="uid://di17ysugcky2e" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0086.png" id="2_r27vo"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_jw5ho"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_ug3lb"]
+
+[sub_resource type="Resource" id="Resource_ilpm8"]
+script = ExtResource("2_jw5ho")
+metadata/_custom_type_script = "uid://bf1m7c3xwm31w"
+
+[resource]
+script = ExtResource("1_1dugw")
+texture = ExtResource("2_r27vo")
+name = "Tavernkeep"
+description = "Tosses damaging brew at targets, dropping potions near the impact area. These will buff enemies and allies alike when picked up"
+attack_data = ExtResource("1_vypgb")
+attack_effect_data = SubResource("Resource_ilpm8")
+range_type = 1
+dead_zone_type = 1
+attack_range = 4
+dead_zone = 2
+hit_sound = ExtResource("3_jw5ho")
+heal_sound = ExtResource("2_gnky7")
+move_sound = ExtResource("4_ug3lb")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

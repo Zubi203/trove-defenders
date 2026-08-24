@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://cbxdos32yigyd"]
+
+[ext_resource type="Resource" uid="uid://croj4d07ow3mr" path="res://Resources/attacks/arrow.tres" id="1_0yx0m"]
+[ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_pbyr3"]
+[ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_nbg46"]
+[ext_resource type="Texture2D" uid="uid://cl3cln88gkcgg" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0112.png" id="2_rbv5k"]
+[ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_pkvkq"]
+[ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_52peb"]
+
+[resource]
+script = ExtResource("1_pbyr3")
+texture = ExtResource("2_rbv5k")
+name = "Ranger"
+description = "Shoots a long ranged arrow that pierces through targets"
+attack_data = ExtResource("1_0yx0m")
+attack_range = 8
+max_move_distance = 2
+hit_sound = ExtResource("3_pkvkq")
+heal_sound = ExtResource("2_nbg46")
+move_sound = ExtResource("4_52peb")
+metadata/_custom_type_script = "uid://c7pkrtw05oopa"

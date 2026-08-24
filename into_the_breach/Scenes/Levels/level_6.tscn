@@ -1,0 +1,55 @@
+[gd_scene format=4 uid="uid://xkbja6xkk27"]
+
+[ext_resource type="PackedScene" uid="uid://dal63bbg8rhep" path="res://Scenes/Levels/level_base.tscn" id="1_fj5rg"]
+[ext_resource type="PackedScene" uid="uid://6bulop7ryn5e" path="res://Scenes/Units/obstacle.tscn" id="2_d0oas"]
+[ext_resource type="PackedScene" uid="uid://cx5hh4k64itp5" path="res://Scenes/Units/enemy_unit.tscn" id="3_gqpvc"]
+[ext_resource type="Resource" uid="uid://fowk1kvqks3j" path="res://Resources/enemy_units/dark_wizard.tres" id="4_rkygx"]
+[ext_resource type="Resource" uid="uid://bagk81j0rjwb5" path="res://Resources/enemy_units/ghost.tres" id="5_b33os"]
+[ext_resource type="Resource" uid="uid://c54c2tjp1psvr" path="res://Resources/enemy_units/spider.tres" id="6_546p8"]
+[ext_resource type="PackedScene" uid="uid://durhp3iw63rrf" path="res://Scenes/Units/point_of_interest.tscn" id="6_rkygx"]
+[ext_resource type="PackedScene" uid="uid://cys02vqxirg6a" path="res://Scenes/UI/warning_label.tscn" id="8_5l77v"]
+
+[node name="LevelBase" unique_id=1326723513 instance=ExtResource("1_fj5rg")]
+
+[node name="Board" parent="Tiles" parent_id_path=PackedInt32Array(1567823762) index="0" unique_id=1493948929]
+tile_map_data = PackedByteArray("AAAKACgAAAAIAAUAAAAKACkAAAAIAAgAAAALACoAAAAGAAgAAAALACsAAAAIAAUAAAAMACwAAAAIAAUAAAAMAC0AAAAIAAUAAAANAC4AAAAIAAUAAAAQACcAAAAGAAgAAAAQACYAAAAIAAgAAAAPACUAAAAHAAgAAAAPACQAAAAIAAUAAAAOACMAAAAGAAUAAAAOACIAAAAIAAUAAAALACgAAAAHAAgAAAALACkAAAAIAAUAAAAMACgAAAAIAAUAAAAOACQAAAAIAAUAAAAOACUAAAAIAAUAAAAOACYAAAAIAAUAAAANACgAAAAIAAUAAAAMACkAAAAIAAUAAAAMACoAAAAIAAUAAAAMACsAAAAIAAUAAAANACoAAAAIAAUAAAANACkAAAAIAAUAAAAOACgAAAAIAAUAAAAOACcAAAAIAAUAAAAPACYAAAAIAAUAAAAPACcAAAAHAAgAAAAPACgAAAAGAAUAAAAOACkAAAAIAAUAAAAOACoAAAAIAAUAAAANACsAAAAIAAUAAAANACwAAAAIAAUAAAANAC0AAAAIAAUAAAAOACwAAAAIAAUAAAAOACsAAAAIAAUAAAAPACoAAAAHAAgAAAAPACkAAAAIAAgAAAAQACgAAAAGAAgAAAAJACcAAAAIAAUAAAAKACUAAAAGAAUAAAAKACYAAAAIAAUAAAAKACcAAAAFAAgAAAALACMAAAAIAAUAAAALACQAAAAIAAUAAAALACUAAAAIAAUAAAALACYAAAAIAAUAAAALACcAAAAIAAUAAAAMACEAAAAIAAUAAAAMACIAAAAIAAUAAAAMACMAAAAIAAUAAAAMACQAAAAIAAUAAAAMACUAAAAIAAUAAAAMACYAAAAIAAUAAAAMACcAAAAGAAUAAAANACAAAAAIAAUAAAANACEAAAAIAAUAAAANACIAAAAIAAUAAAANACMAAAAIAAUAAAANACQAAAAIAAUAAAANACUAAAAIAAUAAAANACYAAAAIAAUAAAANACcAAAAIAAUAAAA=")
+
+[node name="EnemyUnit" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="0" unique_id=2013320108 instance=ExtResource("3_gqpvc")]
+position = Vector2(431, 264)
+data = ExtResource("4_rkygx")
+
+[node name="EnemyUnit2" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="1" unique_id=1204407677 instance=ExtResource("3_gqpvc")]
+position = Vector2(498, 296)
+data = ExtResource("5_b33os")
+
+[node name="EnemyUnit3" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="2" unique_id=1535045633 instance=ExtResource("3_gqpvc")]
+position = Vector2(365, 330)
+data = ExtResource("5_b33os")
+
+[node name="EnemyUnit4" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="3" unique_id=507608518 instance=ExtResource("3_gqpvc")]
+position = Vector2(367, 297)
+data = ExtResource("6_546p8")
+
+[node name="PointOfInterest" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="0" unique_id=1687360007 instance=ExtResource("6_rkygx")]
+position = Vector2(480, 319)
+
+[node name="PointOfInterest2" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="1" unique_id=690248812 instance=ExtResource("6_rkygx")]
+position = Vector2(416, 351)
+
+[node name="Obstacle" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="2" unique_id=1257733706 instance=ExtResource("2_d0oas")]
+position = Vector2(481, 285)
+
+[node name="Obstacle2" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="3" unique_id=270680490 instance=ExtResource("2_d0oas")]
+position = Vector2(498, 326)
+size = 0
+
+[node name="Obstacle3" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="4" unique_id=1747698829 instance=ExtResource("2_d0oas")]
+position = Vector2(416, 317)
+size = 0
+
+[node name="Obstacle4" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="5" unique_id=571523647 instance=ExtResource("2_d0oas")]
+position = Vector2(352, 301)
+size = 1
+
+[node name="WarningLabel" parent="LevelUI" parent_id_path=PackedInt32Array(1044621262) index="4" unique_id=1864956593 instance=ExtResource("8_5l77v")]
+unit_data = ExtResource("4_rkygx")
