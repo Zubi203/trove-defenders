@@ -278,7 +278,7 @@ script = ExtResource("3_ouscj")
 gradient = SubResource("Gradient_ls6f5")
 
 [node name="Tiles" type="Node2D" parent="." unique_id=1567823762 node_paths=PackedStringArray("tile_map", "hover_cursor", "select_cursor", "telegraph_container")]
-z_index = -1
+z_index = -2
 script = ExtResource("3_4f6dp")
 tile_map = NodePath("Board")
 hover_cursor = NodePath("../HoverCursor")
@@ -297,6 +297,7 @@ tile_map_data = PackedByteArray("AAAKACgAAAAAAAAAAAAKACkAAAAAAAAAAAALACoAAAAAAAA
 tile_set = SubResource("TileSet_h2w44")
 
 [node name="Hazards" type="Node2D" parent="." unique_id=1744577582]
+z_index = -1
 y_sort_enabled = true
 script = ExtResource("7_q52rl")
 hazard_tile_scenes = Dictionary[int, PackedScene]({
@@ -309,10 +310,8 @@ hazard_tile_scenes = Dictionary[int, PackedScene]({
 
 [node name="TelegraphContainer" type="Node2D" parent="." unique_id=776287371]
 modulate = Color(1, 1, 1, 0.5882353)
-z_index = 1
 
 [node name="AttackEffectManager" type="Node2D" parent="." unique_id=1535991435 node_paths=PackedStringArray("unit_container")]
-z_index = 1
 y_sort_enabled = true
 script = ExtResource("14_6grlj")
 effect_scenes = Dictionary[int, PackedScene]({
@@ -344,11 +343,9 @@ region_rect = Rect2(64, 16, 32, 16)
 visible = false
 
 [node name="Units" type="Node2D" parent="." unique_id=2074821156]
-z_index = 1
 y_sort_enabled = true
 
 [node name="MapObjects" type="Node2D" parent="." unique_id=284824953]
-z_index = 1
 y_sort_enabled = true
 
 [node name="Camera" type="Camera2D" parent="." unique_id=674093679]
