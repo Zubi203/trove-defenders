@@ -15,7 +15,6 @@ description = "Short ranged attacks. Can fly over water"
 attack_data = ExtResource("1_jiy1y")
 attack_range = 1
 is_flying = true
-health = 2
 hit_sound = ExtResource("3_lxkie")
 heal_sound = ExtResource("2_g2wiw")
 move_sound = ExtResource("4_kvnol")

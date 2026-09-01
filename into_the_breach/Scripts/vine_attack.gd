@@ -13,4 +13,4 @@ func _point_projectile_animation():
 	tween.tween_property(sprite, "scale:y", base_scale.y, animation_duration * 0.8)
 	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CIRC)
 	tween.tween_property(sprite, "modulate:a", 0, animation_duration * 0.2)
-	tween.tween_callback(_impact)
+	tween.tween_callback(_impact.bind(global_position))

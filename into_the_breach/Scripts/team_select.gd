@@ -13,16 +13,21 @@ var selected_button: PartyButton = null
 @export var unit_card: Control
 
 func _ready() -> void:
-	GameManager.party_members.clear()
+	if GameManager.party_members.size() < PARTY_SIZE:
+		GameManager.party_members.clear()
+		for i in PARTY_SIZE:
+			party_units.append(units[i])
+	else:
+		party_units.clear()
+		party_units.append_array(GameManager.party_members.duplicate())
 	for button in party_buttons:
 		button.PartyButtonPressed.connect(_update_selected_button)
-	for i in PARTY_SIZE:
-		party_units.append(units[i])
 	selected_button = party_buttons[0]
 	_update_party_buttons()
 	_update_available_units(party_units[0])
 
 func _on_level_select_button_pressed() -> void:
+	GameManager.party_members.clear()
 	GameManager.party_members.append_array(party_units)
 	SceneTransition.transition(GameManager.Scenes.LEVEL_SELECT, GameManager.Scenes.TEAM_SELECT)
 
@@ -52,8 +57,7 @@ func _update_available_units(unit_to_select: UnitData):
 	avialable_units.append_array(units.duplicate())
 	var filter_array: Array[UnitData] = []
 	for button in party_buttons:
-		if button != selected_button:
-			filter_array.append(button.unit)
+		filter_array.append(button.unit)
 	avialable_units = avialable_units.filter(func(item): return item not in filter_array)
 	selected_unit = unit_to_select
 	if selected_button:

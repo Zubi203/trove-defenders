@@ -32,13 +32,13 @@ func _move(_delta: float):
 func _check_board_edge():
 	var grid_pos = GameManager.current_board.local_to_map(global_position)
 	if not GameManager.current_board_data.has(grid_pos):
-		_impact()
+		_impact(global_position)
 
 func _check_range_end():
 	var grid_pos = GameManager.current_board.local_to_map(global_position)
 	if target_cell_entered:
 		if grid_pos != target_cell:
-			_impact()
+			_impact(GameManager.current_board.map_to_local(target_cell))
 	else:
 		target_cell_entered = grid_pos == target_cell
 
@@ -60,11 +60,11 @@ func _on_area_entered(area: Area2D):
 			if child is HealthComponent:
 				child.take_damage(attack_data.damage + additional_damage)
 		if not attack_data.type == GameManager.AttackTypes.POINT:
-			_impact()
+			_impact(global_position)
 
-func _impact():
-	ProjectileImpact.emit(GameManager.current_board.local_to_map(global_position))
-	var grid_pos = GameManager.current_board.local_to_map(global_position)
+func _impact(pos: Vector2):
+	ProjectileImpact.emit(GameManager.current_board.local_to_map(pos))
+	var grid_pos = GameManager.current_board.local_to_map(pos)
 	if not attack_data.is_piercing or not GameManager.current_board_data.has(grid_pos):
 		_disable_collider.call_deferred()
 		set_process(false)

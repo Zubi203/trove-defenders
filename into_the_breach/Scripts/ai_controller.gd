@@ -50,13 +50,22 @@ func _score_location_tiles():
 		var closest_dist: float = 99999
 		
 		for object: MapObject in get_tree().get_nodes_in_group("MapObject"):
-			var dist = grid_pos.distance_to(GameManager.current_board.local_to_map(object.global_position))
-			if dist < closest_dist:
-				closest_dist = dist
-				closest_target = object
+			if object is Chest:
+				var dist = key.distance_to(GameManager.current_board.local_to_map(object.global_position))
+				if dist < closest_dist:
+					closest_dist = dist
+					closest_target = object
+			elif object is Unit:
+				for child in object.get_children():
+					if child is PlayerController:
+						var dist = key.distance_to(GameManager.current_board.local_to_map(object.global_position))
+						if dist < closest_dist:
+							closest_dist = dist
+							closest_target = object
 		
 		if closest_target:
 			location_scores[key] = round((1 - (closest_dist / 10)) * 10)
+			
 		
 		if key == prev_move_location:
 			location_scores[key] += prev_target_score

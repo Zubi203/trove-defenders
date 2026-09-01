@@ -15,7 +15,6 @@ description = "Short ranged attack and high mobility"
 attack_data = ExtResource("1_j0bxi")
 attack_range = 1
 max_move_distance = 4
-health = 2
 hit_sound = ExtResource("3_2dgv5")
 heal_sound = ExtResource("2_lucgk")
 move_sound = ExtResource("4_ak32r")

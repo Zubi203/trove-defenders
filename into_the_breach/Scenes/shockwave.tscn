@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ivs8oeekd8qa"]
+
+[ext_resource type="Script" uid="uid://cypaokvn84ohb" path="res://Scripts/chain_lightning.gd" id="1_rhd1y"]
+
+[sub_resource type="Gradient" id="Gradient_eml1m"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.059210528, 0.1118421, 0.13815789)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yhcui"]
+gradient = SubResource("Gradient_eml1m")
+fill = 1
+fill_from = Vector2(0.48634812, 0.46587032)
+
+[sub_resource type="Gradient" id="Gradient_uj01u"]
+colors = PackedColorArray(0.39232534, 0.39232537, 0.39232534, 1, 0.8776157, 0.8776158, 0.8776157, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pi8ck"]
+gradient = SubResource("Gradient_uj01u")
+
+[sub_resource type="Curve" id="Curve_s7y0c"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.1676605, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e8jn2"]
+curve = SubResource("Curve_s7y0c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h2w44"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0.5, 1)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 80.0
+initial_velocity_max = 130.0
+gravity = Vector3(0, -50, 0)
+scale_min = 0.39999998
+scale_max = 0.9
+scale_curve = SubResource("CurveTexture_e8jn2")
+color_initial_ramp = SubResource("GradientTexture1D_pi8ck")
+
+[node name="Shockwave" type="GPUParticles2D" unique_id=381902753]
+y_sort_enabled = true
+scale = Vector2(1, 0.5)
+emitting = false
+amount = 60
+texture = SubResource("GradientTexture2D_yhcui")
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_h2w44")
+script = ExtResource("1_rhd1y")

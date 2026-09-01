@@ -137,6 +137,7 @@ func ensnare():
 	actions_available[PlayerButton.ButtonType.MOVE] = false
 
 func _on_undo_move():
+	deselect()
 	if not actions_available[PlayerButton.ButtonType.MOVE]:
 		actions_available[PlayerButton.ButtonType.MOVE] = true
 		remaining_action_count += 1

@@ -11,7 +11,7 @@
 script = ExtResource("1_pbyr3")
 texture = ExtResource("2_rbv5k")
 name = "Ranger"
-description = "Shoots a long ranged arrow that pierces through targets"
+description = "Shoots a long ranged arrow that pierces through targets. Low mobility"
 attack_data = ExtResource("1_0yx0m")
 attack_range = 8
 max_move_distance = 2

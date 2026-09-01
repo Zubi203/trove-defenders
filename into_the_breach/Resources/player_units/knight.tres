@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_4xg7f"]
 [ext_resource type="Resource" uid="uid://dwlh1xyfiufnc" path="res://Resources/attacks/broadsword.tres" id="1_uihlv"]
+[ext_resource type="Script" uid="uid://75a7ao6q8avu" path="res://Scripts/single_push.gd" id="2_gqc14"]
 [ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_kke1c"]
 [ext_resource type="Texture2D" uid="uid://bw0qluougwfjq" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0096.png" id="2_ocl65"]
 [ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_gqc14"]
 [ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_c25hi"]
+
+[sub_resource type="Resource" id="Resource_wb0mc"]
+script = ExtResource("2_gqc14")
+metadata/_custom_type_script = "uid://75a7ao6q8avu"
 
 [resource]
 script = ExtResource("1_4xg7f")
@@ -13,6 +18,7 @@ texture = ExtResource("2_ocl65")
 name = "Knight"
 description = "Pushes back foes with powerful close-ranged attacks. High durability"
 attack_data = ExtResource("1_uihlv")
+attack_effect_data = SubResource("Resource_wb0mc")
 attack_range = 1
 max_move_distance = 2
 health = 5

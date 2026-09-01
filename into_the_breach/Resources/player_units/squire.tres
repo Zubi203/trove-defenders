@@ -4,8 +4,13 @@
 [ext_resource type="Resource" uid="uid://dlwhylems304o" path="res://Resources/attacks/dagger.tres" id="1_uoigx"]
 [ext_resource type="Texture2D" uid="uid://bx7in2aaxs2ya" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0098.png" id="2_cno24"]
 [ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_f0n84"]
+[ext_resource type="Script" uid="uid://75a7ao6q8avu" path="res://Scripts/single_push.gd" id="2_ux8hv"]
 [ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_ux8hv"]
 [ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_gfn2t"]
+
+[sub_resource type="Resource" id="Resource_dv5oe"]
+script = ExtResource("2_ux8hv")
+metadata/_custom_type_script = "uid://75a7ao6q8avu"
 
 [resource]
 script = ExtResource("1_fpjk7")
@@ -13,6 +18,7 @@ texture = ExtResource("2_cno24")
 name = "Squire"
 description = "High mobility. Attacks with a medium ranged dagger throw that pushes back enemies"
 attack_data = ExtResource("1_uoigx")
+attack_effect_data = SubResource("Resource_dv5oe")
 attack_range = 2
 max_move_distance = 4
 hit_sound = ExtResource("3_ux8hv")

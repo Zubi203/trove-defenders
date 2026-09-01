@@ -12,13 +12,13 @@
 script = ExtResource("1_3juve")
 texture = ExtResource("2_ajl1n")
 name = "Dark Wizard"
-description = "This deadly foe lobs magic bombs that deal damage and leave a dark totem upon hitting empty tiles. The totem will detonate on the next turn if not destroyed, dealing damage across a large area"
+description = "This deadly foe lobs magic bombs that deal damage and leave a magic mine upon impact. The mine will detonate after 2 turns, dealing damage across a large area"
 attack_data = ExtResource("1_e0rvy")
 attack_effect_data = ExtResource("2_wb0xe")
 range_type = 1
 attack_range = 4
 dead_zone = 4
-health = 6
+health = 7
 hit_sound = ExtResource("3_wb0xe")
 heal_sound = ExtResource("2_p0su5")
 move_sound = ExtResource("4_taapo")

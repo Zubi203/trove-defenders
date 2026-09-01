@@ -21,8 +21,8 @@
 [ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="13_updk7"]
 [ext_resource type="Script" uid="uid://cn026kux1fdqp" path="res://Scripts/attack_effect_manager.gd" id="14_6grlj"]
 [ext_resource type="PackedScene" uid="uid://cvnvj47ttej0e" path="res://Scenes/Projectiles/chain_lightning.tscn" id="15_f4enb"]
+[ext_resource type="PackedScene" uid="uid://ivs8oeekd8qa" path="res://Scenes/shockwave.tscn" id="16_3g3qb"]
 [ext_resource type="PackedScene" uid="uid://cj00bj6bpqnkj" path="res://Scenes/Units/fire_tile.tscn" id="16_ankfj"]
-[ext_resource type="PackedScene" uid="uid://bit8tqivoeaj2" path="res://Scenes/Projectiles/push_projectile.tscn" id="16_f4enb"]
 [ext_resource type="PackedScene" uid="uid://d4jjdcnxrapul" path="res://Scenes/Projectiles/potion.tscn" id="16_uja8f"]
 [ext_resource type="PackedScene" uid="uid://urmdf5kq5dlg" path="res://Scenes/Units/unit.tscn" id="16_wafo1"]
 [ext_resource type="PackedScene" uid="uid://gmjf5jhybit8" path="res://Scenes/Units/foliage_tile.tscn" id="18_hr3fp"]
@@ -278,6 +278,7 @@ script = ExtResource("3_ouscj")
 gradient = SubResource("Gradient_ls6f5")
 
 [node name="Tiles" type="Node2D" parent="." unique_id=1567823762 node_paths=PackedStringArray("tile_map", "hover_cursor", "select_cursor", "telegraph_container")]
+z_index = -1
 script = ExtResource("3_4f6dp")
 tile_map = NodePath("Board")
 hover_cursor = NodePath("../HoverCursor")
@@ -306,21 +307,23 @@ hazard_tile_scenes = Dictionary[int, PackedScene]({
 4: ExtResource("20_l3ehq")
 })
 
+[node name="TelegraphContainer" type="Node2D" parent="." unique_id=776287371]
+modulate = Color(1, 1, 1, 0.5882353)
+z_index = 1
+
 [node name="AttackEffectManager" type="Node2D" parent="." unique_id=1535991435 node_paths=PackedStringArray("unit_container")]
+z_index = 1
 y_sort_enabled = true
 script = ExtResource("14_6grlj")
 effect_scenes = Dictionary[int, PackedScene]({
 0: ExtResource("15_f4enb"),
-1: ExtResource("16_f4enb"),
+1: ExtResource("16_3g3qb"),
 2: ExtResource("16_uja8f"),
 3: ExtResource("16_wafo1"),
 4: ExtResource("19_3g3qb")
 })
 number_effect = ExtResource("19_f4enb")
 unit_container = NodePath("../Units")
-
-[node name="TelegraphContainer" type="Node2D" parent="." unique_id=776287371]
-modulate = Color(1, 1, 1, 0.5882353)
 
 [node name="HoverCursor" type="Sprite2D" parent="." unique_id=485981622]
 visible = false
@@ -341,9 +344,11 @@ region_rect = Rect2(64, 16, 32, 16)
 visible = false
 
 [node name="Units" type="Node2D" parent="." unique_id=2074821156]
+z_index = 1
 y_sort_enabled = true
 
 [node name="MapObjects" type="Node2D" parent="." unique_id=284824953]
+z_index = 1
 y_sort_enabled = true
 
 [node name="Camera" type="Camera2D" parent="." unique_id=674093679]

@@ -12,7 +12,7 @@
 script = ExtResource("1_l6ws4")
 texture = ExtResource("2_i6q2y")
 name = "Cyclops"
-description = "Powerful foe that cannot be pushed back. His rock throw attack deals huge damage and will destroy empty tiles upon hit"
+description = "Powerful foe with immense durability. His rock throw attack deals huge damage and will destroy empty tiles upon hit"
 attack_data = ExtResource("1_8e88e")
 attack_effect_data = ExtResource("2_h5tor")
 range_type = 1
@@ -20,7 +20,7 @@ dead_zone_type = 1
 attack_range = 4
 dead_zone = 2
 is_pushable = false
-health = 6
+health = 7
 hit_sound = ExtResource("3_h5tor")
 heal_sound = ExtResource("2_bwrwx")
 move_sound = ExtResource("4_rlngv")

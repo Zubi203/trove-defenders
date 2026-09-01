@@ -82,5 +82,40 @@ func _check_water_tile():
 					if sibling is HealthComponent:
 						sibling.take_damage(99)
 
-func try_push(target_pos: Vector2i):
-	pass
+func try_push(push_target_tile: TileSet.CellNeighbor):
+	var parent: Node2D = get_parent()
+	if parent == null:
+		return
+	var grid_pos: Vector2i = GameManager.current_board.local_to_map(parent.global_position)
+	var target_grid_pos: Vector2i = GameManager.current_board.get_neighbor_cell(grid_pos, push_target_tile)
+	if not GameManager.current_board_data.has(target_grid_pos):
+		return
+	
+	var target_global_pos: Vector2 = GameManager.current_board.map_to_local(target_grid_pos)
+	
+	#play push animation toward target tile
+	var tween = create_tween()
+	tween.tween_property(parent, "global_position", target_global_pos, 0.2)
+	
+	#check target tile object
+	var object: MapObject = GameManager.current_board_data[target_grid_pos].object
+	
+	#if no object exists, move to tile
+	if object == null:
+		for child in parent.get_children():
+			if child is AttackComponent:
+				child._update_target_tile(push_target_tile)
+		_on_move_unit(target_grid_pos)
+		
+	
+	#if object exists, animate push back to original tile. damage target tile object and self by 1
+	else:
+		tween.tween_property(parent, "global_position", GameManager.current_board.map_to_local(grid_pos), 0.2)
+		for child in parent.get_children():
+			if child is HealthComponent:
+				child.take_damage(1)
+		for child in object.get_children():
+			if child is HealthComponent:
+				child.take_damage(1)
+		_on_move_unit(grid_pos)
+	

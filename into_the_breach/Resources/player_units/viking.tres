@@ -4,8 +4,13 @@
 [ext_resource type="Script" uid="uid://c7pkrtw05oopa" path="res://Scripts/unit_data.gd" id="1_n00lh"]
 [ext_resource type="AudioStream" uid="uid://ccm8b2c1mk5la" path="res://Audio/sfx/08_human_charge_1.wav" id="2_i6514"]
 [ext_resource type="Texture2D" uid="uid://b5pse7yspk4lb" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0087.png" id="2_jg4yj"]
+[ext_resource type="Script" uid="uid://c1exgonby0q3a" path="res://Scripts/area_push.gd" id="2_xqvfo"]
 [ext_resource type="AudioStream" uid="uid://dg5krc4ihjt6o" path="res://Audio/sfx/11_human_damage_1.wav" id="3_xqvfo"]
 [ext_resource type="AudioStream" uid="uid://dk1a4d7j08l32" path="res://Audio/sfx/13_human_jump_land_1.wav" id="4_gl2tg"]
+
+[sub_resource type="Resource" id="Resource_ubm4b"]
+script = ExtResource("2_xqvfo")
+metadata/_custom_type_script = "uid://c1exgonby0q3a"
 
 [resource]
 script = ExtResource("1_n00lh")
@@ -13,6 +18,7 @@ texture = ExtResource("2_jg4yj")
 name = "Viking"
 description = "Hurls a heavy axe at the target, pushing back foes around the impact area"
 attack_data = ExtResource("1_ddbwf")
+attack_effect_data = SubResource("Resource_ubm4b")
 attack_range = 4
 dead_zone = 1
 hit_sound = ExtResource("3_xqvfo")

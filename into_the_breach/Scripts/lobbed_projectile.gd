@@ -28,7 +28,7 @@ func  _check_range_end():
 		else:
 			impact_initiated = true
 			await get_tree().create_timer(0.1).timeout
-			_impact()
+			_impact(GameManager.current_board.map_to_local(target_cell))
 	else:
 		target_cell_entered = grid_pos == target_cell
 

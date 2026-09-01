@@ -89,7 +89,7 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=799826251]
 layout_mode = 2
-text = "FORMIDABLE FOE APPROACHES!"
+text = "A FORMIDABLE FOE APPROACHES!"
 label_settings = SubResource("LabelSettings_s4hme")
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1256465216]

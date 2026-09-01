@@ -13,19 +13,19 @@
 [node name="Board" parent="Tiles" parent_id_path=PackedInt32Array(1567823762) index="0" unique_id=1493948929]
 tile_map_data = PackedByteArray("AAAKACgAAAAAAAIAAAAKACkAAAAAAAIAAAALACoAAAAAAAIAAAALACsAAAAAAAIAAAAMACwAAAAAAAIAAAAMAC0AAAAAAAIAAAANAC4AAAAAAAIAAAAQACcAAAAKAAEAAAAQACYAAAAKAAEAAAAPACUAAAAKAAEAAAAPACQAAAAKAAEAAAAOACMAAAAGAAEAAAAOACIAAAAKAAEAAAALACgAAAAAAAIAAAALACkAAAAFAAIAAAAMACgAAAAHAAMAAAAOACQAAAAKAAEAAAAOACUAAAAKAAEAAAAOACYAAAAKAAEAAAANACgAAAAKAAEAAAAMACkAAAAHAAMAAAAMACoAAAAGAAIAAAAMACsAAAAFAAIAAAANACoAAAAHAAMAAAANACkAAAAKAAEAAAAOACgAAAAKAAEAAAAOACcAAAAKAAEAAAAPACYAAAAKAAEAAAAPACcAAAAKAAEAAAAPACgAAAAKAAEAAAAOACkAAAAGAAEAAAAOACoAAAAKAAEAAAANACsAAAAHAAMAAAANACwAAAAFAAIAAAANAC0AAAAAAAIAAAAOACwAAAAFAAIAAAAOACsAAAAHAAMAAAAPACoAAAAKAAEAAAAPACkAAAAKAAEAAAAQACgAAAAKAAEAAAAJACcAAAAAAAIAAAAKACUAAAAAAAIAAAAKACYAAAAAAAIAAAAKACcAAAAAAAIAAAALACMAAAAFAAIAAAALACQAAAAGAAMAAAALACUAAAAFAAIAAAALACYAAAAFAAMAAAALACcAAAAGAAIAAAAMACEAAAAHAAMAAAAMACIAAAAHAAMAAAAMACMAAAAKAAEAAAAMACQAAAAHAAMAAAAMACUAAAAHAAMAAAAMACYAAAAHAAMAAAAMACcAAAACAAMAAAANACAAAAAHAAMAAAANACEAAAAKAAEAAAANACIAAAAKAAEAAAANACMAAAAKAAEAAAANACQAAAAKAAEAAAANACUAAAAKAAEAAAANACYAAAAKAAEAAAANACcAAAAKAAEAAAA=")
 
-[node name="TelegraphContainer" parent="Tiles" parent_id_path=PackedInt32Array(1567823762) index="1" unique_id=776287371]
+[node name="TelegraphContainer" parent="." index="3" unique_id=776287371]
 modulate = Color(1, 1, 1, 0.6627451)
 
 [node name="EnemyUnit" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="0" unique_id=1687360007 instance=ExtResource("2_cggpd")]
-position = Vector2(496, 297)
+position = Vector2(446, 321)
 data = ExtResource("3_055b2")
 
 [node name="EnemyUnit2" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="1" unique_id=1854904979 instance=ExtResource("2_cggpd")]
-position = Vector2(513, 321)
+position = Vector2(480, 321)
 data = ExtResource("4_2mgoq")
 
 [node name="EnemyUnit3" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="2" unique_id=492646932 instance=ExtResource("2_cggpd")]
-position = Vector2(416, 273)
+position = Vector2(417, 289)
 data = ExtResource("5_uhnj4")
 
 [node name="Obstacle" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="0" unique_id=629921483 instance=ExtResource("2_smnlx")]
@@ -39,11 +39,30 @@ type = 0
 size = 0
 
 [node name="Obstacle3" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="2" unique_id=1823451732 instance=ExtResource("2_smnlx")]
-position = Vector2(416, 318)
+position = Vector2(416, 315)
 type = 0
 
 [node name="PointOfInterest" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="3" unique_id=2130353911 instance=ExtResource("7_055b2")]
-position = Vector2(447, 336)
+position = Vector2(380, 350)
 
 [node name="PointOfInterest2" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="4" unique_id=214394429 instance=ExtResource("7_055b2")]
-position = Vector2(382, 319)
+position = Vector2(352, 333)
+
+[node name="Obstacle4" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="5" unique_id=421857152 instance=ExtResource("2_smnlx")]
+position = Vector2(498, 295)
+type = 1
+
+[node name="Obstacle5" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="6" unique_id=1460539682 instance=ExtResource("2_smnlx")]
+position = Vector2(528, 311)
+type = 1
+size = 1
+
+[node name="Obstacle6" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="7" unique_id=691525613 instance=ExtResource("2_smnlx")]
+position = Vector2(529, 327)
+type = 1
+size = 0
+
+[node name="Obstacle7" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="8" unique_id=1792062211 instance=ExtResource("2_smnlx")]
+position = Vector2(433, 263)
+type = 1
+size = 1

@@ -13,15 +13,9 @@
 [ext_resource type="Resource" uid="uid://b7sdovlf8r7m0" path="res://Resources/player_units/squire.tres" id="8_r3qx4"]
 [ext_resource type="Resource" uid="uid://dilehykp6whxe" path="res://Resources/player_units/tavernkeep.tres" id="9_8hw4j"]
 [ext_resource type="Resource" uid="uid://hgno1vpmqlob" path="res://Resources/player_units/viking.tres" id="10_yuu83"]
-[ext_resource type="Resource" uid="uid://vwmgid6hwnty" path="res://Resources/enemy_units/bat.tres" id="11_yholm"]
-[ext_resource type="Resource" uid="uid://c1sthmxul6xeu" path="res://Resources/enemy_units/crab.tres" id="12_nvgc7"]
-[ext_resource type="Resource" uid="uid://de4dwju8c5lfc" path="res://Resources/enemy_units/cyclops.tres" id="13_qmafl"]
-[ext_resource type="Resource" uid="uid://fowk1kvqks3j" path="res://Resources/enemy_units/dark_wizard.tres" id="14_7uwwg"]
-[ext_resource type="Resource" uid="uid://bagk81j0rjwb5" path="res://Resources/enemy_units/ghost.tres" id="15_g0m3q"]
-[ext_resource type="Resource" uid="uid://bnuhhc788wpki" path="res://Resources/enemy_units/rat.tres" id="16_cv5t5"]
-[ext_resource type="Resource" uid="uid://c54c2tjp1psvr" path="res://Resources/enemy_units/spider.tres" id="17_wb0mc"]
 [ext_resource type="Texture2D" uid="uid://d2rlvi170hy7k" path="res://Graphics/Background/Background.png" id="19_7uwwg"]
 [ext_resource type="PackedScene" uid="uid://iyj1p3uotnjx" path="res://Scenes/UI/sky_bg.tscn" id="19_wb0mc"]
+[ext_resource type="Script" uid="uid://b60ywjo6ygrqd" path="res://Scripts/arrow_button.gd" id="20_yholm"]
 [ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="22_g0m3q"]
 [ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="23_cv5t5"]
 [ext_resource type="Texture2D" uid="uid://ya5kyjod84cv" path="res://Graphics/icons/Play 256 px.png" id="24_g0m3q"]
@@ -58,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7uwwg")
 script = ExtResource("1_bwcjg")
-units = Array[ExtResource("2_lxshb")]([ExtResource("3_vln64"), ExtResource("4_vlcq3"), ExtResource("5_ihwc7"), ExtResource("10_yuu83"), ExtResource("8_r3qx4"), ExtResource("9_8hw4j"), ExtResource("6_6eqcu"), ExtResource("7_biwd2"), ExtResource("11_yholm"), ExtResource("12_nvgc7"), ExtResource("13_qmafl"), ExtResource("14_7uwwg"), ExtResource("15_g0m3q"), ExtResource("16_cv5t5"), ExtResource("17_wb0mc")])
+units = Array[ExtResource("2_lxshb")]([ExtResource("3_vln64"), ExtResource("4_vlcq3"), ExtResource("5_ihwc7"), ExtResource("10_yuu83"), ExtResource("8_r3qx4"), ExtResource("9_8hw4j"), ExtResource("6_6eqcu"), ExtResource("7_biwd2")])
 party_buttons = [NodePath("PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton"), NodePath("PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton2"), NodePath("PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton3")]
 unit_card = NodePath("PartyPreview/Shadow/CenterContainer/UnitCard")
 
@@ -271,9 +265,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -282.0
+offset_left = -295.0
 offset_top = -60.0
-offset_right = -174.5
+offset_right = -187.5
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -281,6 +275,7 @@ texture_normal = ExtResource("24_g0m3q")
 ignore_texture_size = true
 stretch_mode = 5
 flip_h = true
+script = ExtResource("20_yholm")
 
 [node name="AnimatedButtonComponent" type="Node2D" parent="PartyPreview/Shadow/ArrowButtonLeft" unique_id=472884187]
 script = ExtResource("22_g0m3q")
@@ -298,15 +293,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 175.0
+offset_left = 187.0
 offset_top = -60.0
-offset_right = 282.5
+offset_right = 294.5
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("24_g0m3q")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("20_yholm")
+offset_amount = -0.3
 
 [node name="AnimatedButtonComponent" type="Node2D" parent="PartyPreview/Shadow/ArrowButtonRight" unique_id=913319381]
 script = ExtResource("22_g0m3q")

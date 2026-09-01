@@ -8,42 +8,75 @@
 [ext_resource type="Resource" uid="uid://vwmgid6hwnty" path="res://Resources/enemy_units/bat.tres" id="5_3ntyy"]
 [ext_resource type="PackedScene" uid="uid://durhp3iw63rrf" path="res://Scenes/Units/point_of_interest.tscn" id="6_wk15n"]
 [ext_resource type="PackedScene" uid="uid://cys02vqxirg6a" path="res://Scenes/UI/warning_label.tscn" id="8_h0uxt"]
+[ext_resource type="PackedScene" uid="uid://gmjf5jhybit8" path="res://Scenes/Units/foliage_tile.tscn" id="8_keyqw"]
 
 [node name="LevelBase" unique_id=1326723513 instance=ExtResource("1_i1va2")]
 
 [node name="Board" parent="Tiles" parent_id_path=PackedInt32Array(1567823762) index="0" unique_id=1493948929]
-tile_map_data = PackedByteArray("AAAKACgAAAAAAAoAAAAKACkAAAADAAoAAAALACoAAAAKAAEAAAALACsAAAAKAAEAAAAMACwAAAAKAAEAAAAMAC0AAAAKAAEAAAANAC4AAAAKAAEAAAAQACcAAAAKAAEAAAAQACYAAAAKAAEAAAAPACUAAAAKAAEAAAAPACQAAAAKAAEAAAAOACMAAAAAAAoAAAAOACIAAAAHAAoAAAALACgAAAAIAAoAAAALACkAAAAKAAEAAAAMACgAAAAKAAEAAAAOACQAAAAKAAEAAAAOACUAAAAKAAEAAAAOACYAAAAKAAEAAAANACgAAAAKAAEAAAAMACkAAAAKAAEAAAAMACoAAAAKAAEAAAAMACsAAAAKAAEAAAANACoAAAAKAAEAAAANACkAAAAKAAEAAAAOACgAAAAKAAEAAAAOACcAAAAKAAEAAAAPACYAAAAKAAEAAAAPACcAAAAFAAoAAAAPACgAAAAHAAoAAAAOACkAAAAKAAEAAAAOACoAAAAKAAEAAAANACsAAAAKAAEAAAANACwAAAAKAAEAAAANAC0AAAAKAAEAAAAOACwAAAAKAAEAAAAOACsAAAAKAAEAAAAPACoAAAAKAAEAAAAPACkAAAAKAAEAAAAQACgAAAAKAAEAAAAJACcAAAAAAAoAAAAKACUAAAADAAoAAAAKACYAAAAAAAoAAAAKACcAAAABAAoAAAALACMAAAAKAAEAAAALACQAAAAIAAoAAAALACUAAAAKAAEAAAALACYAAAAKAAEAAAALACcAAAAKAAEAAAAMACEAAAAKAAEAAAAMACIAAAAKAAEAAAAMACMAAAAKAAEAAAAMACQAAAAKAAEAAAAMACUAAAAKAAEAAAAMACYAAAAKAAEAAAAMACcAAAAKAAEAAAANACAAAAAKAAEAAAANACEAAAAKAAEAAAANACIAAAAKAAEAAAANACMAAAAKAAEAAAANACQAAAAKAAEAAAANACUAAAAKAAEAAAANACYAAAAKAAEAAAANACcAAAAKAAEAAAA=")
+tile_map_data = PackedByteArray("AAAKACgAAAAAAAoAAAAKACkAAAAKAAEAAAALACoAAAAKAAEAAAALACsAAAAKAAEAAAAMACwAAAAKAAEAAAAMAC0AAAAKAAEAAAANAC4AAAAKAAEAAAAQACcAAAAAAAoAAAAQACYAAAAAAAoAAAAPACUAAAAAAAoAAAAPACQAAAAKAAEAAAAOACMAAAAKAAEAAAAOACIAAAAKAAEAAAALACgAAAAKAAEAAAALACkAAAAKAAEAAAAMACgAAAAKAAEAAAAOACQAAAAKAAEAAAAOACUAAAAKAAEAAAAOACYAAAAKAAEAAAANACgAAAAKAAEAAAAMACkAAAAKAAEAAAAMACoAAAAKAAEAAAAMACsAAAAKAAEAAAANACoAAAAKAAEAAAANACkAAAAKAAEAAAAOACgAAAAKAAEAAAAOACcAAAAKAAEAAAAPACYAAAAKAAEAAAAPACcAAAAAAAoAAAAPACgAAAAAAAoAAAAOACkAAAAKAAEAAAAOACoAAAAKAAEAAAANACsAAAAKAAEAAAANACwAAAAKAAEAAAANAC0AAAAKAAEAAAAOACwAAAAKAAEAAAAOACsAAAAKAAEAAAAPACoAAAAAAAoAAAAPACkAAAAAAAoAAAAQACgAAAAAAAoAAAAJACcAAAAAAAoAAAAKACUAAAAAAAoAAAAKACYAAAAAAAoAAAAKACcAAAAAAAoAAAALACMAAAAKAAEAAAALACQAAAAKAAEAAAALACUAAAAKAAEAAAALACYAAAAKAAEAAAALACcAAAAKAAEAAAAMACEAAAAKAAEAAAAMACIAAAAKAAEAAAAMACMAAAAKAAEAAAAMACQAAAAKAAEAAAAMACUAAAAKAAEAAAAMACYAAAAKAAEAAAAMACcAAAAKAAEAAAANACAAAAAKAAEAAAANACEAAAAKAAEAAAANACIAAAAKAAEAAAANACMAAAAKAAEAAAANACQAAAAKAAEAAAANACUAAAAKAAEAAAANACYAAAAKAAEAAAANACcAAAAKAAEAAAA=")
 
 [node name="EnemyUnit" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="0" unique_id=1687360007 instance=ExtResource("2_dvrgg")]
-position = Vector2(416, 273)
+position = Vector2(432, 265)
 data = ExtResource("3_wk15n")
 
 [node name="EnemyUnit2" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="1" unique_id=1491599340 instance=ExtResource("2_dvrgg")]
-position = Vector2(495, 297)
+position = Vector2(416, 305)
 data = ExtResource("4_5a8oa")
 
 [node name="EnemyUnit3" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="2" unique_id=1842362033 instance=ExtResource("2_dvrgg")]
-position = Vector2(465, 283)
+position = Vector2(480, 289)
 data = ExtResource("5_3ntyy")
 
 [node name="EnemyUnit4" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="3" unique_id=754857575 instance=ExtResource("2_dvrgg")]
-position = Vector2(367, 300)
+position = Vector2(384, 289)
 data = ExtResource("5_3ntyy")
 
 [node name="Obstacle" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="0" unique_id=1672808016 instance=ExtResource("2_5eaas")]
-position = Vector2(511, 302)
+position = Vector2(448, 271)
 type = 1
 size = 1
 
 [node name="Obstacle2" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="1" unique_id=992973328 instance=ExtResource("2_5eaas")]
 position = Vector2(384, 351)
 type = 0
-size = 0
 
 [node name="PointOfInterest" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="2" unique_id=17993808 instance=ExtResource("6_wk15n")]
-position = Vector2(480, 353)
+position = Vector2(464, 360)
 
 [node name="PointOfInterest2" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="3" unique_id=491206935 instance=ExtResource("6_wk15n")]
-position = Vector2(400, 344)
+position = Vector2(399, 360)
+
+[node name="Obstacle3" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="4" unique_id=1483891880 instance=ExtResource("2_5eaas")]
+position = Vector2(464, 278)
+type = 1
+
+[node name="Obstacle4" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="5" unique_id=1447786165 instance=ExtResource("2_5eaas")]
+position = Vector2(352, 334)
+type = 1
+
+[node name="Obstacle5" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="6" unique_id=52987840 instance=ExtResource("2_5eaas")]
+position = Vector2(369, 311)
+type = 1
+size = 1
+
+[node name="Obstacle6" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="7" unique_id=980051870 instance=ExtResource("2_5eaas")]
+position = Vector2(448, 303)
+type = 0
+size = 0
+
+[node name="FoliageTile" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="8" unique_id=1276451 instance=ExtResource("8_keyqw")]
+position = Vector2(448, 319)
+
+[node name="FoliageTile2" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="9" unique_id=1620544728 instance=ExtResource("8_keyqw")]
+position = Vector2(383, 336)
+
+[node name="FoliageTile3" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="10" unique_id=411907095 instance=ExtResource("8_keyqw")]
+position = Vector2(367, 344)
+
+[node name="FoliageTile4" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="11" unique_id=571025952 instance=ExtResource("8_keyqw")]
+position = Vector2(464, 295)
+
+[node name="FoliageTile5" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="12" unique_id=1479215364 instance=ExtResource("8_keyqw")]
+position = Vector2(385, 303)
 
 [node name="WarningLabel" parent="LevelUI" parent_id_path=PackedInt32Array(1044621262) index="4" unique_id=1864956593 instance=ExtResource("8_h0uxt")]

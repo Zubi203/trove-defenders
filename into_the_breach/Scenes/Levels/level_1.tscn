@@ -5,26 +5,63 @@
 [ext_resource type="Resource" uid="uid://c1sthmxul6xeu" path="res://Resources/enemy_units/crab.tres" id="3_7p6j4"]
 [ext_resource type="Resource" uid="uid://bnuhhc788wpki" path="res://Resources/enemy_units/rat.tres" id="4_6444e"]
 [ext_resource type="PackedScene" uid="uid://durhp3iw63rrf" path="res://Scenes/Units/point_of_interest.tscn" id="5_6444e"]
+[ext_resource type="PackedScene" uid="uid://gmjf5jhybit8" path="res://Scenes/Units/foliage_tile.tscn" id="5_xgxfi"]
 
 [node name="LevelBase" unique_id=1326723513 instance=ExtResource("1_vk57k")]
 
-[node name="Board" parent="Tiles" parent_id_path=PackedInt32Array(1567823762) index="0" unique_id=1493948929]
+[node name="Tiles" parent="." index="1" unique_id=1567823762]
+z_index = -2
+
+[node name="Board" parent="Tiles" index="0" unique_id=1493948929]
 tile_map_data = PackedByteArray("AAAKACgAAAADAAAAAAAKACkAAAAIAAAAAAALACoAAAAJAAAAAAALACsAAAACAAIAAAAMACwAAAACAAIAAAAMAC0AAAAGAAMAAAANAC4AAAACAAIAAAAQACcAAAAGAAMAAAAQACYAAAACAAIAAAAPACUAAAACAAIAAAAPACQAAAACAAIAAAAOACMAAAAGAAMAAAAOACIAAAAGAAMAAAALACgAAAAJAAAAAAALACkAAAACAAIAAAAMACgAAAACAAIAAAAOACQAAAACAAIAAAAOACUAAAAFAAAAAAAOACYAAAAJAAAAAAANACgAAAAJAAAAAAAMACkAAAACAAIAAAAMACoAAAACAAIAAAAMACsAAAACAAIAAAANACoAAAACAAIAAAANACkAAAACAAIAAAAOACgAAAAEAAAAAAAOACcAAAAJAAAAAAAPACYAAAAJAAAAAAAPACcAAAAJAAAAAAAPACgAAAAAAAIAAAAOACkAAAACAAIAAAAOACoAAAACAAIAAAANACsAAAAGAAMAAAANACwAAAAGAAMAAAANAC0AAAACAAIAAAAOACwAAAACAAIAAAAOACsAAAACAAIAAAAPACoAAAACAAIAAAAPACkAAAACAAIAAAAQACgAAAACAAIAAAAJACcAAAAJAAAAAAAKACUAAAAJAAAAAAAKACYAAAAHAAAAAAAKACcAAAAGAAAAAAALACMAAAACAAIAAAALACQAAAACAAIAAAALACUAAAACAAIAAAALACYAAAABAAIAAAALACcAAAABAAIAAAAMACEAAAACAAIAAAAMACIAAAACAAIAAAAMACMAAAAGAAMAAAAMACQAAAACAAIAAAAMACUAAAACAAIAAAAMACYAAAABAAIAAAAMACcAAAACAAIAAAANACAAAAACAAIAAAANACEAAAACAAIAAAANACIAAAACAAIAAAANACMAAAACAAIAAAANACQAAAACAAIAAAANACUAAAAJAAAAAAANACYAAAAAAAAAAAANACcAAAAJAAAAAAA=")
 
-[node name="EnemyUnit" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="0" unique_id=1687360007 instance=ExtResource("2_8ffim")]
-position = Vector2(480, 336)
+[node name="Hazards" parent="." index="2" unique_id=1744577582]
+z_index = -1
+
+[node name="FoliageTile" parent="Hazards" index="0" unique_id=1276451 instance=ExtResource("5_xgxfi")]
+position = Vector2(480, 285)
+
+[node name="FoliageTile2" parent="Hazards" index="1" unique_id=1592680008 instance=ExtResource("5_xgxfi")]
+position = Vector2(397, 358)
+
+[node name="FoliageTile3" parent="Hazards" index="2" unique_id=831113724 instance=ExtResource("5_xgxfi")]
+position = Vector2(401, 342)
+
+[node name="TelegraphContainer" parent="." index="3" unique_id=776287371]
+z_index = 0
+
+[node name="AttackEffectManager" parent="." index="4" unique_id=1535991435]
+z_index = 0
+
+[node name="HoverCursor" parent="." index="5" unique_id=485981622]
+y_sort_enabled = true
+
+[node name="SelectCursor" parent="." index="6" unique_id=1173030965]
+y_sort_enabled = true
+
+[node name="SpawnCursor" parent="." index="7" unique_id=741121339]
+y_sort_enabled = true
+
+[node name="Units" parent="." index="8" unique_id=2074821156]
+z_index = 0
+
+[node name="EnemyUnit" parent="Units" index="0" unique_id=1687360007 instance=ExtResource("2_8ffim")]
+position = Vector2(462, 343)
 data = ExtResource("3_7p6j4")
 
-[node name="EnemyUnit2" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="1" unique_id=257588690 instance=ExtResource("2_8ffim")]
+[node name="EnemyUnit2" parent="Units" index="1" unique_id=257588690 instance=ExtResource("2_8ffim")]
 position = Vector2(432, 359)
 data = ExtResource("4_6444e")
 
-[node name="EnemyUnit3" parent="Units" parent_id_path=PackedInt32Array(2074821156) index="2" unique_id=1721567349 instance=ExtResource("2_8ffim")]
-position = Vector2(478, 306)
+[node name="EnemyUnit3" parent="Units" index="2" unique_id=1721567349 instance=ExtResource("2_8ffim")]
+position = Vector2(513, 320)
 data = ExtResource("4_6444e")
 
-[node name="PointOfInterest" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="0" unique_id=1964640649 instance=ExtResource("5_6444e")]
-position = Vector2(399, 295)
+[node name="MapObjects" parent="." index="9" unique_id=284824953]
+z_index = 0
 
-[node name="PointOfInterest2" parent="MapObjects" parent_id_path=PackedInt32Array(284824953) index="1" unique_id=42753889 instance=ExtResource("5_6444e")]
-position = Vector2(351, 337)
+[node name="PointOfInterest" parent="MapObjects" index="0" unique_id=1964640649 instance=ExtResource("5_6444e")]
+position = Vector2(416, 270)
+
+[node name="PointOfInterest2" parent="MapObjects" index="1" unique_id=42753889 instance=ExtResource("5_6444e")]
+position = Vector2(336, 312)

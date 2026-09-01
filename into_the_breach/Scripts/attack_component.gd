@@ -8,8 +8,10 @@ var audio_component: AudioComponent
 var additional_damage: int = 0
 @export var arrow: ArrowTelegraph = null
 var target_tile: Vector2i
+var attack_pending: bool = false
 
 func _ready() -> void:
+	GameManager.UpdateBoard.connect(_refresh_telegraph)
 	_fetch_data.call_deferred()
 
 func _fetch_data():
@@ -28,10 +30,13 @@ func _fetch_data():
 		arrow.hide()
 
 func _shoot_projectile():
-	if data == null:
-		return
+	attack_pending = false
 	if arrow:
 		arrow.hide()
+	if data == null:
+		return
+	if not GameManager.current_board_data.has(target_tile):
+		return
 	_play_attack_sound()
 	_attack_animation()
 	var projectile: BaseProjectile = data.projectile_scene.instantiate()
@@ -48,6 +53,7 @@ func _on_projectile_impact(impact_tile: Vector2i):
 	effect_data.activate_effect(impact_tile, pos)
 
 func _create_command(target_pos: Vector2i):
+	attack_pending = true
 	if arrow:
 		arrow.show()
 		var dir: Vector2 = get_parent().global_position.direction_to(GameManager.current_board.map_to_local(target_pos))
@@ -93,11 +99,20 @@ func _flash():
 	tween.tween_property(sprite, "material:shader_parameter/progress_white", 1.0, 0.07)
 	tween.tween_property(sprite, "material:shader_parameter/progress_white", 0, 0.2)
 
-func _update_target_tile(target_pos: Vector2i):
-	if GameManager.current_board_data.has(target_pos):
-		GameManager.HideTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_pos] as Array[Vector2i])
+func _update_target_tile(target_neighbor: TileSet.CellNeighbor):
+	if not GameManager.current_board_data.has(target_tile):
+		return
+	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
+	var target_pos = GameManager.current_board.get_neighbor_cell(target_tile, target_neighbor)
+	if not GameManager.current_board_data.has(target_pos):
+		target_tile = Vector2i.ZERO
+	GameManager.HideTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_tile] as Array[Vector2i])
 	target_tile = target_pos
 	GameManager.ShowTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_tile] as Array[Vector2i])
 
 func _exit_tree() -> void:
 	GameManager.HideTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_tile] as Array[Vector2i])
+
+func _refresh_telegraph():
+	if attack_pending:
+		GameManager.ShowTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_tile] as Array[Vector2i])
