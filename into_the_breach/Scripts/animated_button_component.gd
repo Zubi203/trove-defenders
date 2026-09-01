@@ -12,11 +12,13 @@ func _ready() -> void:
 	if get_parent() is BaseButton:
 		button_parent = get_parent()
 		base_scale = button_parent.scale
-	_connect_button_signals()
+	_connect_button_signals.call_deferred()
 
 func _connect_button_signals():
 	if button_parent == null:
 		return
+	button_parent.pivot_offset.y = button_parent.size.y / 2
+	button_parent.pivot_offset.x = button_parent.size.x / 2
 	button_parent.mouse_entered.connect(_on_mouse_entered)
 	button_parent.mouse_exited.connect(_on_mouse_exited)
 	button_parent.pressed.connect(_on_pressed)

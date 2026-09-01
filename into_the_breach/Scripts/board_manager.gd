@@ -21,8 +21,8 @@ func _ready() -> void:
 	GameManager.current_board = tile_map
 	GameManager.ShowTelegraphs.connect(telegraph_tiles)
 	GameManager.HideTelegraphs.connect(clear_telegraph)
-	GameManager.UpdateBoard.connect(_update_board)
 	GameManager.ObjectDestroyed.connect(_update_board)
+	GameManager.UpdateBoard.connect(_update_board)
 	GameManager.TurnEnd.connect(_on_turn_end)
 	_update_board()
 	
@@ -102,6 +102,8 @@ func _update_board(_obj: MapObject = null):
 			if object_grid_pos == key:
 				GameManager.current_board_data[key].object = object
 				object.global_position = tile_map.map_to_local(object_grid_pos)
+			if GameManager.current_board_data[key].object == _obj:
+				GameManager.current_board_data[key].object = null
 			
 	# check hazards
 	for tile: HazardTile in get_tree().get_nodes_in_group("HazardTile"):

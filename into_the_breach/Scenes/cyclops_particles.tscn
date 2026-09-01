@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dl1tid57qmy5o"]
+
+[ext_resource type="Script" uid="uid://cypaokvn84ohb" path="res://Scripts/chain_lightning.gd" id="1_jnw18"]
+
+[sub_resource type="Gradient" id="Gradient_pyp1w"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.53289473, 0.58114034, 0.7302632)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xpw1u"]
+gradient = SubResource("Gradient_pyp1w")
+fill = 1
+fill_from = Vector2(0.5068259, 0.52047783)
+fill_to = Vector2(0.59897614, 0.5238908)
+
+[sub_resource type="Gradient" id="Gradient_ceeew"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.37283236, 0.71387285)
+colors = PackedColorArray(0.55, 0.55, 0.55, 1, 0.39, 0.39, 0.39, 1, 0.23, 0.23, 0.23, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yhcui"]
+gradient = SubResource("Gradient_ceeew")
+
+[sub_resource type="Gradient" id="Gradient_l1c2v"]
+offsets = PackedFloat32Array(0, 0.76589596, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_65ton"]
+gradient = SubResource("Gradient_l1c2v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h2w44"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0.5, 1)
+emission_shape = 1
+emission_sphere_radius = 16.0
+angle_min = 1.0728835e-05
+angle_max = 90.000015
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 80.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 200, 0)
+scale_min = 0.099999994
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_65ton")
+color_initial_ramp = SubResource("GradientTexture1D_yhcui")
+
+[node name="CyclopsParticles" type="GPUParticles2D" unique_id=1280024040]
+y_sort_enabled = true
+emitting = false
+amount = 50
+texture = SubResource("GradientTexture2D_xpw1u")
+one_shot = true
+explosiveness = 0.82
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_h2w44")
+script = ExtResource("1_jnw18")

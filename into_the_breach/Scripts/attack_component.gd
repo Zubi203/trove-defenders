@@ -6,6 +6,8 @@ var effect_data: AttackEffectData
 var sprite: Sprite2D = null
 var audio_component: AudioComponent
 var additional_damage: int = 0
+@export var arrow: ArrowTelegraph = null
+var target_tile: Vector2i
 
 func _ready() -> void:
 	_fetch_data.call_deferred()
@@ -22,14 +24,18 @@ func _fetch_data():
 			sprite = child
 		if child is AudioComponent:
 			audio_component = child
+	if arrow:
+		arrow.hide()
 
-func _shoot_projectile(target_pos: Vector2i):
+func _shoot_projectile():
 	if data == null:
 		return
+	if arrow:
+		arrow.hide()
 	_play_attack_sound()
 	_attack_animation()
 	var projectile: BaseProjectile = data.projectile_scene.instantiate()
-	projectile._set_projectile(get_parent(), global_position, GameManager.current_board.map_to_local(target_pos), data, additional_damage)
+	projectile._set_projectile(get_parent(), global_position, GameManager.current_board.map_to_local(target_tile), data, additional_damage)
 	get_tree().current_scene.add_child(projectile)
 	projectile.ProjectileImpact.connect(_on_projectile_impact)
 
@@ -42,7 +48,12 @@ func _on_projectile_impact(impact_tile: Vector2i):
 	effect_data.activate_effect(impact_tile, pos)
 
 func _create_command(target_pos: Vector2i):
-	var cmd = AttackCommand.create(self, target_pos)
+	if arrow:
+		arrow.show()
+		var dir: Vector2 = get_parent().global_position.direction_to(GameManager.current_board.map_to_local(target_pos))
+		arrow.rotation = dir.angle()
+	var cmd = AttackCommand.create(self)
+	target_tile = target_pos
 	GameManager.QueueCommand.emit(cmd)
 
 func _attack_animation():
@@ -67,7 +78,7 @@ func _attack_animation():
 	tween.tween_property(sprite, "scale:y", base_scale.y, 0.2)
 	tween.tween_property(sprite, "scale:x", base_scale.x, 0.2)
 	tween.tween_property(sprite, "offset:y", base_offset_y, 0.2)
-	
+
 func _play_attack_sound():
 	if audio_component == null:
 		return
@@ -81,3 +92,12 @@ func _flash():
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "material:shader_parameter/progress_white", 1.0, 0.07)
 	tween.tween_property(sprite, "material:shader_parameter/progress_white", 0, 0.2)
+
+func _update_target_tile(target_pos: Vector2i):
+	if GameManager.current_board_data.has(target_pos):
+		GameManager.HideTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_pos] as Array[Vector2i])
+	target_tile = target_pos
+	GameManager.ShowTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_tile] as Array[Vector2i])
+
+func _exit_tree() -> void:
+	GameManager.HideTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_tile] as Array[Vector2i])

@@ -1,0 +1,2 @@
+class_name ArrowTelegraph
+extends Sprite2D

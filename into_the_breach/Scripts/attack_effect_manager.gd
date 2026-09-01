@@ -5,16 +5,18 @@ enum AttackEffects{
 	CHAIN_LIGHTNING,
 	PUSH,
 	POTION,
-	UNIT
+	UNIT,
+	DUST
 }
 
 @export var effect_scenes: Dictionary[AttackEffects, PackedScene] = {
 	AttackEffects.CHAIN_LIGHTNING: null,
 	AttackEffects.PUSH: null,
 	AttackEffects.POTION: null,
-	AttackEffects.UNIT: null
+	AttackEffects.UNIT: null,
+	AttackEffects.DUST: null
 }
-@export var chain_lightning_data: AttackData
+@export var number_effect: PackedScene = null
 @export var unit_container: Node2D
 
 func _ready() -> void:
@@ -26,11 +28,12 @@ func spawn_effect(effect_type: AttackEffects, spawn_tile: Vector2i, direction_ti
 	var effect = effect_scenes[effect_type].instantiate()
 	effect.global_position = GameManager.current_board.map_to_local(spawn_tile)
 	add_child.call_deferred(effect)
-	if effect is ChainLightning:
-		var pos = GameManager.current_board.map_to_local(spawn_tile)
-		var target_pos = GameManager.current_board.map_to_local(direction_tile)
-		effect._set_projectile(null, pos, target_pos, chain_lightning_data)
 	if effect is Unit:
+		if number_effect:
+			var num: NumberEffect = number_effect.instantiate()
+			effect.add_child(num)
+			num.position = effect.position
+			num.animate("REVIVED", true)
 		var controller = PlayerController.new()
 		effect.add_child(controller)
 		effect.data = GameManager.last_defeated_unit

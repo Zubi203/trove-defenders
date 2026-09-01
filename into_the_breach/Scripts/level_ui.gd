@@ -116,7 +116,8 @@ func _update_unit_and_chest_labels():
 
 func _get_player_unit_count() -> int:
 	var num_units: int = 0
-	for object: MapObject in get_tree().get_nodes_in_group("MapObject"):
+	for key in GameManager.current_board_data.keys():
+		var object = GameManager.current_board_data[key].object
 		if object is Unit:
 			for child in object.get_children():
 				if child is PlayerController:
@@ -125,7 +126,8 @@ func _get_player_unit_count() -> int:
 
 func _get_chest_count() -> int:
 	var num_chests: int = 0
-	for object: MapObject in get_tree().get_nodes_in_group("MapObject"):
+	for key in GameManager.current_board_data.keys():
+		var object = GameManager.current_board_data[key].object
 		if object is Chest:
 			num_chests += 1
 	return num_chests

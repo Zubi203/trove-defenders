@@ -2,6 +2,7 @@ extends Node2D
 
 
 var spawn_queue: Array[UnitData] = []
+@export var enemy_wait_time: float = 0.8
 @export var unit_scene: PackedScene
 @export var unit_container: Node2D
 @export var spawn_cursor: Node2D
@@ -45,10 +46,10 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("select") and GameManager.current_turn == GameManager.TurnState.START:
 		var pos = GameManager.current_board.local_to_map(get_global_mouse_position())
-		for idx in len(spawn_tiles) - 1:
-			if spawn_tiles[idx] == pos:
-				GameManager.HideTelegraphs.emit(GameManager.Telegraph.SPAWN, [spawn_tiles[idx]] as Array[Vector2i])
-				_spawn_unit(spawn_queue.pop_front(), GameManager.current_board.map_to_local(spawn_tiles.pop_at(idx)))
+		for tile in spawn_tiles:
+			if tile == pos:
+				GameManager.HideTelegraphs.emit(GameManager.Telegraph.SPAWN, [tile] as Array[Vector2i])
+				_spawn_unit(spawn_queue.pop_front(), GameManager.current_board.map_to_local(spawn_tiles.pop_at(spawn_tiles.find(tile))))
 
 func _start_state_enter():
 	spawn_queue.append_array(GameManager.party_members)
@@ -96,10 +97,10 @@ func player_turn_start():
 func enemy_turn_start():
 	GameManager.current_turn = GameManager.TurnState.ENEMY
 	GameManager.TurnStart.emit(GameManager.current_turn)
-	await get_tree().create_timer(1).timeout
-	for cmd in enemy_attack_command_queue:
+	await get_tree().create_timer(enemy_wait_time).timeout
+	while not enemy_attack_command_queue.is_empty():
 		_execute_enemy_attack_command()
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(enemy_wait_time).timeout
 	GameManager.HideTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, GameManager.current_board_data.keys() as Array[Vector2i])
 	await _move_enemy_units()
 	await _set_enemy_attacks()
@@ -111,17 +112,17 @@ func _move_enemy_units():
 			continue
 		for child in unit.get_children():
 			if child is AIController:
-				child.decide_ai_move_action()
-		await get_tree().create_timer(1).timeout
+				await child.decide_ai_move_action()
+		await get_tree().create_timer(enemy_wait_time).timeout
 
 func _set_enemy_attacks():
 	for unit in enemy_units:
 		if unit == null:
-			return
+			continue
 		for child in unit.get_children():
 			if child is AIController:
 				await child.decide_ai_attack_action()
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(enemy_wait_time).timeout
 
 func player_turn_end():
 	GameManager.TurnEnd.emit(GameManager.current_turn)
@@ -130,10 +131,14 @@ func enemy_turn_end():
 	GameManager.TurnEnd.emit(GameManager.current_turn)
 
 func _check_units(_obj: MapObject = null):
+	if game_over:
+		return
 	enemy_units.clear()
 	player_units.clear()
 	chests.clear()
 	for object: MapObject in get_tree().get_nodes_in_group("MapObject"):
+		if object == _obj:
+			continue
 		if object is Unit:
 			for child in object.get_children():
 				if child is PlayerController:

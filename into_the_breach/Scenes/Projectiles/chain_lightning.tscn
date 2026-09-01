@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cvnvj47ttej0e"]
+
+[ext_resource type="Texture2D" uid="uid://ctq1tqomtpi3" path="res://Graphics/lightining4-Sheet.png" id="1_bjeew"]
+[ext_resource type="Script" uid="uid://cypaokvn84ohb" path="res://Scripts/chain_lightning.gd" id="2_f4ley"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65ton"]
+atlas = ExtResource("1_bjeew")
+region = Rect2(239, 13, 20, 36)
+
+[sub_resource type="Curve" id="Curve_e42vr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.4797294, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xpw1u"]
+curve = SubResource("Curve_e42vr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h2w44"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 90.000015
+direction = Vector3(0, -1, 0)
+spread = 120.0
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+damping_min = 0.1
+damping_max = 0.1
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_xpw1u")
+
+[node name="ChainLightning" type="GPUParticles2D" unique_id=1161673558]
+emitting = false
+texture = SubResource("AtlasTexture_65ton")
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.6
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_h2w44")
+script = ExtResource("2_f4ley")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

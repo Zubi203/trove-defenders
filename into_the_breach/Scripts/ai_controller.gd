@@ -27,10 +27,10 @@ func _fetch_location_tiles():
 	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
 	var tiles: Array[Vector2i] = []
 	tiles = GameManager.get_movable_tiles(grid_pos, data.max_move_distance)
-	tiles.append(grid_pos)
 	location_scores.clear()
 	for tile in tiles:
 		location_scores[tile] = 0
+
 
 func _fetch_attack_tiles():
 	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
@@ -79,6 +79,13 @@ func _score_location_tiles():
 			elif tile_object is Chest:
 				player_targets += 1
 		location_scores[key] += (player_targets * player_target_score) + (enemy_targets * enemy_target_score)
+		
+		var tile_data: TileData = GameManager.current_board.get_cell_tile_data(key) as TileData
+		if not data.is_flying and tile_data.get_custom_data("is_water"):
+			location_scores[key] += hazard_tile_score
+		
+		if GameManager.current_board_data[key].hazard:
+			location_scores[key] += hazard_tile_score
 
 func _score_targets():
 	if target_scores.is_empty():
@@ -108,9 +115,6 @@ func _score_targets():
 		if key == prev_target:
 			score += prev_target_score
 		
-		if GameManager.current_board_data[key].hazard:
-			score += hazard_tile_score
-		
 		target_scores[key] += score
 
 func decide_ai_move_action():
@@ -136,6 +140,7 @@ func decide_ai_move_action():
 		target_tile = possible_actions.pick_random()
 	prev_move_location = target_tile
 	MoveUnit.emit(target_tile)
+	GameManager.HideTelegraphs.emit(GameManager.Telegraph.MOVE, location_scores.keys() as Array[Vector2i])
 
 func decide_ai_attack_action():
 	_fetch_attack_tiles()

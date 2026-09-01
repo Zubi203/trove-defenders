@@ -19,6 +19,7 @@ signal UndoButtonPressed
 signal SpawnHazardTile (tile_type: HazardTileManager, grid_pos: Vector2i)
 signal ShowSettingsMenu
 signal SpawnAttackEffect (effect_type: AttackEffectManager.AttackEffects, target_tile: Vector2i, direction: Vector2i, target_object: MapObject)
+signal ForceStopScreenShake
 
 enum TurnState {
 	START,

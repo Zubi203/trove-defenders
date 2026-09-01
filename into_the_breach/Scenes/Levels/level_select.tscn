@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://c1iv7powr0ojk" path="res://Scripts/level_select.gd" id="1_nkys2"]
 [ext_resource type="Theme" uid="uid://dot3ogobj20y7" path="res://Resources/ui_theme.tres" id="1_np8ms"]
 [ext_resource type="Texture2D" uid="uid://bq1auguxkfv2b" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0085.png" id="2_lx4vd"]
-[ext_resource type="Texture2D" uid="uid://dohbd041wi8um" path="res://Graphics/Background/BackgroundSky.png" id="2_y5wxr"]
 [ext_resource type="Texture2D" uid="uid://d2rlvi170hy7k" path="res://Graphics/Background/Background.png" id="3_np8ms"]
+[ext_resource type="PackedScene" uid="uid://iyj1p3uotnjx" path="res://Scenes/UI/sky_bg.tscn" id="3_pwhrq"]
 [ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="5_jiyln"]
 [ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="6_pwhrq"]
 
@@ -34,6 +34,9 @@ script = ExtResource("1_nkys2")
 level_button_container = NodePath("VBoxContainer/CenterContainer/LevelButtonContainer")
 party_sprites = [NodePath("VBoxContainer/HBoxContainer/PartySpriteContainer/PartySprite/TextureRect"), NodePath("VBoxContainer/HBoxContainer/PartySpriteContainer/PartySprite2/TextureRect"), NodePath("VBoxContainer/HBoxContainer/PartySpriteContainer/PartySprite3/TextureRect")]
 
+[node name="Sky" parent="." unique_id=309166863 instance=ExtResource("3_pwhrq")]
+layout_mode = 1
+
 [node name="Background" type="Control" parent="." unique_id=1218610058]
 layout_mode = 1
 anchors_preset = 15
@@ -41,16 +44,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1021220325]
-modulate = Color(0.64193374, 0.6419341, 0.64193374, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_y5wxr")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Background" unique_id=287772863]
 modulate = Color(0.554554, 0.554554, 0.55455387, 1)

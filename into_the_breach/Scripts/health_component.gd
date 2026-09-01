@@ -73,12 +73,14 @@ func _spawn_number(hp_change: int):
 	var num: NumberEffect = number_effect.instantiate()
 	num.position = position
 	get_parent().add_child(num)
-	num.animate(hp_change)
+	var is_positive: bool = true if hp_change > 0 else false
+	var operand = "+" if hp_change > 0 else ""
+	num.animate(operand + str(hp_change), is_positive)
 
 func defeated():
 	var parent = get_parent()
 	if parent is MapObject:
-		GameManager.ObjectDestroyed.emit(parent)
+		GameManager.ObjectDestroyed.emit.call_deferred(parent)
 	if unit_data:
 		GameManager.last_defeated_unit = unit_data
 	var tween = get_tree().create_tween()
@@ -94,10 +96,11 @@ func _damage_animation(multiplier: int):
 	if sprite == null:
 		return
 	var tween = get_tree().create_tween()
+	var shake_amount = clamp(shake_magnitude * multiplier, 0, 3)
 	tween.set_loops(3)
 	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK)
-	tween.tween_property(sprite, "offset:x", shake_magnitude * multiplier, 0.02)
-	tween.tween_property(sprite, "offset:x", -shake_magnitude * multiplier, 0.04)
+	tween.tween_property(sprite, "offset:x", shake_amount, 0.02)
+	tween.tween_property(sprite, "offset:x", -shake_amount, 0.04)
 	tween.tween_property(sprite, "offset:x", 0, 0.02)
 
 func _flash(is_heal: bool = false):

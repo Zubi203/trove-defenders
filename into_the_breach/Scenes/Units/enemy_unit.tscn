@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://cx5hh4k64itp5"]
 
 [ext_resource type="PackedScene" uid="uid://urmdf5kq5dlg" path="res://Scenes/Units/unit.tscn" id="1_s4occ"]
+[ext_resource type="Texture2D" uid="uid://bvis34dcmw0uh" path="res://Graphics/ProjectileSprites.png" id="2_gcvdf"]
 [ext_resource type="Script" uid="uid://hfo5qdblnfyt" path="res://Scripts/ai_controller.gd" id="2_l573w"]
 [ext_resource type="Shader" uid="uid://bi2gnxcvvc0gu" path="res://Shaders/map_object.gdshader" id="2_sx6xe"]
+[ext_resource type="Script" uid="uid://t1yq27fbku8g" path="res://Scripts/arrow_telegraph_component.gd" id="3_626f8"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytye6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sx6xe"]
 resource_local_to_scene = true
 shader = ExtResource("2_sx6xe")
 shader_parameter/progress_white = 0.0
@@ -13,8 +15,33 @@ shader_parameter/progress_green = 0.0
 [node name="EnemyUnit" unique_id=1687360007 instance=ExtResource("1_s4occ")]
 
 [node name="Sprite2D" parent="." index="0" unique_id=112064396]
-material = SubResource("ShaderMaterial_ytye6")
+material = SubResource("ShaderMaterial_sx6xe")
+
+[node name="AttackComponent" parent="." index="4" unique_id=469614199 node_paths=PackedStringArray("arrow")]
+arrow = NodePath("../Arrow/ArrowTelegraph")
 
 [node name="AIController" type="Node2D" parent="." index="7" unique_id=1417697205]
 script = ExtResource("2_l573w")
 metadata/_custom_type_script = "uid://hfo5qdblnfyt"
+
+[node name="Arrow" type="Node2D" parent="." index="9" unique_id=416377565]
+
+[node name="ArrowTelegraph" type="Sprite2D" parent="Arrow" index="0" unique_id=1143821703]
+z_index = 2
+position = Vector2(0, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gcvdf")
+offset = Vector2(12, 0)
+region_enabled = true
+region_rect = Rect2(33, 7, 30, 18)
+script = ExtResource("3_626f8")
+metadata/_custom_type_script = "uid://t1yq27fbku8g"
+
+[node name="Sprite2D" type="Sprite2D" parent="Arrow/ArrowTelegraph" index="0" unique_id=1407727719]
+modulate = Color(0.3590693, 0.35906902, 0.3590692, 1)
+show_behind_parent = true
+position = Vector2(8, 0)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_gcvdf")
+region_enabled = true
+region_rect = Rect2(33, 7, 30, 18)

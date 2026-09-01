@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://dot3ogobj20y7" path="res://Resources/ui_theme.tres" id="1_hgm2k"]
 [ext_resource type="Script" uid="uid://co0ttlx7lcpok" path="res://Scripts/title_screen.gd" id="1_klylv"]
-[ext_resource type="Texture2D" uid="uid://dohbd041wi8um" path="res://Graphics/Background/BackgroundSky.png" id="2_kjbj0"]
 [ext_resource type="Texture2D" uid="uid://d2rlvi170hy7k" path="res://Graphics/Background/Background.png" id="2_qdg8d"]
+[ext_resource type="PackedScene" uid="uid://iyj1p3uotnjx" path="res://Scenes/UI/sky_bg.tscn" id="3_dgnw3"]
 [ext_resource type="Texture2D" uid="uid://cfnrvngv5g3rr" path="res://Graphics/Background/Green-Tree.png" id="4_sufyd"]
 [ext_resource type="Texture2D" uid="uid://csonvt8102phn" path="res://Graphics/Background/Yellow-Tree.png" id="5_h4qv3"]
 [ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="7_kysdl"]
@@ -47,7 +47,10 @@ mouse_filter = 2
 theme = ExtResource("1_hgm2k")
 script = ExtResource("1_klylv")
 
-[node name="Background" type="Control" parent="." unique_id=831804770]
+[node name="Sky" parent="." unique_id=309166863 instance=ExtResource("3_dgnw3")]
+layout_mode = 1
+
+[node name="Trees2" type="Control" parent="." unique_id=831804770]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,17 +58,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Background" unique_id=185377995]
-modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_kjbj0")
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Background" unique_id=1825139433]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Trees2" unique_id=1825139433]
 modulate = Color(0.63539076, 0.63539076, 0.63539076, 1)
 layout_mode = 0
 offset_left = 172.0
@@ -74,22 +67,22 @@ offset_right = 787.0
 offset_bottom = 747.0
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer3" unique_id=1679770712]
+[node name="TextureRect" type="TextureRect" parent="Trees2/HBoxContainer3" unique_id=1679770712]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_h2w44")
 
-[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer3" unique_id=107868795]
+[node name="TextureRect2" type="TextureRect" parent="Trees2/HBoxContainer3" unique_id=107868795]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_65ton")
 
-[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer3" unique_id=408486076]
+[node name="TextureRect3" type="TextureRect" parent="Trees2/HBoxContainer3" unique_id=408486076]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_xpw1u")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=123051977]
+[node name="HBoxContainer" type="HBoxContainer" parent="Trees2" unique_id=123051977]
 layout_mode = 0
 offset_left = -204.0
 offset_top = 194.0
@@ -97,22 +90,22 @@ offset_right = 411.0
 offset_bottom = 658.0
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer" unique_id=1496242853]
+[node name="TextureRect" type="TextureRect" parent="Trees2/HBoxContainer" unique_id=1496242853]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_h2w44")
 
-[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer" unique_id=86085995]
+[node name="TextureRect2" type="TextureRect" parent="Trees2/HBoxContainer" unique_id=86085995]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_65ton")
 
-[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer" unique_id=1851690771]
+[node name="TextureRect3" type="TextureRect" parent="Trees2/HBoxContainer" unique_id=1851690771]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_xpw1u")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Background" unique_id=2057742858]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Trees2" unique_id=2057742858]
 layout_mode = 0
 offset_left = 561.0
 offset_top = 175.0
@@ -120,22 +113,22 @@ offset_right = 1483.0
 offset_bottom = 725.0
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer2" unique_id=1728256515]
+[node name="TextureRect" type="TextureRect" parent="Trees2/HBoxContainer2" unique_id=1728256515]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_h2w44")
 
-[node name="TextureRect2" type="TextureRect" parent="Background/HBoxContainer2" unique_id=1883885984]
+[node name="TextureRect2" type="TextureRect" parent="Trees2/HBoxContainer2" unique_id=1883885984]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_65ton")
 
-[node name="TextureRect4" type="TextureRect" parent="Background/HBoxContainer2" unique_id=312468579]
+[node name="TextureRect4" type="TextureRect" parent="Trees2/HBoxContainer2" unique_id=312468579]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_65ton")
 
-[node name="TextureRect3" type="TextureRect" parent="Background/HBoxContainer2" unique_id=587326793]
+[node name="TextureRect3" type="TextureRect" parent="Trees2/HBoxContainer2" unique_id=587326793]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_xpw1u")

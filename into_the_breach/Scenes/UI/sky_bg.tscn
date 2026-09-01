@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://iyj1p3uotnjx"]
+
+[ext_resource type="Script" uid="uid://bfofogu7rwbue" path="res://Scripts/scrolling_background.gd" id="1_1uf3a"]
+[ext_resource type="Texture2D" uid="uid://dohbd041wi8um" path="res://Graphics/Background/BackgroundSky.png" id="2_4gm3u"]
+
+[node name="Sky" type="Control" unique_id=309166863]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_1uf3a")
+move_speed = 30.0
+extent = 1592.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1825074617]
+modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 440.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4gm3u")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=2015050065]
+modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1592.0
+offset_right = -1152.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4gm3u")
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=77794421]
+modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3184.0
+offset_right = -2744.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4gm3u")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=454816635]
+modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1592.0
+offset_right = 2032.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4gm3u")
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=1641383115]
+modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3184.0
+offset_right = 3624.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4gm3u")

@@ -5,6 +5,7 @@ extends Camera2D
 var intensity: float
 
 func _ready() -> void:
+	GameManager.ForceStopScreenShake.connect(force_stop_shake)
 	GameManager.ShakeCamera.connect(_damage_shake)
 
 func _process(delta: float) -> void:
@@ -20,3 +21,6 @@ func _get_random_offset() -> Vector2:
 	var y = randf_range(-intensity, intensity)
 	
 	return Vector2(x, y)
+
+func force_stop_shake():
+	intensity = 0

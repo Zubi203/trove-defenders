@@ -20,13 +20,14 @@
 [ext_resource type="PackedScene" uid="uid://clco2ybnadyyp" path="res://Scenes/Units/magic_mine_tile.tscn" id="12_v4s1b"]
 [ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="13_updk7"]
 [ext_resource type="Script" uid="uid://cn026kux1fdqp" path="res://Scripts/attack_effect_manager.gd" id="14_6grlj"]
-[ext_resource type="PackedScene" uid="uid://ni1h1ks36nhf" path="res://Scenes/Projectiles/chainlightning.tscn" id="15_dgrua"]
-[ext_resource type="Resource" uid="uid://dc5ahlhvfcwb8" path="res://Resources/attacks/chain_lightning.tres" id="16_7n2l3"]
+[ext_resource type="PackedScene" uid="uid://cvnvj47ttej0e" path="res://Scenes/Projectiles/chain_lightning.tscn" id="15_f4enb"]
 [ext_resource type="PackedScene" uid="uid://cj00bj6bpqnkj" path="res://Scenes/Units/fire_tile.tscn" id="16_ankfj"]
 [ext_resource type="PackedScene" uid="uid://bit8tqivoeaj2" path="res://Scenes/Projectiles/push_projectile.tscn" id="16_f4enb"]
 [ext_resource type="PackedScene" uid="uid://d4jjdcnxrapul" path="res://Scenes/Projectiles/potion.tscn" id="16_uja8f"]
 [ext_resource type="PackedScene" uid="uid://urmdf5kq5dlg" path="res://Scenes/Units/unit.tscn" id="16_wafo1"]
 [ext_resource type="PackedScene" uid="uid://gmjf5jhybit8" path="res://Scenes/Units/foliage_tile.tscn" id="18_hr3fp"]
+[ext_resource type="PackedScene" uid="uid://dl1tid57qmy5o" path="res://Scenes/cyclops_particles.tscn" id="19_3g3qb"]
+[ext_resource type="PackedScene" uid="uid://005m1u2m3xcj" path="res://Scenes/UI/number_effect.tscn" id="19_f4enb"]
 [ext_resource type="PackedScene" uid="uid://cpev8kecrvqu8" path="res://Scenes/Units/rooted_tile.tscn" id="20_l3ehq"]
 [ext_resource type="PackedScene" uid="uid://ofaqva2rwypo" path="res://Scenes/UI/settings_menu.tscn" id="22_xae0j"]
 
@@ -309,16 +310,17 @@ hazard_tile_scenes = Dictionary[int, PackedScene]({
 y_sort_enabled = true
 script = ExtResource("14_6grlj")
 effect_scenes = Dictionary[int, PackedScene]({
-0: ExtResource("15_dgrua"),
+0: ExtResource("15_f4enb"),
 1: ExtResource("16_f4enb"),
 2: ExtResource("16_uja8f"),
-3: ExtResource("16_wafo1")
+3: ExtResource("16_wafo1"),
+4: ExtResource("19_3g3qb")
 })
-chain_lightning_data = ExtResource("16_7n2l3")
+number_effect = ExtResource("19_f4enb")
 unit_container = NodePath("../Units")
 
 [node name="TelegraphContainer" type="Node2D" parent="." unique_id=776287371]
-modulate = Color(1, 1, 1, 0.68235296)
+modulate = Color(1, 1, 1, 0.5882353)
 
 [node name="HoverCursor" type="Sprite2D" parent="." unique_id=485981622]
 visible = false

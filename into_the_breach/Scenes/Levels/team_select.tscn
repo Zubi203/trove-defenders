@@ -20,8 +20,8 @@
 [ext_resource type="Resource" uid="uid://bagk81j0rjwb5" path="res://Resources/enemy_units/ghost.tres" id="15_g0m3q"]
 [ext_resource type="Resource" uid="uid://bnuhhc788wpki" path="res://Resources/enemy_units/rat.tres" id="16_cv5t5"]
 [ext_resource type="Resource" uid="uid://c54c2tjp1psvr" path="res://Resources/enemy_units/spider.tres" id="17_wb0mc"]
-[ext_resource type="Texture2D" uid="uid://dohbd041wi8um" path="res://Graphics/Background/BackgroundSky.png" id="18_qmafl"]
 [ext_resource type="Texture2D" uid="uid://d2rlvi170hy7k" path="res://Graphics/Background/Background.png" id="19_7uwwg"]
+[ext_resource type="PackedScene" uid="uid://iyj1p3uotnjx" path="res://Scenes/UI/sky_bg.tscn" id="19_wb0mc"]
 [ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="22_g0m3q"]
 [ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="23_cv5t5"]
 [ext_resource type="Texture2D" uid="uid://ya5kyjod84cv" path="res://Graphics/icons/Play 256 px.png" id="24_g0m3q"]
@@ -62,6 +62,9 @@ units = Array[ExtResource("2_lxshb")]([ExtResource("3_vln64"), ExtResource("4_vl
 party_buttons = [NodePath("PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton"), NodePath("PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton2"), NodePath("PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer/PartyButton3")]
 unit_card = NodePath("PartyPreview/Shadow/CenterContainer/UnitCard")
 
+[node name="Sky" parent="." unique_id=309166863 instance=ExtResource("19_wb0mc")]
+layout_mode = 1
+
 [node name="Background" type="Control" parent="." unique_id=2082903055]
 layout_mode = 1
 anchors_preset = 15
@@ -69,16 +72,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="Background" unique_id=2094298020]
-modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("18_qmafl")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Background" unique_id=2020903288]
 modulate = Color(0.63539076, 0.63539076, 0.63539076, 1)
