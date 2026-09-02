@@ -8,6 +8,7 @@ var push_directions: Array[TileSet.CellNeighbor] = [
 	TileSet.CELL_NEIGHBOR_TOP_RIGHT_SIDE
 ]
 
+@warning_ignore("unused_parameter")
 func activate_effect(target_tile: Vector2i, attacker_pos: Vector2i):
 	var surrounding_cells: Array[Vector2i] = GameManager.current_board.get_surrounding_cells(target_tile)
 	for cell in surrounding_cells:

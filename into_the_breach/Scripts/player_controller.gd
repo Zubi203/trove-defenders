@@ -77,7 +77,7 @@ func _move_state_enter():
 	current_state = State.MOVE
 	GameManager.HideTelegraphs.emit(GameManager.Telegraph.ATTACK, temp_tile_array)
 	temp_tile_array.clear()
-	temp_tile_array = GameManager.get_movable_tiles(GameManager.current_board.local_to_map(global_position) , unit_data.max_move_distance)
+	temp_tile_array = GameManager.get_movable_tiles(GameManager.current_board.local_to_map(global_position) , unit_data.max_move_distance, unit_data.is_flying)
 	GameManager.ShowTelegraphs.emit(GameManager.Telegraph.MOVE, temp_tile_array)
 
 func _attack_state_enter():
@@ -141,3 +141,11 @@ func _on_undo_move():
 	if not actions_available[PlayerButton.ButtonType.MOVE]:
 		actions_available[PlayerButton.ButtonType.MOVE] = true
 		remaining_action_count += 1
+
+func try_remove_snare():
+	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
+	if not GameManager.current_board_data.has(grid_pos):
+		return
+	if is_ensnared and not GameManager.current_board_data[grid_pos].hazard is SnareTile:
+		is_ensnared = false
+		actions_available[PlayerButton.ButtonType.MOVE] = true

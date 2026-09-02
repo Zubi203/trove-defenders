@@ -22,7 +22,7 @@ func _set_tile_ui():
 	tile_description_label.text = tile_data.name + ":\n" + tile_data.description
 	tile_ui_icon.texture = tile_data.texture 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_check_mouse_position()
 
 func _check_mouse_position():
@@ -50,3 +50,6 @@ func _on_turn_end(_turn: GameManager.TurnState):
 
 func _destroy_tile():
 	queue_free()
+
+func _exit_tree() -> void:
+	GameManager.UpdateBoard.emit()

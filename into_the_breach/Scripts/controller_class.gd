@@ -18,6 +18,7 @@ func _try_get_sprite():
 			sprite = sibling
 			base_sprite_offset = sprite.offset
 			base_sprite_scale = sprite.scale
+	GameManager.UpdateBoard.connect(try_remove_snare)
 
 func _move_start_animation():
 	if sprite == null:
@@ -65,3 +66,12 @@ func _on_spawn_animation():
 
 func ensnare():
 	is_ensnared = true
+	
+
+func try_remove_snare():
+	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
+	if not GameManager.current_board_data.has(grid_pos):
+		return
+	if not GameManager.current_board_data[grid_pos].hazard is SnareTile:
+		is_ensnared = false
+	

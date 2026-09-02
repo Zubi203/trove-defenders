@@ -24,6 +24,8 @@ func _ready() -> void:
 func spawn_tile(type: HazardTiles, grid_pos: Vector2i):
 	if hazard_tile_scenes[type] == null:
 		return
+	if GameManager._check_water_tile(grid_pos):
+		return
 	var existing_tile = GameManager.current_board_data[grid_pos].hazard
 	if existing_tile != null:
 		existing_tile._destroy_tile()

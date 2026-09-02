@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bta3jmttamjv2" path="res://Graphics/kenney_tiny-dungeon/Tiles/tile_0103.png" id="2_22wfh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2w44"]
-radius = 4.1231055
+radius = 2.0
 
 [node name="BaseProjectile" type="Area2D" unique_id=46804400 node_paths=PackedStringArray("sprite", "collider")]
 collision_mask = 6

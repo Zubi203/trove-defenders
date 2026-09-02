@@ -1,3 +1,4 @@
+class_name SnareTile
 extends HazardTile
 
 
@@ -14,7 +15,7 @@ func _check_unit_on_tile():
 	var target_object: MapObject = GameManager.current_board_data[grid_pos].object
 	for child in target_object.get_children():
 		if child is Controller:
-			child.is_ensnared = true
+			child.ensnare()
 
 func _destroy_tile():
 	var grid_pos = GameManager.current_board.local_to_map(global_position)

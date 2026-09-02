@@ -95,9 +95,9 @@ func reset():
 	for key in cleared_levels:
 		cleared_levels[key] = false
 
-func get_movable_tiles(tile_pos: Vector2i, move_range: int) -> Array[Vector2i]:
+func get_movable_tiles(tile_pos: Vector2i, move_range: int, is_flying: bool = true) -> Array[Vector2i]:
 	var cells: Array[Vector2i] = []
-	_get_tiles_diamond_pattern(cells, tile_pos, move_range, true)
+	_get_tiles_diamond_pattern(cells, tile_pos, move_range, true, !is_flying)
 	return cells
 
 func get_attack_tiles(tile_pos: Vector2i, range_type: AttackRangeTypes, dead_zone_type: AttackRangeTypes, attack_range: int, dead_zone: int) -> Array[Vector2i]:
@@ -186,7 +186,7 @@ func _get_tiles_full_board(tile_pos: Vector2i) -> Array[Vector2i]:
 			cells.append(key)
 	return cells
 
-func _get_tiles_diamond_pattern(input_array: Array[Vector2i], tile_pos: Vector2i, distance: int, _check_obstacles: bool = false):
+func _get_tiles_diamond_pattern(input_array: Array[Vector2i], tile_pos: Vector2i, distance: int, _check_obstacles: bool = false, _check_water: bool = false):
 	for i in distance:
 		var cells = current_board.get_surrounding_cells(tile_pos)
 		for cell in cells:
@@ -194,11 +194,17 @@ func _get_tiles_diamond_pattern(input_array: Array[Vector2i], tile_pos: Vector2i
 				continue
 			if _check_obstacles and _check_obstacle_on_tile(cell):
 				continue
+			if _check_water and _check_water_tile(cell):
+				continue
 			input_array.append(cell)
-			_get_tiles_diamond_pattern(input_array, cell, distance - 1, _check_obstacles)
+			_get_tiles_diamond_pattern(input_array, cell, distance - 1, _check_obstacles, _check_water)
 
 func _check_obstacle_on_tile(tile_pos: Vector2i) -> bool:
 	if current_board_data[tile_pos].object == null:
 		return false
 	else:
 		return true
+
+func _check_water_tile(tile_pos: Vector2i) -> bool:
+	var tile_data: TileData = current_board.get_cell_tile_data(tile_pos) as TileData
+	return tile_data.get_custom_data("is_water")

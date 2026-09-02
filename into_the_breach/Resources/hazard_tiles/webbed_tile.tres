@@ -10,7 +10,7 @@ region = Rect2(32, 0, 32, 32)
 [resource]
 script = ExtResource("1_yixst")
 name = "Webbed Tile"
-description = "Units standing on this cannot move or be pushed"
+description = "Units standing on this cannot move"
 turn_duration = 3
 texture = SubResource("AtlasTexture_tue4i")
 metadata/_custom_type_script = "uid://bse1m7j7vxlbd"

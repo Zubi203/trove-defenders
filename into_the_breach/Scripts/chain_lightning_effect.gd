@@ -1,6 +1,7 @@
 class_name ChainLightningEffect
 extends AttackEffectData
 
+@warning_ignore("unused_parameter")
 func activate_effect(target_tile: Vector2i, attacker_pos: Vector2i):
 	var targets: Array[MapObject] = []
 	_check_surrounding_targets(target_tile, targets)

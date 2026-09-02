@@ -91,6 +91,8 @@ stretch_mode = 5
 layout_mode = 2
 text = "A FORMIDABLE FOE APPROACHES!"
 label_settings = SubResource("LabelSettings_s4hme")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1256465216]
 modulate = Color(1, 0.36078432, 0.36078432, 1)
@@ -104,10 +106,11 @@ stretch_mode = 5
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1376987882]
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=401614646]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 100)
+custom_minimum_size = Vector2(80, 120)
+custom_maximum_size = Vector2(80, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uageu")
 
@@ -122,7 +125,8 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_gxv48")
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1583017963]
-custom_maximum_size = Vector2(420, -1)
+custom_minimum_size = Vector2(0, 110)
+custom_maximum_size = Vector2(445, -1)
 layout_mode = 2
 text = "leave a dark totem upon hitting empty tiles. The totem will detonate on the next turn if not destroyed, dealing damage across a large area"
 label_settings = SubResource("LabelSettings_h2w44")

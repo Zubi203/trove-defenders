@@ -15,6 +15,9 @@ var target_direction: Vector2 = Vector2.ZERO
 var owner_object: MapObject = null
 var target_cell_entered: bool = false
 var target_cell: Vector2i
+var start_cell: Vector2i
+var in_start_cell: bool = true
+var check_start_pos: bool = true
 var additional_damage: int = 0
 
 func _set_data():
@@ -25,6 +28,8 @@ func _physics_process(delta: float) -> void:
 	_move(delta)
 	_check_board_edge()
 	_check_range_end()
+	if check_start_pos:
+		_check_start_tile()
 
 func _move(_delta: float):
 	pass
@@ -42,6 +47,14 @@ func _check_range_end():
 	else:
 		target_cell_entered = grid_pos == target_cell
 
+func _check_start_tile():
+	var grid_pos = GameManager.current_board.local_to_map(global_position)
+	if not in_start_cell:
+		_enable_collider.call_deferred()
+		check_start_pos = false
+	else:
+		in_start_cell = grid_pos == start_cell
+
 func _set_projectile(projectile_owner: MapObject, pos: Vector2, target_pos: Vector2, data: AttackData, bonus_damage: int = 0):
 	area_entered.connect(_on_area_entered)
 	additional_damage = bonus_damage
@@ -49,8 +62,10 @@ func _set_projectile(projectile_owner: MapObject, pos: Vector2, target_pos: Vect
 	owner_object = projectile_owner
 	attack_data = data
 	target_cell = GameManager.current_board.local_to_map(target_pos)
+	start_cell = GameManager.current_board.local_to_map(pos)
 	target_direction = pos.direction_to(target_pos)
 	distance_to_target = pos.distance_to(target_pos)
+	_disable_collider.call_deferred()
 
 func _on_area_entered(area: Area2D):
 	if area == owner_object:

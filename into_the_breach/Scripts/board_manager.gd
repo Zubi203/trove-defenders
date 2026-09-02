@@ -108,6 +108,8 @@ func _update_board(_obj: MapObject = null):
 	# check hazards
 	for tile: HazardTile in get_tree().get_nodes_in_group("HazardTile"):
 		var tile_grid_pos = tile_map.local_to_map(tile.global_position)
+		if GameManager._check_water_tile(tile_grid_pos):
+			tile._destroy_tile()
 		for key in GameManager.current_board_data.keys():
 			if tile_grid_pos == key:
 				GameManager.current_board_data[key].hazard = tile

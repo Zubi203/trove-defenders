@@ -1,6 +1,7 @@
 class_name MovementComponent
 extends Node2D
 
+@warning_ignore("unused_signal")
 signal UndoMove
 
 var sprite: Sprite2D

@@ -22,7 +22,7 @@ enum AttackEffects{
 func _ready() -> void:
 	GameManager.SpawnAttackEffect.connect(spawn_effect)
 
-func spawn_effect(effect_type: AttackEffects, spawn_tile: Vector2i, direction_tile: Vector2i = Vector2i.ZERO, target_object: MapObject = null):
+func spawn_effect(effect_type: AttackEffects, spawn_tile: Vector2i, _direction_tile: Vector2i = Vector2i.ZERO, _target_object: MapObject = null):
 	if effect_scenes[effect_type] == null:
 		return
 	var effect = effect_scenes[effect_type].instantiate()
@@ -39,3 +39,4 @@ func spawn_effect(effect_type: AttackEffects, spawn_tile: Vector2i, direction_ti
 		effect.data = GameManager.last_defeated_unit
 		if unit_container and effect.get_parent() != null:
 			effect.reparent(unit_container)
+		GameManager.UpdateBoard.emit()

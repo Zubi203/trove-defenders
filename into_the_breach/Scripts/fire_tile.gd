@@ -7,6 +7,8 @@ func _on_turn_start(_turn: GameManager.TurnState):
 		return
 	if GameManager.current_board_data.is_empty():
 		return
+	if _turn == GameManager.TurnState.PLAYER:
+		return
 	var grid_pos = GameManager.current_board.local_to_map(global_position)
 	if GameManager.current_board_data[grid_pos].object:
 		var object: MapObject = GameManager.current_board_data[grid_pos].object

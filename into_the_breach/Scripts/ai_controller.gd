@@ -26,7 +26,7 @@ func _set_unit_data():
 func _fetch_location_tiles():
 	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
 	var tiles: Array[Vector2i] = []
-	tiles = GameManager.get_movable_tiles(grid_pos, data.max_move_distance)
+	tiles = GameManager.get_movable_tiles(grid_pos, data.max_move_distance, data.is_flying)
 	location_scores.clear()
 	for tile in tiles:
 		location_scores[tile] = 0
@@ -44,7 +44,6 @@ func _score_location_tiles():
 	if location_scores.is_empty():
 		return
 	
-	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
 	for key in location_scores.keys():
 		var closest_target: MapObject = null
 		var closest_dist: float = 99999
@@ -144,12 +143,16 @@ func decide_ai_move_action():
 			possible_actions.append(key)
 	var target_tile: Vector2i
 	if possible_actions.is_empty():
-		target_tile = location_scores.keys().pick_random()
+		if not location_scores.keys().is_empty():
+			target_tile = location_scores.keys().pick_random()
 	else:
 		target_tile = possible_actions.pick_random()
 	prev_move_location = target_tile
-	MoveUnit.emit(target_tile)
-	GameManager.HideTelegraphs.emit(GameManager.Telegraph.MOVE, location_scores.keys() as Array[Vector2i])
+	if GameManager.current_board_data.has(target_tile):
+		MoveUnit.emit(target_tile)
+		GameManager.HideTelegraphs.emit(GameManager.Telegraph.MOVE, location_scores.keys() as Array[Vector2i])
+	else:
+		return
 
 func decide_ai_attack_action():
 	_fetch_attack_tiles()

@@ -10,7 +10,7 @@ region = Rect2(64, 0, 32, 32)
 [resource]
 script = ExtResource("1_w8n6c")
 name = "Rooted Tile"
-description = "Units standing on this cannot move or be pushed"
+description = "Units standing on this cannot move"
 turn_duration = 5
 texture = SubResource("AtlasTexture_v3d10")
 metadata/_custom_type_script = "uid://bse1m7j7vxlbd"

@@ -187,7 +187,7 @@ size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="TeamSelectButton" type="Button" parent="VBoxContainer/HBoxContainer/CenterContainer" unique_id=1599889296]
-custom_minimum_size = Vector2(200, 80)
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
 text = "TEAM SELECT"
 

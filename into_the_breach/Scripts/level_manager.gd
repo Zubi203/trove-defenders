@@ -78,6 +78,7 @@ func _spawn_unit(unit: UnitData, pos: Vector2):
 
 func next_turn():
 	GameManager.UpdateBoard.emit()
+	GameManager.last_defeated_unit = null
 	_check_units()
 	if game_over:
 		return

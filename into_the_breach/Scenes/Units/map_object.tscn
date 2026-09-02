@@ -12,7 +12,7 @@ shader_parameter/progress_white = 0.0
 shader_parameter/progress_green = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2w44"]
-radius = 4.0
+radius = 2.0
 
 [node name="MapObject" type="Area2D" unique_id=1687360007 node_paths=PackedStringArray("sprite") groups=["MapObject"]]
 collision_layer = 4

@@ -345,7 +345,7 @@ metadata/_custom_type_script = "uid://cxx74db5puoyo"
 [node name="SettingsButton" type="Button" parent="VBoxContainer/HBoxContainer/ButtonContainer" unique_id=697043849]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-text = "Settings"
+text = "SETTINGS"
 
 [node name="AnimatedButtonComponent" type="Node2D" parent="VBoxContainer/HBoxContainer/ButtonContainer/SettingsButton" unique_id=720666587]
 script = ExtResource("7_kysdl")

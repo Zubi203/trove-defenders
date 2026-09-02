@@ -8,8 +8,12 @@
 radius = 4.0
 
 [node name="FoliageTile" unique_id=1276451 instance=ExtResource("1_uiwr1")]
+z_index = -1
 script = ExtResource("2_x3vho")
 tile_data = ExtResource("2_uiwr1")
+
+[node name="PanelContainer" parent="HazardTileUI" parent_id_path=PackedInt32Array(1041930883) index="0" unique_id=123863114]
+offset_right = 553.0
 
 [node name="Hitbox" type="Area2D" parent="." index="1" unique_id=427632719]
 collision_layer = 2

@@ -9,3 +9,6 @@ func _ready() -> void:
 
 func _point_projectile_animation():
 	pass
+
+func _check_start_tile():
+	pass

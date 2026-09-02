@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _fetch_data():
 	var parent = get_parent()
-	if parent is Unit:
+	if parent is Unit and not parent.data == null:
 		data = parent.data.attack_data
 		effect_data = parent.data.attack_effect_data
 	for child in parent.get_children():
@@ -102,7 +102,6 @@ func _flash():
 func _update_target_tile(target_neighbor: TileSet.CellNeighbor):
 	if not GameManager.current_board_data.has(target_tile):
 		return
-	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
 	var target_pos = GameManager.current_board.get_neighbor_cell(target_tile, target_neighbor)
 	if not GameManager.current_board_data.has(target_pos):
 		target_tile = Vector2i.ZERO

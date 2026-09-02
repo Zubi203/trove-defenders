@@ -27,7 +27,7 @@ func  _check_range_end():
 			return
 		else:
 			impact_initiated = true
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(0.2).timeout
 			_impact(GameManager.current_board.map_to_local(target_cell))
 	else:
 		target_cell_entered = grid_pos == target_cell
@@ -50,3 +50,6 @@ func _arc_animation():
 	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(sprite, "position:y", 0, travel_time * 0.5)
 	tween.tween_callback(_enable_collider)
+
+func _check_start_tile():
+	pass

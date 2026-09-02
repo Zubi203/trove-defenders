@@ -42,8 +42,9 @@ func _ready() -> void:
 func _set_health():
 	var parent = get_parent()
 	if parent is Unit:
-		unit_data = parent.data
-		max_health = parent.data.health
+		if parent.data != null:
+			unit_data = parent.data
+			max_health = parent.data.health
 	else:
 		max_health = default_max_health
 	if health_bar == null:

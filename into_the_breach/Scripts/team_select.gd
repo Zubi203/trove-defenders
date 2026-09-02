@@ -57,7 +57,8 @@ func _update_available_units(unit_to_select: UnitData):
 	avialable_units.append_array(units.duplicate())
 	var filter_array: Array[UnitData] = []
 	for button in party_buttons:
-		filter_array.append(button.unit)
+		if button != selected_button:
+			filter_array.append(button.unit)
 	avialable_units = avialable_units.filter(func(item): return item not in filter_array)
 	selected_unit = unit_to_select
 	if selected_button:
