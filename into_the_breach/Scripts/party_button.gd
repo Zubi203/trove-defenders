@@ -29,4 +29,3 @@ func show_selection_indicator():
 func hide_selection_indicator():
 	if selection_indicator:
 		selection_indicator.hide()
-	

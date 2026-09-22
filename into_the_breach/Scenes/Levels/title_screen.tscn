@@ -7,8 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cfnrvngv5g3rr" path="res://Graphics/Background/Green-Tree.png" id="4_sufyd"]
 [ext_resource type="Texture2D" uid="uid://csonvt8102phn" path="res://Graphics/Background/Yellow-Tree.png" id="5_h4qv3"]
 [ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="7_kysdl"]
+[ext_resource type="Script" uid="uid://cxuj1ges6frjn" path="res://Scripts/container_animation.gd" id="7_oxd3l"]
+[ext_resource type="Script" uid="uid://byyp7w0dg0gq0" path="res://Scripts/auto_animated_ui_component.gd" id="7_vtciy"]
 [ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="8_w4sgk"]
 [ext_resource type="PackedScene" uid="uid://ofaqva2rwypo" path="res://Scenes/UI/settings_menu.tscn" id="9_dgnw3"]
+[ext_resource type="Script" uid="uid://dbyymo2q7rppg" path="res://Scripts/fade_out_color_rect.gd" id="12_72p0a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h2w44"]
 atlas = ExtResource("2_qdg8d")
@@ -302,11 +305,35 @@ label_settings = SubResource("LabelSettings_h2w44")
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="AutoAnimateUIComponent" type="Control" parent="VBoxContainer/CenterContainer/VBoxContainer/Label" unique_id=800292441 node_paths=PackedStringArray("target")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_vtciy")
+target = NodePath("..")
+anim_when = 1
+anim_type = 1
+delay_appear = 1.2
+duration = 0.5
+metadata/_custom_type_script = "uid://byyp7w0dg0gq0"
+
 [node name="Label2" type="Label" parent="VBoxContainer/CenterContainer/VBoxContainer" unique_id=1685274788]
 layout_mode = 2
 text = "DEFENDERS"
 label_settings = SubResource("LabelSettings_dgnw3")
 horizontal_alignment = 1
+
+[node name="AutoAnimateUIComponent" type="Control" parent="VBoxContainer/CenterContainer/VBoxContainer/Label2" unique_id=1774981742 node_paths=PackedStringArray("target")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_vtciy")
+target = NodePath("..")
+anim_when = 1
+anim_type = 2
+delay_appear = 1.2
+duration = 0.5
+metadata/_custom_type_script = "uid://byyp7w0dg0gq0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1286533410]
 layout_mode = 2
@@ -328,6 +355,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 16
+script = ExtResource("7_oxd3l")
+anim_when = 1
+order_type = 1
+duration = 0.3
+delay_appear = 1.4
+delay_between_elements = 0.1
 
 [node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer/ButtonContainer" unique_id=251458023]
 custom_minimum_size = Vector2(0, 60)
@@ -381,6 +414,20 @@ mouse_filter = 2
 [node name="SettingsMenu" parent="." unique_id=1857662868 instance=ExtResource("9_dgnw3")]
 visible = false
 layout_mode = 1
+
+[node name="FadeOutColorRect" type="ColorRect" parent="." unique_id=1884779719]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("12_72p0a")
+fade_out_duration = 0.7
+fade_out_delay = 1.0
+metadata/_custom_type_script = "uid://dbyymo2q7rppg"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

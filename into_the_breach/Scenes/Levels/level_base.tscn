@@ -30,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://005m1u2m3xcj" path="res://Scenes/UI/number_effect.tscn" id="19_f4enb"]
 [ext_resource type="PackedScene" uid="uid://cpev8kecrvqu8" path="res://Scenes/Units/rooted_tile.tscn" id="20_l3ehq"]
 [ext_resource type="PackedScene" uid="uid://ofaqva2rwypo" path="res://Scenes/UI/settings_menu.tscn" id="22_xae0j"]
+[ext_resource type="Script" uid="uid://cxuj1ges6frjn" path="res://Scripts/container_animation.gd" id="29_7kdsd"]
+[ext_resource type="Script" uid="uid://byyp7w0dg0gq0" path="res://Scripts/auto_animated_ui_component.gd" id="30_o23v3"]
 
 [sub_resource type="Gradient" id="Gradient_4f6dp"]
 offsets = PackedFloat32Array(0, 0.5277778, 1)
@@ -220,6 +222,22 @@ custom_data_layer_0/name = "is_water"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_fhsqj")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o23v3"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(11.375, 5.955, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -15, 0)
+color = Color(1, 0.68499994, 0.100000024, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qx2wl"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(8.875, 4.47, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -15, 0)
+color = Color(0.949, 0.82, 1, 1)
+
 [sub_resource type="Gradient" id="Gradient_s4hme"]
 colors = PackedColorArray(1, 1, 1, 1, 0.3727533, 0.92, 0.15640002, 1)
 
@@ -352,6 +370,24 @@ position = Vector2(432, 304)
 zoom = Vector2(3, 3)
 script = ExtResource("8_q678k")
 
+[node name="PrewarmParticles" type="Node2D" parent="." unique_id=1079017004]
+position = Vector2(-602, 294)
+
+[node name="CyclopsParticles" parent="PrewarmParticles" unique_id=1280024040 instance=ExtResource("19_3g3qb")]
+position = Vector2(71, 374)
+
+[node name="Shockwave" parent="PrewarmParticles" unique_id=381902753 instance=ExtResource("16_3g3qb")]
+
+[node name="ChainLightning" parent="PrewarmParticles" unique_id=1161673558 instance=ExtResource("15_f4enb")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="PrewarmParticles" unique_id=1141983894]
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_o23v3")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="PrewarmParticles" unique_id=849197325]
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_qx2wl")
+
 [node name="LevelUI" type="CanvasLayer" parent="." unique_id=1044621262 node_paths=PackedStringArray("pause_menu", "turn_label", "end_turn_button", "undo_button", "units_label", "chests_label")]
 script = ExtResource("7_s4hme")
 pause_menu = NodePath("PauseMenu")
@@ -392,6 +428,9 @@ theme = ExtResource("9_ls6f5")
 [node name="TopRow" type="HBoxContainer" parent="LevelUI/VBoxContainer" unique_id=2056440878]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+script = ExtResource("29_7kdsd")
+anim_when = 1
+delay_appear = 0.4
 
 [node name="CenterContainer" type="CenterContainer" parent="LevelUI/VBoxContainer/TopRow" unique_id=1773692793]
 layout_mode = 2
@@ -503,8 +542,12 @@ size_flags_horizontal = 3
 [node name="HBoxContainer" type="HBoxContainer" parent="LevelUI/VBoxContainer/SecondRow/CenterContainer" unique_id=1424259273]
 layout_mode = 2
 theme_override_constants/separation = 10
+script = ExtResource("29_7kdsd")
+anim_when = 1
+delay_appear = 0.5
 
 [node name="EndTurnButton" type="Button" parent="LevelUI/VBoxContainer/SecondRow/CenterContainer/HBoxContainer" unique_id=304192144]
+z_index = 1
 custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -583,6 +626,9 @@ theme_override_constants/margin_bottom = 30
 [node name="VBoxContainer" type="VBoxContainer" parent="LevelUI/PauseMenu/CenterContainer/PanelContainer/MarginContainer" unique_id=1364227567]
 layout_mode = 2
 theme_override_constants/separation = 30
+script = ExtResource("29_7kdsd")
+anim_when = 2
+delay_appear = 0.1
 
 [node name="Label" type="Label" parent="LevelUI/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=617980649]
 layout_mode = 2
@@ -630,6 +676,12 @@ metadata/_custom_type_script = "uid://c68ji40djcytp"
 [node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="LevelUI/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/LevelSelectButton" unique_id=1343600613]
 script = ExtResource("13_updk7")
 metadata/_custom_type_script = "uid://cxx74db5puoyo"
+
+[node name="AutoAnimateUIComponent" type="Control" parent="LevelUI/PauseMenu/CenterContainer/PanelContainer" unique_id=1885944754]
+layout_mode = 2
+script = ExtResource("30_o23v3")
+anim_when = 2
+metadata/_custom_type_script = "uid://byyp7w0dg0gq0"
 
 [node name="EndScreen" type="ColorRect" parent="LevelUI" unique_id=398184394 node_paths=PackedStringArray("panel", "replay_button", "level_select_button", "label")]
 visible = false

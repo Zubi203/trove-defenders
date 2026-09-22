@@ -74,6 +74,8 @@ func _on_area_entered(area: Area2D):
 		for child in area.get_children():
 			if child is HealthComponent:
 				child.take_damage(attack_data.damage + additional_damage)
+				if not attack_data.is_piercing:
+					_disable_collider.call_deferred()
 		if not attack_data.type == GameManager.AttackTypes.POINT:
 			_impact(global_position)
 

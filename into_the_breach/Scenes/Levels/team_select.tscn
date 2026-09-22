@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://b7sdovlf8r7m0" path="res://Resources/player_units/squire.tres" id="8_r3qx4"]
 [ext_resource type="Resource" uid="uid://dilehykp6whxe" path="res://Resources/player_units/tavernkeep.tres" id="9_8hw4j"]
 [ext_resource type="Resource" uid="uid://hgno1vpmqlob" path="res://Resources/player_units/viking.tres" id="10_yuu83"]
+[ext_resource type="Script" uid="uid://cxuj1ges6frjn" path="res://Scripts/container_animation.gd" id="14_nvgc7"]
 [ext_resource type="Texture2D" uid="uid://d2rlvi170hy7k" path="res://Graphics/Background/Background.png" id="19_7uwwg"]
 [ext_resource type="PackedScene" uid="uid://iyj1p3uotnjx" path="res://Scenes/UI/sky_bg.tscn" id="19_wb0mc"]
 [ext_resource type="Script" uid="uid://b60ywjo6ygrqd" path="res://Scripts/arrow_button.gd" id="20_yholm"]
@@ -158,6 +159,9 @@ size_flags_horizontal = 3
 [node name="PartyViewContainer" type="VBoxContainer" parent="PartyPreview/PanelContainer" unique_id=1345128147]
 layout_mode = 2
 mouse_filter = 2
+script = ExtResource("14_nvgc7")
+anim_when = 1
+delay_appear = 0.4
 
 [node name="Label" type="Label" parent="PartyPreview/PanelContainer/PartyViewContainer" unique_id=1561940116]
 custom_minimum_size = Vector2(0, 70)
@@ -172,6 +176,9 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 30
+script = ExtResource("14_nvgc7")
+anim_when = 1
+delay_appear = 0.5
 
 [node name="PartyButton" parent="PartyPreview/PanelContainer/PartyViewContainer/VBoxContainer" unique_id=254119974 instance=ExtResource("2_srwfa")]
 layout_mode = 2
@@ -244,6 +251,9 @@ custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.12941177, 0.12941177, 0.12941177, 0.3137255)
+script = ExtResource("14_nvgc7")
+anim_when = 1
+delay_appear = 0.3
 
 [node name="CenterContainer" type="CenterContainer" parent="PartyPreview/Shadow" unique_id=1872376011]
 layout_mode = 1

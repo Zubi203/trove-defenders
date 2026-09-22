@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://1bejt3dycq0d" path="res://Scripts/settings_menu.gd" id="2_ynxh7"]
 [ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="3_vrd41"]
 [ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="4_ynxh7"]
+[ext_resource type="Script" uid="uid://cxuj1ges6frjn" path="res://Scripts/container_animation.gd" id="6_n6o6n"]
+[ext_resource type="Script" uid="uid://byyp7w0dg0gq0" path="res://Scripts/auto_animated_ui_component.gd" id="7_cs2gm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h2w44"]
 font_size = 32
@@ -71,6 +73,7 @@ stretch_mode = 5
 
 [node name="AnimatedButtonComponent" type="Node2D" parent="CenterContainer/PanelContainer/Control/ExitButton" unique_id=455267646]
 script = ExtResource("3_vrd41")
+rotate_on_hover = false
 metadata/_custom_type_script = "uid://c68ji40djcytp"
 
 [node name="ButtonAudioComponent" type="AudioStreamPlayer" parent="CenterContainer/PanelContainer/Control/ExitButton" unique_id=1486147982]
@@ -80,6 +83,9 @@ metadata/_custom_type_script = "uid://cxx74db5puoyo"
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=12117886]
 layout_mode = 2
 mouse_filter = 2
+script = ExtResource("6_n6o6n")
+anim_when = 2
+delay_appear = 0.1
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=574260652]
 layout_mode = 2
@@ -163,6 +169,12 @@ offset_bottom = 30.0
 size_flags_vertical = 2
 max_value = 2.0
 step = 0.0
+
+[node name="AutoAnimateUIComponent" type="Control" parent="CenterContainer" unique_id=1890645558]
+layout_mode = 2
+script = ExtResource("7_cs2gm")
+anim_when = 2
+metadata/_custom_type_script = "uid://byyp7w0dg0gq0"
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/Control/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/PanelContainer/VBoxContainer/SliderContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]

@@ -2,13 +2,11 @@ class_name ButtonAudioComponent
 extends AudioStreamPlayer
 
 @export var override_button_enter_sound: AudioStream
-@export var override_button_exit_sound: AudioStream
 @export var override_button_press_sound: AudioStream
 @export var pitch_variation: float = 0.3
 @export var volume_decibels: float = -20
 
 @onready var default_button_enter_sound = preload("uid://byc1yr6aoyerk")
-@onready var default_button_exit_sound = preload("uid://c2iwgu0ox86ba")
 @onready var default_button_press_sound = preload("uid://cbn6070fbo3ca")
 
 func _ready() -> void:
@@ -17,7 +15,6 @@ func _ready() -> void:
 	if parent is BaseButton:
 		parent.pressed.connect(_play_press_sound)
 		parent.mouse_entered.connect(_play_mouse_enter_sound)
-		parent.mouse_exited.connect(_play_mouse_exit_sound)
 
 func play_sound(sound: AudioStream):
 	if sound == null:
@@ -41,13 +38,6 @@ func _play_mouse_enter_sound():
 	else:
 		if default_button_enter_sound:
 			play_sound_random_pitch(default_button_enter_sound)
-
-func _play_mouse_exit_sound():
-	if override_button_exit_sound:
-		play_sound_random_pitch(override_button_exit_sound)
-	else:
-		if default_button_exit_sound:
-			play_sound_random_pitch(default_button_exit_sound)
 
 func _play_press_sound():
 	if override_button_press_sound:

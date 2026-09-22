@@ -22,12 +22,8 @@ func _set_button():
 	for value in GameManager.cleared_levels.values():
 		if value == true:
 			num_cleared_levels += 1
-	if num_cleared_levels < levels_needed_to_unlock:
-		disabled = true
-		modulate.a = 0.6
-	else: 
-		disabled = false
-		modulate.a = 1
+	disabled = num_cleared_levels < levels_needed_to_unlock
+	modulate.a = 0.6 if disabled else 1.0
 	var string: String = GameManager.Scenes.find_key(level)
 	label.text = string.replace("_", " ")
 	if star_sprite == null or cleared_star == null or empty_star == null:
@@ -36,3 +32,4 @@ func _set_button():
 
 func _level_button_pressed():
 	LevelButtonPressed.emit(level)
+	

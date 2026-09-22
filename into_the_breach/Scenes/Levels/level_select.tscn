@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://iyj1p3uotnjx" path="res://Scenes/UI/sky_bg.tscn" id="3_pwhrq"]
 [ext_resource type="Script" uid="uid://c68ji40djcytp" path="res://Scripts/animated_button_component.gd" id="5_jiyln"]
 [ext_resource type="Script" uid="uid://cxx74db5puoyo" path="res://Scripts/button_audio_component.gd" id="6_pwhrq"]
+[ext_resource type="Script" uid="uid://cxuj1ges6frjn" path="res://Scripts/container_animation.gd" id="7_adt4o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jiyln"]
 atlas = ExtResource("3_np8ms")
@@ -203,6 +204,9 @@ metadata/_custom_type_script = "uid://cxx74db5puoyo"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 30
+script = ExtResource("7_adt4o")
+anim_when = 1
+delay_appear = 0.3
 
 [node name="PartySprite" type="Control" parent="VBoxContainer/HBoxContainer/PartySpriteContainer" unique_id=1812048312]
 layout_mode = 2
@@ -269,6 +273,9 @@ mouse_filter = 2
 theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 80
 columns = 3
+script = ExtResource("7_adt4o")
+anim_when = 1
+delay_appear = 0.3
 
 [node name="LevelSelectButton" parent="VBoxContainer/CenterContainer/LevelButtonContainer" unique_id=535437073 instance=ExtResource("1_1fiak")]
 layout_mode = 2

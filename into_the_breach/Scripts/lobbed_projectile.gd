@@ -49,7 +49,6 @@ func _arc_animation():
 	tween.tween_property(sprite, "position:y", -max_arc_height, travel_time * 0.5)
 	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(sprite, "position:y", 0, travel_time * 0.5)
-	tween.tween_callback(_enable_collider)
 
 func _check_start_tile():
 	pass
