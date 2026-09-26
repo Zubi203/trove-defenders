@@ -22,7 +22,7 @@ The game consists of 6 total levels, each introducing new enemy types and stage 
 - All the code for this project is written in GDScript
 
 ### How to Run Project
-- If you're interested in playing the game, it can be played in browser on itch.io: https://zubi-dev.itch.io/trove-defenders
+- If you're interested in playing the full game, it can be played in browser on itch.io: https://zubi-dev.itch.io/trove-defenders
 - If you're interested in running the project on the Godot Engine, simply download the project files from this repository and import them into Godot
 - The code base for this project is fully commented and uses easy-to-understand variable, method, and class names
 
