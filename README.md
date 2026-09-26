@@ -21,6 +21,7 @@ The game consists of 6 total levels, each introducing new enemy types and stage 
 ### Engine
 - This project was made using the Godot Engine
 - All the code for this project is written in GDScript
+- No generative AI was used in the code for this project
 
 ### How to Run Project
 - If you're interested in playing the full game, it can be played in browser on itch.io: https://zubi-dev.itch.io/trove-defenders
@@ -36,3 +37,7 @@ The game consists of 6 total levels, each introducing new enemy types and stage 
 - Victory jingle sound effect: https://freesound.org/people/guillermochicasonido/sounds/691655/
 - Defeat jingle sound effect: https://pixabay.com/ko/sound-effects/%EB%AE%A4%EC%A7%80%EC%BB%AC-game-over-orchestral-stinger-cartoon-defeat-546515/
 - Menu music: https://freesound.org/people/FoolBoyMedia/sounds/264295/
+
+### Contact
+- Discord: @zubi_dev
+- Work email: zubairhittam@gmail.com
