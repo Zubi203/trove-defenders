@@ -1,3 +1,5 @@
+#Base resource class to store data for secondary effects of projectiles
+
 class_name AttackEffectData
 extends Resource
 

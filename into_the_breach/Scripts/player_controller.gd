@@ -23,6 +23,7 @@ func _ready() -> void:
 	GameManager.TurnStart.connect(_try_restore_actions)
 	_set_unit_data.call_deferred()
 	for child in get_parent().get_children():
+		#connect ui buttons to respective actions
 		if child is UnitUI:
 			player_ui = child
 			for button: PlayerButton in player_ui.buttons:
@@ -49,6 +50,7 @@ func _try_restore_actions(turn_state: GameManager.TurnState):
 		actions_available[PlayerButton.ButtonType.MOVE] = false
 	remaining_action_count = max_total_actions
 
+#update available actions when an action is performed
 func _on_action_performed(action_type: PlayerButton.ButtonType):
 	remaining_action_count -= 1
 	actions_available[action_type] = false
@@ -102,7 +104,6 @@ func _move():
 	deselect()
 
 func _attack():
-	
 	var mouse_grid_coord = GameManager.current_board.local_to_map(get_global_mouse_position())
 	if temp_tile_array.has(mouse_grid_coord):
 		_on_action_performed(PlayerButton.ButtonType.ATTACK)
@@ -136,12 +137,16 @@ func ensnare():
 	is_ensnared = true
 	actions_available[PlayerButton.ButtonType.MOVE] = false
 
+#replenish move action when undo button is pressed
 func _on_undo_move():
 	deselect()
 	if not actions_available[PlayerButton.ButtonType.MOVE]:
 		actions_available[PlayerButton.ButtonType.MOVE] = true
 		remaining_action_count += 1
 
+#check if this unit is on a snare hazard tile
+#if it is, keep movement disabled
+#otherwise, enable movement
 func try_remove_snare():
 	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
 	if not GameManager.current_board_data.has(grid_pos):

@@ -26,11 +26,19 @@ func _reset():
 
 func _start_animation(player_won: bool):
 	await get_tree().create_timer(0.5).timeout
+	
+	#Stop screen shake if in progress
 	GameManager.ForceStopScreenShake.emit()
 	if label == null or panel == null or replay_button == null or level_select_button == null:
 		return
+	
+	#turn panel visible
 	show()
+	
+	#play victory/defeat tune
 	MusicPlayer.on_game_over(player_won)
+	
+	#panel entry animation
 	var tween = create_tween()
 	tween.set_ignore_time_scale(true)
 	tween.set_parallel(true)
@@ -44,14 +52,18 @@ func _start_animation(player_won: bool):
 	tween.tween_property(label, "text", label_text, animation_duration * 0.2)
 	tween.tween_callback(replay_button.show)
 	tween.tween_callback(level_select_button.show)
+	
+	#pause game
 	Engine.time_scale = 0
 
 
 func _on_play_again_button_pressed() -> void:
+	#unpause and reload current level
 	Engine.time_scale = 1
 	SceneTransition.transition(GameManager.current_scene, GameManager.current_scene)
 
 
 func _on_level_select_button_pressed() -> void:
+	#unpause and transition to level select
 	Engine.time_scale = 1
 	SceneTransition.transition(GameManager.Scenes.LEVEL_SELECT, GameManager.current_scene)

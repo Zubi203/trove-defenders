@@ -10,6 +10,7 @@ func _ready() -> void:
 				child.LevelButtonPressed.connect(_on_level_button_pressed)
 	_set_party_sprites()
 
+#set unit sprites to reflect the current units in the player's party
 func _set_party_sprites():
 	if party_sprites.size() < GameManager.party_members.size():
 		return

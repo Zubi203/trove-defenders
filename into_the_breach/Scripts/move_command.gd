@@ -5,6 +5,7 @@ var move_component: MovementComponent
 var target_pos: Vector2i
 var original_pos: Vector2i
 
+#scene constructor function
 static func create(move_comp: MovementComponent, pos: Vector2i) -> MoveCommand:
 	var cmd = MoveCommand.new()
 	cmd.move_component = move_comp

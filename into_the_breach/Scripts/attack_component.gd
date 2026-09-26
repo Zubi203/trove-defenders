@@ -14,6 +14,7 @@ func _ready() -> void:
 	GameManager.UpdateBoard.connect(_refresh_telegraph)
 	_fetch_data.call_deferred()
 
+#fetch data from parent and sibling components if available
 func _fetch_data():
 	var parent = get_parent()
 	if parent is Unit and not parent.data == null:
@@ -29,29 +30,46 @@ func _fetch_data():
 	if arrow:
 		arrow.hide()
 
+
 func _shoot_projectile():
 	attack_pending = false
+	
+	#hide telegraph arrow
 	if arrow:
 		arrow.hide()
 	if data == null:
 		return
+	
+	#if target tile is not in board bounds, cancel execution
 	if not GameManager.current_board_data.has(target_tile):
 		return
 	_play_attack_sound()
 	_attack_animation()
+	
+	#create projectile instance
 	var projectile: BaseProjectile = data.projectile_scene.instantiate()
 	projectile._set_projectile(get_parent(), global_position, GameManager.current_board.map_to_local(target_tile), data, additional_damage)
 	get_tree().current_scene.add_child(projectile)
+	
+	#listen for signal which is emitted when the projectile reaches the target
 	projectile.ProjectileImpact.connect(_on_projectile_impact)
 
+#post projectile impact logic
 func _on_projectile_impact(impact_tile: Vector2i):
+	
+	#if projectile has no secondary effect, cancel execution
 	if effect_data == null:
 		return
+	
+	#if target tile is not in board bounds, cancel execution
 	if not GameManager.current_board_data.has(impact_tile):
 		return
 	var pos = GameManager.current_board.local_to_map(global_position)
+	
+	#activate secondary attack/projectile effect
 	effect_data.activate_effect(impact_tile, pos)
 
+#create and queue an attack when the ShootProjectile signal is detected
 func _create_command(target_pos: Vector2i):
 	attack_pending = true
 	if arrow:
@@ -62,6 +80,7 @@ func _create_command(target_pos: Vector2i):
 	target_tile = target_pos
 	GameManager.QueueCommand.emit(cmd)
 
+#tween based attack animation
 func _attack_animation():
 	if sprite == null:
 		return
@@ -92,13 +111,7 @@ func _play_attack_sound():
 		return
 	audio_component.play_sound_random_pitch(data.attack_sound)
 
-func _flash():
-	if sprite == null:
-		return
-	var tween = get_tree().create_tween()
-	tween.tween_property(sprite, "material:shader_parameter/progress_white", 1.0, 0.07)
-	tween.tween_property(sprite, "material:shader_parameter/progress_white", 0, 0.2)
-
+#adjust targeted/telegraphed tile position if this unit is pushed
 func _update_target_tile(target_neighbor: TileSet.CellNeighbor):
 	if not GameManager.current_board_data.has(target_tile):
 		return
@@ -109,9 +122,12 @@ func _update_target_tile(target_neighbor: TileSet.CellNeighbor):
 	target_tile = target_pos
 	GameManager.ShowTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_tile] as Array[Vector2i])
 
+#delete telegraph visuals if this unit is deleted
 func _exit_tree() -> void:
 	GameManager.HideTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_tile] as Array[Vector2i])
 
+#fail safe method that makes sure that a telegraph is always visible if
+#an attack is pending
 func _refresh_telegraph():
 	if attack_pending:
 		GameManager.ShowTelegraphs.emit(GameManager.Telegraph.ENEMY_ATTACK, [target_tile] as Array[Vector2i])

@@ -3,6 +3,7 @@ extends AudioStreamPlayer
 
 @export var override_button_enter_sound: AudioStream
 @export var override_button_press_sound: AudioStream
+
 @export var pitch_variation: float = 0.3
 @export var volume_decibels: float = -20
 

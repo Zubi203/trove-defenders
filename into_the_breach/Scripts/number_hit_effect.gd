@@ -4,6 +4,7 @@ extends Label
 @export var heal_color: Color
 @export var damage_color: Color
 
+#animate number visual effect
 func animate(input_text: String, is_positive: bool):
 	position = Vector2(-(size.x / 2), -(size.y / 2))
 	text = input_text

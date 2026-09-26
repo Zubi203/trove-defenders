@@ -31,14 +31,18 @@ func _physics_process(delta: float) -> void:
 	if check_start_pos:
 		_check_start_tile()
 
+#override this function in extending classes to create
+#different movement trajectories for the projectile
 func _move(_delta: float):
 	pass
 
+#if projectile travels beyond the board bounds, destroy it
 func _check_board_edge():
 	var grid_pos = GameManager.current_board.local_to_map(global_position)
 	if not GameManager.current_board_data.has(grid_pos):
 		_impact(global_position)
 
+#if projectile has reached the end of its assigned range, attempt to destroy it
 func _check_range_end():
 	var grid_pos = GameManager.current_board.local_to_map(global_position)
 	if target_cell_entered:
@@ -47,6 +51,7 @@ func _check_range_end():
 	else:
 		target_cell_entered = grid_pos == target_cell
 
+#disable projectile hitbox if it is on the same tile that it spawned on
 func _check_start_tile():
 	var grid_pos = GameManager.current_board.local_to_map(global_position)
 	if not in_start_cell:
@@ -55,6 +60,7 @@ func _check_start_tile():
 	else:
 		in_start_cell = grid_pos == start_cell
 
+#set projectile data based on owner, attack data resource, target point, and spawn point
 func _set_projectile(projectile_owner: MapObject, pos: Vector2, target_pos: Vector2, data: AttackData, bonus_damage: int = 0):
 	area_entered.connect(_on_area_entered)
 	additional_damage = bonus_damage
@@ -67,18 +73,26 @@ func _set_projectile(projectile_owner: MapObject, pos: Vector2, target_pos: Vect
 	distance_to_target = pos.distance_to(target_pos)
 	_disable_collider.call_deferred()
 
+#collision logic
 func _on_area_entered(area: Area2D):
+	
+	#do not collide with owner of this projectile
 	if area == owner_object:
 		return
+	
+	#damage any target that has an attached HealthComponent
 	if area is MapObject:
 		for child in area.get_children():
 			if child is HealthComponent:
 				child.take_damage(attack_data.damage + additional_damage)
+				
 				if not attack_data.is_piercing:
 					_disable_collider.call_deferred()
+				
 		if not attack_data.type == GameManager.AttackTypes.POINT:
 			_impact(global_position)
 
+#projectile destroy logic
 func _impact(pos: Vector2):
 	ProjectileImpact.emit(GameManager.current_board.local_to_map(pos))
 	var grid_pos = GameManager.current_board.local_to_map(pos)

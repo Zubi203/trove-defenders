@@ -1,4 +1,7 @@
 @tool
+
+#tool script to help make placement of obstacles with varying sprites easier
+
 class_name Obstacle
 extends MapObject
 

@@ -25,6 +25,7 @@ func _ready() -> void:
 	pressed.connect(_on_pressed)
 	
 
+#set button visuals based on its type
 func set_button():
 	if button_icon == null or button_text_main == null or button_text_secondary == null:
 		return
@@ -42,7 +43,9 @@ func set_button():
 			button_text_secondary.text = str(data.attack_data.damage)
 			button_text_main.text = "Attack"
 
+
 func _on_pressed():
+	#try perform action based onn button type
 	match button_type:
 		ButtonType.MOVE:
 			MoveButtonPressed.emit()

@@ -1,3 +1,5 @@
+#-------------------------- Utility AI Script ---------------------------
+
 class_name AIController
 extends Controller
 
@@ -18,11 +20,13 @@ func _ready() -> void:
 	_set_unit_data.call_deferred()
 	_try_get_sprite()
 
+#fetch unit data resource from parent
 func _set_unit_data():
 	var parent = get_parent()
 	if parent is Unit:
 		data = parent.data
 
+#fetch all possible movable tiles
 func _fetch_location_tiles():
 	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
 	var tiles: Array[Vector2i] = []
@@ -31,7 +35,7 @@ func _fetch_location_tiles():
 	for tile in tiles:
 		location_scores[tile] = 0
 
-
+#fetch all possible tiles that can be attacked
 func _fetch_attack_tiles():
 	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
 	var tiles: Array[Vector2i] = []
@@ -40,10 +44,13 @@ func _fetch_attack_tiles():
 	for tile in tiles:
 		target_scores[tile] = 0
 
+#set scores to all movable tiles based on targets in proximity
 func _score_location_tiles():
 	if location_scores.is_empty():
 		return
 	
+	#if no target is in movable range, tiles are scored based on distance
+	#from the closest target on the board
 	for key in location_scores.keys():
 		var closest_target: MapObject = null
 		var closest_dist: float = 99999
@@ -66,9 +73,12 @@ func _score_location_tiles():
 			location_scores[key] = round((1 - (closest_dist / 10)) * 10)
 			
 		
+		#assign a lower score to the previous tile that this unit moved to
 		if key == prev_move_location:
 			location_scores[key] += prev_target_score
 	
+	#if there are targets in range, score movable tiles based on the number
+	#of targets that can be attacked from each tile
 	for key in location_scores.keys():
 		await get_tree().process_frame
 		var attack_tiles: Array[Vector2i] = GameManager.get_attack_tiles(key, data.range_type, data.dead_zone_type, data.attack_range, data.dead_zone)
@@ -95,6 +105,7 @@ func _score_location_tiles():
 		if GameManager.current_board_data[key].hazard:
 			location_scores[key] += hazard_tile_score
 
+#score all attackable tiles
 func _score_targets():
 	if target_scores.is_empty():
 		return
@@ -107,24 +118,34 @@ func _score_targets():
 			continue
 		if tile_object is Unit:
 			for child in tile_object.get_children():
+				
+				#assign a higher score to player units
 				if child is PlayerController:
 					score += player_target_score
+				
+				#assign a lower score to other enemy units
 				elif child is AIController:
 					score += enemy_target_score
+		
+		#chests/troves are assigned the same score as the player units
 		elif tile_object is Chest:
 			score += player_target_score
 		
+		#if a target's health is lower than this units attack damage,
+		#assign a higher score to them
 		if tile_object:
 			for child in tile_object.get_children():
 				if child is HealthComponent:
 					if child.health <= data.attack_data.damage:
 						score += low_hp_target_score
 		
+		#previously attacked targets are given a lower score
 		if key == prev_target:
 			score += prev_target_score
 		
 		target_scores[key] += score
 
+#pick a tile to move to based on its score
 func decide_ai_move_action():
 	if is_ensnared:
 		return
@@ -137,6 +158,8 @@ func decide_ai_move_action():
 	for score in location_scores.values():
 		if score > highest_score:
 			highest_score = score
+	
+	#pick a random tile from all the highest scoring tiles
 	var possible_actions: Array[Vector2i] = []
 	for key in location_scores.keys():
 		if location_scores[key] == highest_score:
@@ -154,6 +177,7 @@ func decide_ai_move_action():
 	else:
 		return
 
+#pick a tile to attack based on assigned scores
 func decide_ai_attack_action():
 	_fetch_attack_tiles()
 	await _score_targets()
@@ -161,6 +185,8 @@ func decide_ai_attack_action():
 	for score in target_scores.values():
 		if score > highest_score:
 			highest_score = score
+	
+	#pick a random target from the highest scoring targets
 	var possible_actions: Array[Vector2i] = []
 	for key in target_scores.keys():
 		if target_scores[key] == highest_score:

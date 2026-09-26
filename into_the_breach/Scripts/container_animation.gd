@@ -45,6 +45,8 @@ func _ready() -> void:
 	if target == null:
 		target = self
 	
+	#prime UI element properties for animation
+	#modulate.a is used instead of the visible property to retain container children transform
 	match anim_type:
 		AnimType.SCALE:
 			for child: Control in target.get_children():
@@ -60,6 +62,7 @@ func _ready() -> void:
 	
 	visibility_changed.connect(_on_visibility_changed)
 
+#set pivot offset of UI element based on ScaleFrom property
 func set_pivot(control: Control, pivot: ScaleFrom):
 	match pivot:
 		ScaleFrom.CENTER:
@@ -79,10 +82,14 @@ func set_pivot(control: Control, pivot: ScaleFrom):
 			control.pivot_offset.y = control.size.y
 			control.pivot_offset.x = control.size.x
 
+#main animation method
 func appear():
+	
+	#set pivot of all child UI nodes
 	for child: Control in target.get_children():
 		set_pivot(child, scale_from)
 	
+	#reset tween
 	if tween and tween.is_running():
 		tween.kill()
 	
@@ -92,6 +99,7 @@ func appear():
 	tween.set_parallel(true)
 	
 	if delay_appear > 0.0:
+		#add delay at start of animation
 		tween.tween_interval(delay_appear)
 		tween.chain().tween_interval(0.01)
 	
@@ -101,7 +109,8 @@ func appear():
 		children.reverse()
 	
 	
-	
+	#animate all child Control nodes of the container
+	#a small delay is added between each Control child animation to make it look smoother and less robotic
 	var idx: int = 0
 	for child: Control in children:
 		var target_alpha: float = 1.0

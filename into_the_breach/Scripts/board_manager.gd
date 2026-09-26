@@ -18,7 +18,10 @@ func _ready() -> void:
 	if tile_map == null:
 		return
 	
+	#"upload" tilemap data to a singleton for global access
 	GameManager.current_board = tile_map
+	
+	#connect signals
 	GameManager.ShowTelegraphs.connect(telegraph_tiles)
 	GameManager.HideTelegraphs.connect(clear_telegraph)
 	GameManager.ObjectDestroyed.connect(_update_board)
@@ -26,10 +29,13 @@ func _ready() -> void:
 	GameManager.TurnEnd.connect(_on_turn_end)
 	_update_board()
 	
+	
 	for cell in tile_map.get_used_cells():
 		for key in telegraph_textures.keys():
 			_spawn_telegraph_tile(key, cell)
 
+#spawn overlay sprites on the grid that can be used as move previews
+#these can be toggled visible or invisible using global signals
 func _spawn_telegraph_tile(type: GameManager.Telegraph, tile: Vector2i):
 	if telegraph_container == null:
 		return
@@ -39,20 +45,30 @@ func _spawn_telegraph_tile(type: GameManager.Telegraph, tile: Vector2i):
 	tile_sprite.global_position = tile_map.map_to_local(tile)
 	tile_sprite.hide()
 
-
+#try to select a tile when a mouse click is detected 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("select") and GameManager.current_turn == GameManager.TurnState.PLAYER:
+		
+		#when a click is detected, if there is a valid hovered tile, try to select it
+		#otherwise, deselect the current selected tile
 		if hovered_tile.length():
 			_select_tile(hovered_tile)
 		else:
 			_deselect_tile()
+	
+	#place hover cursor at the mouse position
 	if event is InputEventMouseMotion:
 		hovered_tile = _get_hovered_tile()
+
 
 func _get_hovered_tile() -> Vector2i:
 	if hover_cursor == null:
 		return Vector2i.ZERO
+	
+	#convert mouse coords to grid coords
 	var cursor_pos = tile_map.local_to_map(get_global_mouse_position())
+	
+	#show hover cursor if mouse is inside the current board bounds, otherwise hide it
 	if GameManager.current_board_data.keys().has(cursor_pos):
 		hover_cursor.show()
 		hover_cursor.global_position = tile_map.map_to_local(cursor_pos)
@@ -62,6 +78,10 @@ func _get_hovered_tile() -> Vector2i:
 		return Vector2i.ZERO
 
 func _try_select_unit(unit: Unit):
+	
+	#if a clicked unit has a PlayerController component, select it
+	#deselect the previously selected unit
+	
 	for child in unit.get_children():
 		if child is PlayerController:
 			selected_object = unit
@@ -73,12 +93,14 @@ func _try_select_unit(unit: Unit):
 			break
 		_deselect_tile()
 
+#if a valid tile is clicked and that tile has a unit, try to select the unit
 func _select_tile(coords: Vector2i):
 	if GameManager.current_board_data[coords].object and GameManager.current_board_data[coords].object is Unit:
 		_try_select_unit(GameManager.current_board_data[coords].object)
 	else:
 		_deselect_tile()
 
+#deselect the currently selected tile
 func _deselect_tile():
 	if selected_object == null:
 		return
@@ -89,6 +111,7 @@ func _deselect_tile():
 	if select_cursor:
 		select_cursor.hide()
 
+#refresh the board data
 func _update_board(_obj: MapObject = null):
 	# clear and reset the board
 	GameManager.current_board_data.clear()
@@ -115,9 +138,7 @@ func _update_board(_obj: MapObject = null):
 				GameManager.current_board_data[key].hazard = tile
 				tile.global_position = tile_map.map_to_local(tile_grid_pos)
 
-func _execute_hazard_tiles():
-	pass
-
+#toggle telegraph/preview tiles visible based on type and location paramenters
 func telegraph_tiles(telegraph_type: GameManager.Telegraph, tiles: Array[Vector2i]):
 	if telegraph_container == null:
 		return
@@ -129,6 +150,7 @@ func telegraph_tiles(telegraph_type: GameManager.Telegraph, tiles: Array[Vector2
 			if telegraph_textures[telegraph_type] == telegraph.texture and tile_map.local_to_map(telegraph.global_position) == tile:
 				telegraph.visible = true
 
+#toggle telegraph/preview tiles invisible based on type and location paramenters
 func clear_telegraph(telegraph_type: GameManager.Telegraph, tiles: Array[Vector2i]):
 	if telegraph_container == null:
 		return
@@ -137,6 +159,7 @@ func clear_telegraph(telegraph_type: GameManager.Telegraph, tiles: Array[Vector2
 			if tile_map.local_to_map(child.global_position) == tile and child.texture == telegraph_textures[telegraph_type]:
 				child.visible = false
 
+#when the turn ends, deselect the currently selected tile
 func _on_turn_end(turn: GameManager.TurnState):
 	match turn:
 		GameManager.TurnState.PLAYER:

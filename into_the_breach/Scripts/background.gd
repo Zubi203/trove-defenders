@@ -8,8 +8,12 @@ func _ready() -> void:
 	GameManager.TurnStart.connect(_transition)
 
 func _process(_delta: float) -> void:
-	self_modulate = gradient.sample(gradient_sample)
+	if not self_modulate == gradient.sample(gradient_sample):
+		self_modulate = gradient.sample(gradient_sample)
 
+#change background color depending on whose turn it is
+#red for enemy, blue for player
+#gradient is used for a smooth color transition
 func _transition(turn_state: GameManager.TurnState):
 	var tween = create_tween()
 	if turn_state == GameManager.TurnState.ENEMY:

@@ -3,11 +3,13 @@ extends Command
 
 var attack_component: AttackComponent
 
+#scene constructor method
 static func create(attack_comp: AttackComponent) -> AttackCommand:
 	var cmd = AttackCommand.new()
 	cmd.attack_component = attack_comp
 	return cmd
 
+#command execution
 func execute():
 	if attack_component:
 		attack_component._shoot_projectile()

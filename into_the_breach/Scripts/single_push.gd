@@ -8,6 +8,7 @@ var push_directions: Array[TileSet.CellNeighbor] = [
 	TileSet.CELL_NEIGHBOR_TOP_RIGHT_SIDE
 ]
 
+#push target in direction of the attack
 func activate_effect(target_tile: Vector2i, attacker_pos: Vector2i):
 	var object: MapObject = GameManager.current_board_data[target_tile].object
 	var cell_neighbor_target: TileSet.CellNeighbor

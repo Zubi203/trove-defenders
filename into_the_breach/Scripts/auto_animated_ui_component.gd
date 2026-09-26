@@ -40,6 +40,7 @@ func _ready() -> void:
 	if not target is Control:
 		return
 	
+	#set UI element attributes to prime it for animation
 	match anim_type:
 		AnimType.SCALE:
 			target.scale = Vector2.ZERO
@@ -52,6 +53,7 @@ func _ready() -> void:
 		appear.call_deferred()
 	visibility_changed.connect(_on_visibility_changed)
 
+#set UI element pivot point based on the ScaleFrom enum
 func set_pivot(control: Control, pivot: ScaleFrom):
 	match pivot:
 		ScaleFrom.CENTER:
@@ -71,6 +73,7 @@ func set_pivot(control: Control, pivot: ScaleFrom):
 			control.pivot_offset.y = control.size.y
 			control.pivot_offset.x = control.size.x
 
+#execute UI element entry animation
 func appear():
 	set_pivot(target, scale_from)
 	
@@ -86,7 +89,10 @@ func appear():
 		tween.tween_interval(delay_appear)
 		tween.chain().tween_interval(0.01)
 	
-
+	#important: always adjust the "modulate.a" property when turning
+	#nodes visible/invisible for animation
+	#using the "visible" property does not achieve the same result because
+	#containers re-adjust children transform based on the "visible" property
 	if anim_type == AnimType.SCALE:
 		tween.tween_property(target, "scale", Vector2.ONE, duration).from(Vector2.ZERO)
 		tween.tween_property(target, "modulate:a", 1.0, 0.01)

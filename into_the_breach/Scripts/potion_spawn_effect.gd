@@ -3,6 +3,9 @@ extends AttackEffectData
 
 @warning_ignore("unused_parameter")
 func activate_effect(target_tile: Vector2i, attacker_pos: Vector2i):
+	
+	#try to spawn a potion on a random surrounding tile that is not occupied by an object
+	
 	var spawnable_cells: Array[Vector2i] = []
 	if not GameManager.current_board_data.has(target_tile):
 		return

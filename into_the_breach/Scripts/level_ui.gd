@@ -30,6 +30,7 @@ func _ready() -> void:
 	max_player_units = GameManager.party_members.size()
 	update_remaining_units_and_chests()
 
+
 func _start_oscillating_point(start: bool):
 	if end_button_flash_tween:
 		end_button_flash_tween.kill()
@@ -68,6 +69,7 @@ func _on_level_select_button_pressed() -> void:
 	Engine.time_scale = 1.0
 	SceneTransition.transition(GameManager.Scenes.LEVEL_SELECT, GameManager.current_scene)
 
+#display turn start text
 func _on_turn_start(turn: GameManager.TurnState):
 	if turn_label == null:
 		return
@@ -88,6 +90,7 @@ func _on_turn_start(turn: GameManager.TurnState):
 	tween.tween_property(turn_label, "position:x", -1200, 0.5)
 	tween.tween_callback(turn_label.hide)
 
+#enable/disable end turn button based on whose turn it is
 func _toggle_end_turn_button(turn: GameManager.TurnState):
 	if end_turn_button == null:
 		return
@@ -98,10 +101,15 @@ func _toggle_end_turn_button(turn: GameManager.TurnState):
 	else:
 		end_turn_button.disabled = true
 
+#if an undo action is available, toggle undo button on, otherwise disable it
 func _toggle_undo_button(toggle_on: bool):
 	if undo_button == null:
 		return
 	undo_button.disabled = not toggle_on
+
+
+
+# --------- update display for remaining chests/troves and units ---------
 
 func update_remaining_units_and_chests(_obj: MapObject = null):
 	current_chests = _get_chest_count()

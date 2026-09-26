@@ -1,3 +1,4 @@
+#base class responsible for controlling units by communicating commands/inputs with sibling components
 class_name Controller
 extends Node2D
 
@@ -11,6 +12,7 @@ var is_ensnared: bool = false
 var base_sprite_offset: Vector2
 var base_sprite_scale: Vector2
 
+#get sprite reference for tween animations
 func _try_get_sprite():
 	var parent = get_parent()
 	for sibling in parent.get_children():
@@ -20,6 +22,7 @@ func _try_get_sprite():
 			base_sprite_scale = sprite.scale
 	GameManager.UpdateBoard.connect(try_remove_snare)
 
+#tween animation played when a unit is selected
 func _move_start_animation():
 	if sprite == null:
 		return
@@ -46,6 +49,7 @@ func _move_start_animation():
 	tween.tween_property(sprite, "scale:y", base_sprite_scale.y, 0.1)
 	tween.tween_property(sprite, "scale:x", base_sprite_scale.x, 0.1)
 
+#tween animation that plays when a unit is first placed on the board
 func _on_spawn_animation():
 	if sprite == null:
 		return
@@ -64,14 +68,19 @@ func _on_spawn_animation():
 		if sibling is MovementComponent:
 			sibling._play_move_sound()
 
+
 func ensnare():
 	is_ensnared = true
-	
 
+#check if unit movement should be blocked due to snare tiles
+#called when board updates
 func try_remove_snare():
 	var grid_pos: Vector2i = GameManager.current_board.local_to_map(get_parent().global_position)
+	#if unit is on an invalid tile, cancel execution
 	if not GameManager.current_board_data.has(grid_pos):
 		return
+	
+	#if unit is not on a snare tile, enable movement
 	if not GameManager.current_board_data[grid_pos].hazard is SnareTile:
 		is_ensnared = false
 	

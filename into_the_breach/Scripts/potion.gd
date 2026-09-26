@@ -28,9 +28,14 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 	for child in area.get_children():
 		if child is HealthComponent and type == PotionType.HEAL:
+			
+			#heal target if potion type is HEAL
 			child.heal(buff_amount)
 			queue_free()
+			
 		if child is AttackComponent and type == PotionType.ATTACK:
+			
+			#buff target's damage if potion type is ATTACK
 			child.additional_damage += buff_amount
 			child._flash()
 			queue_free()

@@ -7,6 +7,7 @@ signal UndoMove
 var sprite: Sprite2D
 var audio_component: AudioComponent
 
+#get references to required sibling components if avaiable
 func _ready() -> void:
 	for child in get_parent().get_children():
 		if child is Controller:
@@ -16,7 +17,6 @@ func _ready() -> void:
 		if child is AudioComponent:
 			audio_component = child
 
-
 func _on_move_unit(target_pos: Vector2i):
 	_move_end_animation()
 	_play_move_sound()
@@ -25,10 +25,12 @@ func _on_move_unit(target_pos: Vector2i):
 	GameManager.UpdateBoard.emit()
 	GameManager.HideTelegraphs.emit(GameManager.Telegraph.MOVE, GameManager.current_board_data.keys() as Array[Vector2i])
 
+#create a command and queue it in the level_manager script via signal
 func _create_command (target_pos: Vector2i):
 	var cmd = MoveCommand.create(self, target_pos)
 	GameManager.QueueCommand.emit(cmd)
 
+#tween based animation that plays when a unit moves to its target position
 func _move_end_animation():
 	if sprite == null:
 		return

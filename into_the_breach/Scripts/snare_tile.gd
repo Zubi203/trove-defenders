@@ -7,6 +7,7 @@ func tile_setup():
 	_check_unit_on_tile()
 
 func _check_unit_on_tile():
+	#if a unit is on this tile, disable its movement
 	var grid_pos = GameManager.current_board.local_to_map(global_position)
 	if not GameManager.current_board_data.has(grid_pos):
 		return
@@ -18,6 +19,7 @@ func _check_unit_on_tile():
 			child.ensnare()
 
 func _destroy_tile():
+	#enable movement on any unit that was standing on this tile when it is destroyed
 	var grid_pos = GameManager.current_board.local_to_map(global_position)
 	if not GameManager.current_board_data.has(grid_pos):
 		return

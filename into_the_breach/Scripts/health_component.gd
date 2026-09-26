@@ -10,10 +10,12 @@ var unit_data: UnitData = null
 
 @export var number_effect: PackedScene
 @export var default_max_health: int = 2
+
 var max_health: int = 2:
 	set(value):
 		max_health = value
 		health = max_health
+
 var health: int:
 	set(value):
 		health = value
@@ -22,6 +24,7 @@ var health: int:
 		if health <= 0:
 			HealthDepleted.emit()
 			defeated()
+
 var health_bar: HealthBar = null
 
 var sprite: Sprite2D
@@ -67,7 +70,7 @@ func heal(amount: int):
 		health += amount
 	_spawn_number(amount)
 
-
+#spawn number graphic based on amount of damage taken/healed
 func _spawn_number(hp_change: int):
 	if number_effect == null:
 		return
@@ -78,25 +81,29 @@ func _spawn_number(hp_change: int):
 	var operand = "+" if hp_change > 0 else ""
 	num.animate(operand + str(hp_change), is_positive)
 
+#defeat sequence
 func defeated():
+	
+	#inform the game manager that this unit has been defeated
 	var parent = get_parent()
 	if parent is MapObject:
 		GameManager.ObjectDestroyed.emit.call_deferred(parent)
 	if unit_data:
 		GameManager.last_defeated_unit = unit_data
+	
+	#animation
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "modulate:a", 0, 0.2)
 	tween.tween_callback(parent.queue_free)
 	
 
-func _heal_animation():
-	if sprite == null:
-		return
-
+#tween based animation that plays when this units takes damage
 func _damage_animation(multiplier: int):
 	if sprite == null:
 		return
 	var tween = get_tree().create_tween()
+	
+	#scale the intensity of this animation based on amount of damage taken
 	var shake_amount = clamp(shake_magnitude * multiplier, 0, 3)
 	tween.set_loops(3)
 	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK)
@@ -104,6 +111,7 @@ func _damage_animation(multiplier: int):
 	tween.tween_property(sprite, "offset:x", -shake_amount, 0.04)
 	tween.tween_property(sprite, "offset:x", 0, 0.02)
 
+#tween and shader based flash vfx
 func _flash(is_heal: bool = false):
 	if sprite == null:
 		return

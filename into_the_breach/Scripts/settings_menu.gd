@@ -10,10 +10,14 @@ var music_index: int
 
 
 func _ready() -> void:
+	
+	#get references to the required audio buses
 	GameManager.ShowSettingsMenu.connect(_on_settings_button_pressed)
 	master_index = AudioServer.get_bus_index("Master")
 	sfx_index = AudioServer.get_bus_index("SFX")
 	music_index = AudioServer.get_bus_index("Music")
+	
+	#read the current volume value on the buses and assign it to the sliders
 	if master_slider:
 		master_slider.value = get_volume(master_index)
 	if sfx_slider:
@@ -35,6 +39,8 @@ func set_volume(bus_index: int, volume: float):
 	var db_volume = linear_to_db(volume)
 	AudioServer.set_bus_volume_db(bus_index, db_volume)
 
+
+# ---------------- update volume when slider values are changed ----------------
 
 func _on_master_slider_value_changed(value: float) -> void:
 	set_volume(master_index, value)

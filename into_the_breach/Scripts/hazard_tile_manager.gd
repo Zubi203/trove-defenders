@@ -24,12 +24,18 @@ func _ready() -> void:
 func spawn_tile(type: HazardTiles, grid_pos: Vector2i):
 	if hazard_tile_scenes[type] == null:
 		return
+	
+	#do not place hazard tile if target tile is a water tile
 	if GameManager._check_water_tile(grid_pos):
 		return
 	var existing_tile = GameManager.current_board_data[grid_pos].hazard
+	
+	#if target tile already has a hazard tile, delete it
 	if existing_tile != null:
 		existing_tile._destroy_tile()
 		GameManager.current_board_data[grid_pos].hazard = null
+	
+	#create new hazard tile instance and place it on the target tile
 	var tile: HazardTile = hazard_tile_scenes[type].instantiate()
 	tile.global_position = GameManager.current_board.map_to_local(grid_pos)
 	add_child(tile)

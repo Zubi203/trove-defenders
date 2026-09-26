@@ -16,6 +16,7 @@ func _ready() -> void:
 		_set_tile_ui()
 	tile_setup()
 
+#set text and icon on the hazard tile tooltip panel
 func _set_tile_ui():
 	if tile_description_label == null or tile_ui_icon == null:
 		return
@@ -25,13 +26,18 @@ func _set_tile_ui():
 func _process(_delta: float) -> void:
 	_check_mouse_position()
 
+
 func _check_mouse_position():
+	
+	#check if mouse is hovered over this hazard tile
 	if hazard_tile_ui == null:
 		return
 	if GameManager.current_board == null:
 		return
 	var mouse_grid_pos = GameManager.current_board.local_to_map(get_global_mouse_position())
 	var grid_pos = GameManager.current_board.local_to_map(global_position)
+	
+	#if mouse is hovering over this tile, show tooltip. otherwise hide it
 	if mouse_grid_pos == grid_pos:
 		hazard_tile_ui.show()
 	else:
@@ -40,9 +46,11 @@ func _check_mouse_position():
 func tile_setup():
 	pass
 
+#override this method in extending scripts to create unique hazard tile effects
 func _on_turn_start(_turn: GameManager.TurnState):
 	pass
 
+#decrement lifespan, if lifespan hits zero, destroy tile
 func _on_turn_end(_turn: GameManager.TurnState):
 	turns_lifespan_left -= 1
 	if turns_lifespan_left == 0:
