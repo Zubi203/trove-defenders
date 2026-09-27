@@ -9,6 +9,7 @@ The game consists of 6 total levels, each introducing new enemy types and stage 
 
 ### Project Features
 - Complex Utility AI that chooses the most effective enemy actions based on a scoring system
+- State-driven turn based combat system
 - Use of the Command pattern to allow player and enemy actions to be queued and executed in a clean order
 - Highly scalable composition based design makes it incredibly simple to set up new characters and projectiles
 - Resource driven design allows all the character and projectile data to be stored as lightweight and reusable resources which can be accessed by or assigned to any part of the project that requires it
@@ -35,3 +36,7 @@ The game consists of 6 total levels, each introducing new enemy types and stage 
 - Victory jingle sound effect: https://freesound.org/people/guillermochicasonido/sounds/691655/
 - Defeat jingle sound effect: https://pixabay.com/ko/sound-effects/%EB%AE%A4%EC%A7%80%EC%BB%AC-game-over-orchestral-stinger-cartoon-defeat-546515/
 - Menu music: https://freesound.org/people/FoolBoyMedia/sounds/264295/
+
+### Contact
+- Discord: @zubi_dev
+- Work email: zubairhittam@gmail.com
